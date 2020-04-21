@@ -1,0 +1,26 @@
+.logo-nav-bar {
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    /* -webkit-box-reflect: below -10px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.5, transparent), to(white)); */
+}
+
+.nav-link {
+    color: white !important;
+    margin-right: 5px;
+    padding: 5px;
+    /* border: 1px solid #38c4b1; */
+    border-radius: 10px 5px 0px 5px;
+}
+
+.link-nav:hover {
+    background-color: #20ccb6;
+}
+
+.icon-settings:hover {
+    color: #20ccb6;
+}
+
+.tab-bar {
+    background-color: #5c5c5c!important;
+}
