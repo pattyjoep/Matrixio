@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import Container from "../../components/Container";
 
-function Signup() {
+function Home() {
   return <Container></Container>;
 }
-export default Signup;
+export default Home;

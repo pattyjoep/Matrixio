@@ -1,26 +1,43 @@
 .logo-nav-bar {
-    height: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    /* -webkit-box-reflect: below -10px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.5, transparent), to(white)); */
+  height: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  /* -webkit-box-reflect: below -10px -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(transparent),
+      color-stop(0.5, transparent),
+      to(white)
+    ); */
+}
+.dropdown-item:hover {
+  background-color: #c8f5ef;
+}
+.navbar {
+  margin-top: -33px;
+  border-top: 5px solid #20ccb6;
+  border-bottom: 5px solid #20ccb6;
 }
 
 .nav-link {
-    color: white !important;
-    margin-right: 5px;
-    padding: 5px;
-    /* border: 1px solid #38c4b1; */
-    border-radius: 10px 5px 0px 5px;
+  color: white !important;
+  margin-right: 5px;
+  text-shadow: 1px 1px 3px rgb(27, 27, 27);
+  padding: 10px;
+  /* border: 1px solid #38c4b1; */
+  border-radius: 10px 5px 0px 5px;
 }
 
 .link-nav:hover {
-    background-color: #20ccb6;
+  background-color: #20ccb6;
+  border-radius: 10px;
 }
 
 .icon-settings:hover {
-    color: #20ccb6;
+  color: #20ccb6;
 }
 
 .tab-bar {
-    background-color: #5c5c5c!important;
+  background-color: #5c5c5c !important;
 }
