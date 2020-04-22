@@ -11,7 +11,7 @@ const MatrixSchema = new Schema({
     type: Number,
     trim: true
   }
-});
+}); 
 
 const Matrix = mongoose.model("Matrix", MatrixSchema);
 
