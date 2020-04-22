@@ -1,0 +1,60 @@
+.accordion {
+    width: 300px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.add-student-link {
+    color: #ffffff;
+    float: right;
+}
+
+.add-student-link:hover {
+    color: #ffffff;
+}
+
+.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #2ac0ad;
+}
+
+.list-group-item:hover {
+    color: #495057;
+    background-color: #f8f9fa;
+   
+}
+
+.matrix-amt-badge {
+    /* margin-left: 135px; */
+    float: right;
+    font-size: 50%;
+    color: #ffffff;
+    background-color:#2ac0ad;
+}
+
+.studentBtnLink {
+    color: #495057;
+}
+
+.studentBtnLink:focus {
+    color: #2ac0ad;
+    text-decoration: none;
+}
+
+.studentBtnLink:hover {
+    color: #2ac0ad;
+    text-decoration: none;
+}
+
+.student-list-header {
+    background-color:#2ac0ad;
+}
+
+.student-list-header-link {
+    color: #ffffff !important;
+}
+
+/* .student-list-header-link:hover {
+    text-decoration: none !important;
+} */

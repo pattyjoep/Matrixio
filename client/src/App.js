@@ -3,11 +3,14 @@ import logo from './logo.svg';
 import './App.css';
 
 import NavBar from "./components/NavBar"
+import StudentList from "./components/StudentList"
 
 function App() {
   return (
-    <NavBar></NavBar>
-    
+    <div>
+      <NavBar></NavBar>
+      <StudentList></StudentList>
+    </div>
   );
 }
 
