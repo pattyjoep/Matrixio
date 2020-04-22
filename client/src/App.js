@@ -10,12 +10,14 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Students from "./pages/Students";
 import UserProfile from "./pages/UserProfile";
+import StudentList from "./components/StudentList";
 
 function App() {
   return (
     <Wrapper>
       <Jumbotron />
       <NavBar />
+      <StudentList></StudentList>
       <Router>
         <Route exact path="/Matrixio" Component={Home} />
         <Route exact path="/Login" Component={Login} />
