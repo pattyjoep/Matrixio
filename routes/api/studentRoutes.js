@@ -2,6 +2,7 @@ const router = require("express").Router();
 const studentController = require("../../controllers/studentController");
 
 //Matches with "/api/student/register"
+//Might want to change to "addnew" or soemthing that reflects adding a new student to each teachers' list of students
 router
   .route("/register")
   .post(studentController.create);

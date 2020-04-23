@@ -12,24 +12,9 @@ const StudentSchema = new Schema({
     trim: true
   },
 
-  email: {
-    type: String,
-    trim: true,
-    lowercase: true,
-    unique: true,
-    validate: {
-      validator: (email) => {
-        return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
-      },
-      message: "Please enter a valid email"  
-    },
-    required: [true, "Email require"]
-  },
-
-  username: {
-    type: String,
-    trim: true,
-    lowercase: true
+  teacherID: {
+    type: Schema.Types.ObjectId,
+    ref: "Teacher"
   },
 
   matrices: [
