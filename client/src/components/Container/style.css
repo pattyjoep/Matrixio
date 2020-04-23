@@ -1,4 +1,6 @@
 .container {
   position: relative;
-  min-height: 60vh;
+  height: 70vh;
+  background-color: white;
+  opacity: 0.8;
 }
