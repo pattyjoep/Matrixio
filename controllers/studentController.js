@@ -20,6 +20,7 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  //not sure what this would be used for other than changing student name or something. But this existed in teacher so figured I would add it as well.
   update: function(req, res) {
     db.Student.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
