@@ -43,7 +43,7 @@ function Home() {
           </Col>
         </Row>
         <Row>
-          <h5>"Matrixio is a blessing, it solved all my matrix tracking and generating needs." - Some speech pathologist somewhere. **Ideally, we should use a quote from trick's gf.</h5>
+          <h5>"Matrixio is a blessing, it solved all my matrix tracking and generating needs." - Some speech pathologist somewhere. **Ideally, we should use a quote from Trick's gf.</h5>
         </Row>
         <p>
           Temporay links: &nbsp;&nbsp;
