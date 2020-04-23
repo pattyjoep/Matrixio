@@ -16,8 +16,8 @@
 }
 .navbar {
   margin-top: -33px;
-  border-top: 5px solid #20ccb6;
-  border-bottom: 5px solid #20ccb6;
+  border-top: 1px solid #20ccb6;
+  border-bottom: 1px solid #20ccb6;
 }
 
 .nav-link {

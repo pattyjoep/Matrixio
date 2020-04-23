@@ -5,7 +5,7 @@
   height: 80px;
   padding: 20px;
   border-top: 5px solid #20ccb6;
-  position: fixed;
+  position: absolute;
   bottom: 0px;
   width: 100%;
   font-size: 14px;
