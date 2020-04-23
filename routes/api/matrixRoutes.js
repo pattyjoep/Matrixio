@@ -3,7 +3,7 @@ const router = require("express").Router();
 //remember the book app we did in class? we need a controller to handle what is being done.
 
 //homepage, what do we want to display here? (if signed in, show matrices or students? else, show sign in page)
-router.route("/")
+router.route("/signup")
 
 //if user is a teacher: show something, maybe students. if user is a student: show their matrices or something.
 router.route("/:id")

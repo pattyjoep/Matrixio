@@ -7,3 +7,7 @@
 - Shelby Palumbo https://github.com/shelbypalumbo
 - Matt Dambra https://github.com/superrmatt
 - Luis Gonzalez https://github.com/Lmgom875
+
+
+## Resources
+https://www.thepolyglotdeveloper.com/2019/02/hash-password-data-mongodb-mongoose-bcrypt/
