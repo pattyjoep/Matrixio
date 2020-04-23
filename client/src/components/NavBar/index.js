@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 function NavBar() {
@@ -24,19 +25,19 @@ function NavBar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <a className="nav-link link-nav" href="/UserProfile">
+              <Link className="nav-link link-nav" to="/UserProfile">
                 <i className="fa fa-user"></i> My Profile
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link link-nav" href="/Students">
+              <Link className="nav-link link-nav" to="/Students">
                 <i className="fa fa-graduation-cap"></i> My Students
-              </a>
+              </Link>
             </li>
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle link-nav"
-                href="/"
+                href="#"
                 id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -46,19 +47,19 @@ function NavBar() {
                 <i className="fa fa-plus"></i> Add
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item" href="/TrainingMatrices">
+                <Link className="dropdown-item" to="/TrainingMatrices">
                   Training Matrix
-                </a>
+                </Link>
                 <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="/Students">
+                <Link className="dropdown-item" to="/Students">
                   Students
-                </a>
+                </Link>
               </div>
             </li>
           </ul>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <a className="nav-link" href="#">
                 <i className="fa fa-cog fa-2x icon-settings"></i>
               </a>
             </li>
