@@ -12,6 +12,16 @@ const StudentSchema = new Schema({
     trim: true
   },
 
+  email: {
+    type: String,
+    trim: true
+  },
+
+  username: {
+    type: String,
+    trim: true
+  },
+  
   matrices: [
     {
       type: Schema.Types.ObjectId,
