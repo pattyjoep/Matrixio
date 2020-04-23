@@ -11,7 +11,6 @@ router
   .route("/")
   .get(teachersController.findAll)
   
-
 // Matches with "/api/teachers/:id"
 router
   .route("/:id")
