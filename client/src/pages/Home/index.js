@@ -5,7 +5,7 @@ import Jumbotron from "../../components/Jumbotron";
 import HomeNav from "../../components/HomeNav";
 import Col from "../../components/Col";
 import Row from "../../components/Row";
-
+import { Link } from "react-router-dom";
 function Home() {
   return (
     <div>
@@ -45,6 +45,11 @@ function Home() {
         <Row>
           <h5>**Fake User Quote?</h5>
         </Row>
+        <p>
+          Temporay links: &nbsp;&nbsp;
+          <Link to="/Students">Students</Link> &nbsp;
+          <Link to="/UserProfile">User Profile</Link>
+        </p>
       </Container>
     </div>
   );
