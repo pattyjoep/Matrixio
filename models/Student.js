@@ -14,14 +14,23 @@ const StudentSchema = new Schema({
 
   email: {
     type: String,
-    trim: true
+    trim: true,
+    lowercase: true,
+    unique: true,
+    validate: {
+      validator: (email) => {
+        return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+      },
+      message: "Please enter a valid email"  
+    },
+    required: [true, "Email require"]
   },
 
   username: {
     type: String,
     trim: true
   },
-  
+
   matrices: [
     {
       type: Schema.Types.ObjectId,
