@@ -1,17 +1,17 @@
 const router = require("express").Router();
 const teacherController = require("../../controllers/teacherController");
 
-// Matches with "/api/teacher/register"
+//Matches with "/api/teacher/register"
 router
   .route("/register")
   .post(teacherController.create);
 
-// Matches with "/api/teacher"
+//Matches with "/api/teacher"
 router
   .route("/")
   .get(teacherController.findAll)
   
-// Matches with "/api/teacher/:id"
+//Matches with "/api/teacher/:id"
 router
   .route("/:id")
   .get(teacherController.findById)
