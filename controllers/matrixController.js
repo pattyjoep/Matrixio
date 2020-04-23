@@ -21,6 +21,7 @@ module.exports = {
   /**
    * TODO:
    * Require a little additional coding to update only the square in question.
+   * -matt
   **/
   update: function(req, res) {
     db.Matrix.findOneAndUpdate({ _id: req.params.id }, req.body)
