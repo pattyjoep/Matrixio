@@ -12,19 +12,38 @@ function Home() {
       <Jumbotron />
       <HomeNav />
       <Container>
-        <h1>Welcome to Matrixio!</h1>
+        <h1>Welcome to Matrixio</h1>
         <hr />
         <Row>
+          <Col size="4">Image here**</Col>
           <Col size="8">
-            <p>
-              Online templates used for tracking speech and learning exercises,
-              are really hard to find. Matrixio allows users in any field to
-              build alterable learning matrices suited for any students unique
-              needs. Matrixio will save each students learning template, and
-              their progress, in a database allowing the user/client to refer to
-              the students for future analysis.
-            </p>
+            <Row>
+              <h3></h3>
+              <p>
+                Online templates used for tracking speech and learning
+                exercises, are really hard to find. The Matrixio team developed
+                an application that allows users of any field to build alterable
+                learning matrices for each of their students unique needs.
+                Matrixio will save every students learning template, and their
+                progress, in a database for future reference and analysis.
+              </p>
+            </Row>
+            <Row>
+              <Col size="12">
+                <h3>Meet The Development Team</h3>
+                <br></br>
+                <ul>
+                  <li>Patrick Petro</li>
+                  <li>Patrick Dunn</li>
+                  <li>Matt Dambra</li>
+                  <li>Shelby Palumbo</li>
+                </ul>
+              </Col>
+            </Row>
           </Col>
+        </Row>
+        <Row>
+          <h5>**Fake User Quote?</h5>
         </Row>
       </Container>
     </div>

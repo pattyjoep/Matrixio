@@ -1,7 +1,6 @@
 import React from "react";
 import "./style.css";
 import Container from "../../components/Container";
-import Col from "../../components/Col";
 import Jumbotron from "../../components/Jumbotron";
 import HomeNav from "../../components/HomeNav";
 
