@@ -15,17 +15,19 @@ import StudentList from "./components/StudentList";
 function App() {
   return (
     <Wrapper>
-      <Jumbotron />
-      <NavBar />
-      <StudentList></StudentList>
+      <Jumbotron></Jumbotron>
+      {/* <NavBar></NavBar> */}
+      {/* <StudentList></StudentList> */}
+      <Login></Login>
       <Router>
+        {/* <Route exact path="/" Component={Login} /> */}
         <Route exact path="/Matrixio" Component={Home} />
         <Route exact path="/Login" Component={Login} />
         <Route exact path="/Signup" Component={Signup} />
         <Route exact path="/UserProfile" Component={UserProfile} />
         <Route exact path="/Students" Component={Students} />
       </Router>
-      <Footer />
+      <Footer></Footer>
     </Wrapper>
   );
 }

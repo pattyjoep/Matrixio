@@ -59,7 +59,7 @@ function NavBar() {
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <a className="nav-link" href="/">
-                <i className="fa fa-cog fa-2x icon-settings"></i>
+                <i className="fa fa-cog icon-settings"> Settings</i>
               </a>
             </li>
           </ul>
