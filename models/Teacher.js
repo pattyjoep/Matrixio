@@ -28,6 +28,12 @@ const TeacherSchema = new Schema({
     required: [true, "Email require"]
   },
 
+  username: {
+    type: String,
+    trim: true,
+    lowercase: true
+  },
+
   hashedPassword: {
     type: String
   },

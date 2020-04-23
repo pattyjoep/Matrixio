@@ -28,8 +28,9 @@ const StudentSchema = new Schema({
 
   username: {
     type: String,
-    trim: true
-  },
+    trim: true,
+    lowercase: true
+  }
 
   matrices: [
     {
