@@ -4,6 +4,17 @@ import Container from "../../components/Container";
 import HomeNav from "../../components/HomeNav";
 
 function Signup() {
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+  };
+
+
+
   return (
     <div>
       <HomeNav />
@@ -11,15 +22,28 @@ function Signup() {
         <div className="card login-card">
           <div className="card-body text-center">
             <h5 className="card-title">Sign Up Form</h5>
-            <form className="signup text-left">
+            <form 
+              className="signup text-left" 
+              onSubmit={ handleSubmit }>
               <div className="form-group">
                 <div className="form-group">
-                  <label for="password-input">Name:</label>
+                  <label for="first-name-input">First Name:</label>
                   <input
                     type="username"
                     className="form-control"
-                    id="name-input"
-                    placeholder="Name"
+                    id="first-name-input"
+                    placeholder="First Name"
+                    onChange = { e => setFirstName(e.target.value) }
+                  />
+                </div>
+                <div className="form-group">
+                  <label for="last-name-input">Last Name:</label>
+                  <input
+                    type="username"
+                    className="form-control"
+                    id="last-name-input"
+                    placeholder="Last Name"
+                    onChange = { e => setLastName(e.target.value) }
                   />
                 </div>
                 <label for="email-input">Email address:</label>
@@ -28,15 +52,17 @@ function Signup() {
                   className="form-control"
                   id="email-input"
                   placeholder="Email"
+                  onChange = { e => setEmail(e.target.value) }
                 />
               </div>
               <div className="form-group">
-                <label for="exampleInputPassword1">Password:</label>
+                <label for="password-input">Password:</label>
                 <input
                   type="password"
                   className="form-control"
                   id="password-input"
                   placeholder="Password"
+                  onChange = { e => setPassword(e.target.value) }
                 />
               </div>
               <span
