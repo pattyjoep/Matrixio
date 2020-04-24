@@ -1,13 +1,11 @@
 import React from "react";
 import "./style.css";
 import Container from "../../components/Container";
-import Jumbotron from "../../components/Jumbotron";
 import HomeNav from "../../components/HomeNav";
 
 function Signup() {
   return (
     <div>
-      <Jumbotron />
       <HomeNav />
       <Container>
         <div className="card login-card">

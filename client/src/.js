@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-import Jumbotron from "./components/Jumbotron";
 import Wrapper from "./components/Wrapper";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -13,7 +12,6 @@ import UserProfile from "./pages/UserProfile";
 function App() {
   return (
     <Router>
-      <Jumbotron />
       <Wrapper>
         <Switch>
           <Route exact path="/" component={Home} />
