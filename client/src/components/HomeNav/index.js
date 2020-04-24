@@ -21,7 +21,7 @@ function HomeNav() {
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link className="nav-link link-nav" to="/Login">
-                <i class="fas fa-door-open"></i> Log in
+                <i className="fas fa-door-open"></i> Log in
               </Link>
             </li>
             <li className="nav-item">

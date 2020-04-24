@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import Container from "../../components/Container";
 import HomeNav from "../../components/HomeNav";
