@@ -32,7 +32,7 @@ const TeacherSchema = new Schema({
     lowercase: true
   },
 
-  hashedPassword: {
+  password: {
     type: String
   },
 

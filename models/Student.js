@@ -12,11 +12,6 @@ const StudentSchema = new Schema({
     trim: true
   },
 
-  teacherID: {
-    type: Schema.Types.ObjectId,
-    ref: "Teacher"
-  },
-
   matrices: [
     {
       type: Schema.Types.ObjectId,
