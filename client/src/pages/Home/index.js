@@ -1,7 +1,6 @@
 import React from "react";
 import "./style.css";
 import Container from "../../components/Container";
-import Jumbotron from "../../components/Jumbotron";
 import HomeNav from "../../components/HomeNav";
 import Col from "../../components/Col";
 import Row from "../../components/Row";
@@ -9,7 +8,6 @@ import { Link } from "react-router-dom";
 function Home() {
   return (
     <div>
-      <Jumbotron />
       <HomeNav />
       <Container>
         <h1>Welcome to Matrixio</h1>
@@ -43,7 +41,11 @@ function Home() {
           </Col>
         </Row>
         <Row>
-          <h5>"Matrixio is a blessing, it solved all my matrix tracking and generating needs." - Some speech pathologist somewhere. **Ideally, we should use a quote from Trick's gf.</h5>
+          <h5>
+            "Matrixio is a blessing, it solved all my matrix tracking and
+            generating needs." - Some speech pathologist somewhere. **Ideally,
+            we should use a quote from Trick's gf.
+          </h5>
         </Row>
         <p>
           Temporay links: &nbsp;&nbsp;
