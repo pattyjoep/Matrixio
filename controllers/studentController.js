@@ -1,5 +1,4 @@
 const db = require("../models");
-const Bcrypt = require("bcrypt");
 
 //Methods for studentRoutes.js
 module.exports = {
@@ -15,7 +14,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    req.body.password = Bcrypt.hashSync(req.body.password, 10);
     db.Student.create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

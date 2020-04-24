@@ -1,7 +1,7 @@
 const db = require("../models");
 const Bcrypt = require("bcrypt");
 
-// Defining methods for the postsController
+//Methods for teacherRoutes.js
 module.exports = {
   findAll: function(req, res) {
     db.Teacher.find(req.query)
