@@ -13,7 +13,7 @@ router
   
 //Matches with "/api/teacher/:id"
 router
-  .route("/:id")
+  .route("/teacher/:id")
   .get(teacherController.findById)
   .put(teacherController.update)
   .delete(teacherController.remove);
