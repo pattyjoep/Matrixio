@@ -10,8 +10,6 @@ function Jumbotron() {
           alt="MatrixioLogo"
           className="logo-nav-bar"
         />
-        {/* <img src="img/MatrixioLogoSolo.png" className="solo-logo-nav-bar" /> */}
-        {/* <img src="img/MatrixioLogoText.png" className="logo-nav-bar" /> */}
       </div>
     </div>
   );

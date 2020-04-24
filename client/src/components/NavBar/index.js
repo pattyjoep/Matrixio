@@ -5,11 +5,6 @@ import "./style.css";
 function NavBar() {
   return (
     <div>
-      {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <img src="img/MatrixioLogoFull.png" className="logo-nav-bar" />
-        <img src="img/MatrixioLogoSolo.png" className="solo-logo-nav-bar" />
-        <img src="img/MatrixioLogoText.png" className="logo-nav-bar" />
-      </nav>  */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark tab-bar">
         <button
           className="navbar-toggler"
