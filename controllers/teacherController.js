@@ -6,54 +6,60 @@ const saltRounds = 10;
 module.exports = {
 
   // authentication:
-  findOne: function(req, res) {
-    db.Teacher.findOne(req.body.email)
+  findOne: (req, res) => {
+    db.Teacher.findOne({ email: req.body.email })
+    .populate("students")
     .then(
-      bcrypt.compare(req.body.password, hash, function(err, result) {
+      bcrypt.compareSync(req.body.password, hash, (err, result) => {
         if (err) {
           console.log(err);
-        } else if (result === req.body.password) {
-          res.redirect("/UserProfile");
         } else {
-          res.redirect("/Login");
+          return result;
         }
       })
     )
+    .then(dbTeacher => res.json(dbTeacher))
+    .catch(err => res.status(422).json(err));
   },
 
-  findAll: function(req, res) {
+  findAll: (req, res) => {
     db.Teacher.find(req.query)
-      .sort({ lastName: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+    .populate("students")
+    .sort({ lastName: -1 })
+    .then(dbTeacher => res.json(dbTeacher))
+    .catch(err => res.status(422).json(err));
   },
-  findById: function(req, res) {
+
+  findById: (req, res) => {
     db.Teacher.findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+    .populate("students")
+    .then(dbTeacher => res.json(dbTeacher))
+    .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
-    bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+
+  create: (req, res) => {
+    bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
       if (err) {
         console.log(err);
+      } else {
+        req.body.password = hash;
+        db.Teacher.create(req.body)
+        .then(dbTeacher => res.json(dbTeacher))
+        .catch(err => res.status(422).json(err));
       }
-      req.body.password = hash;
-      db.Teacher.create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
     });
-    
-    
   },
-  update: function(req, res) {
+
+  update: (req, res) => {
     db.Teacher.findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+    .then(dbTeacher => res.json(dbTeacher))
+    .catch(err => res.status(422).json(err));
   },
-  remove: function(req, res) {
+
+  remove: (req, res) => {
     db.Teacher.findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+    .then(dbTeacher => dbTeacher.remove())
+    .then(dbTeacher => res.json(dbTeacher))
+    .catch(err => res.status(422).json(err));
   }
 };

@@ -1,20 +1,37 @@
 import axios from "axios";
 
 export default {
-  // Gets all teachers
-  getTeachers: function() {
-    return axios.get("/api/teachers");
+  // /api/teacher -------------------------------------- 
+
+  authenticateTeacher: () => {
+    return axios.get("/api/teacher");
   },
-  // Gets the teacher with the given id
-  getTeacher: function(id) {
-    return axios.get("/api/teachers/" + id);
+
+  getAllTeachers: () => {
+    return axios.get("/api/teacher");
   },
-  // Deletes the teacher with the given id
-  deleteTeacher: function(id) {
-    return axios.delete("/api/teachers/" + id);
+
+  createTeacher: (teacherData) => {
+    return axios.post("/api/teacher", teacherData);
   },
-  // Saves a teacher to the database
-  saveTeacher: function(teacherData) {
-    return axios.post("/api/teachers/register", teacherData);
-  }
+
+
+
+
+
+  // /api/teacher/:id -------------------------------
+
+  getTeacher: (id) => {
+    return axios.get("/api/teacher" + id);
+  },
+
+  updateTeacher: (id) => {
+    return axios.put("/api/teacher" + id);
+  },
+
+  deleteTeacher: (id) => {
+    return axios.delete("/api/teacher" + id);
+  },
+
+  
 };

@@ -4,12 +4,14 @@ const Schema = mongoose.Schema;
 const TeacherSchema = new Schema({
   firstName: {
     type: String,
-    trim: true
+    trim: true,
+    required: true
   },
 
   lastName: {
     type: String,
-    trim: true
+    trim: true,
+    required: true
   },
 
   email: {
@@ -23,17 +25,12 @@ const TeacherSchema = new Schema({
       },
       message: "Please enter a valid email"  
     },
-    required: [true, "Email require"]
-  },
-
-  username: {
-    type: String,
-    trim: true,
-    lowercase: true
+    required: [true, "Email required"]
   },
 
   password: {
-    type: String
+    type: String,
+    required: true
   },
 
   students: [
