@@ -3,9 +3,8 @@ const Schema = mongoose.Schema;
 
 const MatrixSchema = new Schema({
   
-  matrix: {
-    type: Mixed,
-  }
+  matrix: Object
+  
 });
 
 const Matrix = mongoose.model("Matrix", MatrixSchema);
