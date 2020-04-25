@@ -3,8 +3,9 @@ import axios from "axios";
 export default {
   // /api/teacher --------------------------------------
 
-  authenticateTeacher: () => {
-    return axios.get("/api/teacher");
+  authenticateTeacher: data => {
+    console.log(data);
+    return axios.get("/api/teacher/login", data);
   },
 
   getAllTeachers: () => {
