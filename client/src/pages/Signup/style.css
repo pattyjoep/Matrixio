@@ -4,5 +4,9 @@
   float: right;
 }
 .card {
-  margin-bottom: 5%;
+  margin-top: 2%;
+}
+
+.card-container {
+  background-color: transparent;
 }

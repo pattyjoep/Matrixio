@@ -7,7 +7,7 @@ function Login() {
   return (
     <div>
       <HomeNav />
-      <Container>
+      <Container className="card-container">
         <div className="card text-center login-card">
           <div className="card-body">
             <h5 className="card-title">
