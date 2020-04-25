@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./style.css";
 import Container from "../../components/Container";
 import HomeNav from "../../components/HomeNav";
+import API from "../../utils/API";
 
 function Signup() {
   const [firstName, setFirstName] = useState();
@@ -11,8 +12,48 @@ function Signup() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(`firstName: ${firstName}`);
+    console.log(`lastName: ${lastName}`);
+    console.log(`email: ${email}`);
+    console.log(`password: ${password}`);
+
+    if (!firstName || !lastName || !email || !password) {
+      return;
+    } else {
+      let newTeacher = {
+        firstname: firstName,
+        lastName: lastName,
+        email: email,
+        password: password
+      }
+      API.createTeacher(newTeacher)
+        .catch(err => {
+          console.log(err);
+        });
+    }
   };
 
+<<<<<<< HEAD
+=======
+  // useEffect(() => {
+  //   if (!firstName || !lastName || !email || !password) {
+  //     return;
+  //   }
+  //   let newTeacher = {
+  //     firstname: firstName,
+  //     lastName: lastName,
+  //     email: email,
+  //     password: password
+  //   }
+  //   API.createTeacher(newTeacher)
+  //     .catch(err => {
+  //       console.log((err));
+  //     });
+  // }, [firstName, lastName, email, password])
+
+
+
+>>>>>>> ce2435d29370c745a9df478a0ee423e8a45cee95
   return (
     <div>
       <HomeNav />
@@ -23,7 +64,7 @@ function Signup() {
             <form className="signup text-left" onSubmit={handleSubmit}>
               <div className="form-group">
                 <div className="form-group">
-                  <label for="first-name-input">First Name:</label>
+                  <label htmlFor="first-name-input">First Name:</label>
                   <input
                     type="username"
                     className="form-control"
@@ -33,7 +74,7 @@ function Signup() {
                   />
                 </div>
                 <div className="form-group">
-                  <label for="last-name-input">Last Name:</label>
+                  <label htmlFor="last-name-input">Last Name:</label>
                   <input
                     type="username"
                     className="form-control"
@@ -42,7 +83,7 @@ function Signup() {
                     onChange={e => setLastName(e.target.value)}
                   />
                 </div>
-                <label for="email-input">Email address:</label>
+                <label htmlFor="email-input">Email address:</label>
                 <input
                   type="email"
                   className="form-control"
@@ -52,7 +93,7 @@ function Signup() {
                 />
               </div>
               <div className="form-group">
-                <label for="password-input">Password:</label>
+                <label htmlFor="password-input">Password:</label>
                 <input
                   type="password"
                   className="form-control"
@@ -67,7 +108,10 @@ function Signup() {
               ></span>
               <span className="sr-only">Error:</span>{" "}
               <span className="msg"></span>
-              <button type="submit" className="btn signup-btn">
+              <button 
+                type="submit" 
+                className="btn signup-btn"
+                >
                 Sign Up
               </button>
             </form>

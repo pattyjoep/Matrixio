@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import Container from "../../components/Container";
 import HomeNav from "../../components/HomeNav";
 
 function Login() {
+
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(`Email: ${email}`);
+    console.log(`Password: ${password}`);
+  };
+
+
   return (
     <div>
       <HomeNav />
@@ -23,7 +34,7 @@ function Login() {
               </a>
             </h5>
             <p className="card-text"></p>
-            <form>
+            <form onSubmit = { handleSubmit }>
               <div className="form-group">
                 <input
                   type="email"
@@ -31,6 +42,7 @@ function Login() {
                   id="Username-Email"
                   aria-describedby="emailHelp"
                   placeholder="Email"
+                  onChange = { e => setEmail(e.target.value) }
                 />
                 {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
               </div>
@@ -40,6 +52,7 @@ function Login() {
                   className="form-control"
                   id="Password-Input"
                   placeholder="Password"
+                  onChange = { e => setPassword(e.target.value) }
                 />
               </div>
               <a href="/Signup" class="btn signup-link">
