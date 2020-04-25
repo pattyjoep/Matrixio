@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.css";
 import Container from "../../components/Container";
+import { Row } from "../../components/Grid";
 import StudentList from "../../components/StudentList";
 import NavBar from "../../components/NavBar";
-import Row from "../../components/Row";
 
 function Students() {
   console.log("Students page");

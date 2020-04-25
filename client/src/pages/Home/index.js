@@ -1,10 +1,10 @@
 import React from "react";
 import "./style.css";
-import Container from "../../components/Container";
 import HomeNav from "../../components/HomeNav";
-import Col from "../../components/Col";
-import Row from "../../components/Row";
+import { Col, Row } from "../../components/Grid";
+import Container from "../../components/Container";
 import { Link } from "react-router-dom";
+
 function Home() {
   return (
     <div>

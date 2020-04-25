@@ -1,3 +1,10 @@
 h1 {
   padding: 10px;
 }
+.container {
+  position: relative;
+  background-color: white;
+  opacity: 0.85;
+  padding: 10px;
+  margin-top: 2%;
+}

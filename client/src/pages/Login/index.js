@@ -4,7 +4,6 @@ import Container from "../../components/Container";
 import HomeNav from "../../components/HomeNav";
 
 function Login() {
-
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -13,7 +12,6 @@ function Login() {
     console.log(`Email: ${email}`);
     console.log(`Password: ${password}`);
   };
-
 
   return (
     <div>
@@ -34,7 +32,7 @@ function Login() {
               </a>
             </h5>
             <p className="card-text"></p>
-            <form onSubmit = { handleSubmit }>
+            <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <input
                   type="email"
@@ -42,7 +40,7 @@ function Login() {
                   id="Username-Email"
                   aria-describedby="emailHelp"
                   placeholder="Email"
-                  onChange = { e => setEmail(e.target.value) }
+                  onChange={e => setEmail(e.target.value)}
                 />
                 {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
               </div>
@@ -52,7 +50,7 @@ function Login() {
                   className="form-control"
                   id="Password-Input"
                   placeholder="Password"
-                  onChange = { e => setPassword(e.target.value) }
+                  onChange={e => setPassword(e.target.value)}
                 />
               </div>
               <a href="/Signup" class="btn signup-link">

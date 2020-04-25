@@ -25,16 +25,13 @@ function Signup() {
         lastName: lastName,
         email: email,
         password: password
-      }
-      API.createTeacher(newTeacher)
-        .catch(err => {
-          console.log(err);
-        });
+      };
+      API.createTeacher(newTeacher).catch(err => {
+        console.log(err);
+      });
     }
   };
 
-<<<<<<< HEAD
-=======
   // useEffect(() => {
   //   if (!firstName || !lastName || !email || !password) {
   //     return;
@@ -51,14 +48,11 @@ function Signup() {
   //     });
   // }, [firstName, lastName, email, password])
 
-
-
->>>>>>> ce2435d29370c745a9df478a0ee423e8a45cee95
   return (
     <div>
       <HomeNav />
       <Container className="card-container">
-        <div className="card login-card">
+        <div className="card signup-card">
           <div className="card-body text-center">
             <h5 className="card-title">Sign Up Form</h5>
             <form className="signup text-left" onSubmit={handleSubmit}>
@@ -108,10 +102,7 @@ function Signup() {
               ></span>
               <span className="sr-only">Error:</span>{" "}
               <span className="msg"></span>
-              <button 
-                type="submit" 
-                className="btn signup-btn"
-                >
+              <button type="submit" className="btn signup-btn">
                 Sign Up
               </button>
             </form>
