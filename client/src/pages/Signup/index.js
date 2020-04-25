@@ -21,7 +21,7 @@ function Signup() {
       return;
     } else {
       let newTeacher = {
-        firstname: firstName,
+        firstName: firstName,
         lastName: lastName,
         email: email,
         password: password

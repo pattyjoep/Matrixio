@@ -1,20 +1,29 @@
 const db = require("../models");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
+// const salt = bcrypt.genSaltSync(saltRounds);
+// const hash = bcrypt.hashSync(password, salt);
 
 //Methods for teacherRoutes.js
 module.exports = {
 
   // authentication:
   findOne: (req, res) => {
+    console.log("hello there");
+    console.log(`REQ.BODY.EMAIL ${req.body.email}`);
+    console.log(`REQ.BODY.PASSWORD ${req.body.password}`);
     db.Teacher.findOne({ email: req.body.email })
+    // .then(dbTeacher => {
+    //   console.log(dbTeacher);
+    // })
     .populate("students")
     .then(
       bcrypt.compareSync(req.body.password, hash, (err, result) => {
         if (err) {
           console.log(err);
         } else {
-          return result;
+          console.log("USER AUTHENTICATED!");
+          console.log(result);
         }
       })
     )
@@ -38,6 +47,7 @@ module.exports = {
   },
 
   create: (req, res) => {
+    console.log("I'm hitting the mongoose create");
     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
       if (err) {
         console.log(err);
@@ -45,7 +55,10 @@ module.exports = {
         req.body.password = hash;
         db.Teacher.create(req.body)
         .then(dbTeacher => res.json(dbTeacher))
-        .catch(err => res.status(422).json(err));
+        .catch(err => {
+          res.status(422).json(err);
+          console.log(err);
+        });
       }
     });
   },

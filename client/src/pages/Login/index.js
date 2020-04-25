@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./style.css";
 import Container from "../../components/Container";
 import HomeNav from "../../components/HomeNav";
+import API from "../../utils/API";
 
 function Login() {
   const [email, setEmail] = useState();
@@ -11,6 +12,21 @@ function Login() {
     e.preventDefault();
     console.log(`Email: ${email}`);
     console.log(`Password: ${password}`);
+
+    if (!email || !password) {
+      return;
+      // do something -- tell user it didn't work
+    } else {
+      let data = {
+        email: email,
+        password: password
+      };
+      API.authenticateTeacher(data).catch(err => {
+        console.log(err);
+      });
+    }
+
+
   };
 
   return (
