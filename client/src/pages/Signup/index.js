@@ -21,7 +21,7 @@ function Signup() {
       return;
     } else {
       let newTeacher = {
-        firstname: firstName,
+        firstName: firstName,
         lastName: lastName,
         email: email,
         password: password
@@ -55,7 +55,11 @@ function Signup() {
         <div className="card signup-card">
           <div className="card-body text-center">
             <h5 className="card-title">Sign Up Form</h5>
-            <form className="signup text-left" onSubmit={handleSubmit}>
+            <form
+              className="signup text-left"
+              onSubmit={handleSubmit}
+              action="/UserProfile"
+            >
               <div className="form-group">
                 <div className="form-group">
                   <label htmlFor="first-name-input">First Name:</label>
