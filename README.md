@@ -2,8 +2,8 @@
 
 ## User Story
 
-           Online templates used for tracking speech and learning
-            exercises, are really hard to find. The Matrixio team developed an application that allows users, of any field, to build alterable learning matrices for each of their students unique needs. Matrixio will save each students learning matrices,and progress, in a database for future reference and analysis.
+Online templates used for tracking speech and learning
+exercises, are really hard to find. The Matrixio team developed an application that allows users, of any field, to build alterable learning matrices for each of their students unique needs. Matrixio will save each students learning matrices,and progress, in a database for future reference and analysis.
 
 <hr>
 
@@ -15,13 +15,9 @@ Sign up, log in, and get to work creating your own matrices!
 
 ![Signup View]()
 
-<hr>
-
 ### Login Page
 
 ![Login View]()
-
-<hr>
 
 ### User Profile
 
