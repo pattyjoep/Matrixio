@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./style.css";
 import Container from "../../components/Container";
 import HomeNav from "../../components/HomeNav";
@@ -31,22 +31,6 @@ function Signup() {
       });
     }
   };
-
-  // useEffect(() => {
-  //   if (!firstName || !lastName || !email || !password) {
-  //     return;
-  //   }
-  //   let newTeacher = {
-  //     firstname: firstName,
-  //     lastName: lastName,
-  //     email: email,
-  //     password: password
-  //   }
-  //   API.createTeacher(newTeacher)
-  //     .catch(err => {
-  //       console.log((err));
-  //     });
-  // }, [firstName, lastName, email, password])
 
   return (
     <div>

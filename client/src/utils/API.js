@@ -4,20 +4,15 @@ export default {
   // /api/teacher --------------------------------------
 
   authenticateTeacher: data => {
-    console.log(data);
-    return axios.get("/api/teacher/login", data);
+    console.log("Teacher authentication data!", data);
+    return axios.get("/api/teacher", data);
   },
 
   getAllTeachers: () => {
     return axios.get("/api/teacher");
   },
 
-  createTeacher: teacherData => {
-    return axios.post("/api/teacher", teacherData);
-  },
-
   // /api/teacher/:id -------------------------------
-
   getTeacher: id => {
     return axios.get("/api/teacher" + id);
   },

@@ -16,7 +16,7 @@ function Home() {
           <Col size="4">Image here**</Col>
           <Col size="8">
             <Row>
-              <h3></h3>
+              <h3>Our Story</h3>
               <p>
                 Online templates used for tracking speech and learning
                 exercises, are really hard to find. The Matrixio team developed

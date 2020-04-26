@@ -30,17 +30,16 @@ function NavBar() {
               </Link>
             </li>
             <li className="nav-item dropdown">
-              <a
+              <button
                 className="nav-link dropdown-toggle link-nav"
                 href="#"
                 id="navbarDropdown"
-                role="button"
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
               >
                 <i className="fa fa-plus"></i> Add
-              </a>
+              </button>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <Link className="dropdown-item" to="/TrainingMatrices">
                   Training Matrix
@@ -54,9 +53,9 @@ function NavBar() {
           </ul>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <button className="nav-link" href="#">
                 <i className="fa fa-cog icon-settings"> Settings</i>
-              </a>
+              </button>
             </li>
           </ul>
         </div>
