@@ -16,24 +16,15 @@ module.exports = {
         //if the user does not exist, return status 400
         if (!user) return res.status(400).json({ msg: "User does not exist" });
         console.log(user);
-
         console.log(salt, req.body.password, user.password);
         //user.password is the hashed password from the database, hash was coming back as undefined because it was not set before the bcrypt compare
         bcrypt.compare(req.body.password, user.password, (err, res) => {
           console.log("Compare Password");
           console.log(user);
-          if (err) {
-            console.log(err);
-            return res.status(422).json(err);
-          } else {
-            console.log("USER AUTHENTICATED!");
-            //We want to return the full user object, so that on the front end we can store this object, parse it and use it for pulling data to our pages
-            return res.json;
-          }
         });
         console.log("After comparesync");
       })
-      .then(dbModel => res.json(dbModel))
+      .then(dbTeacher => res.json(dbTeacher))
       // .populate("students")
       .catch(err => res.status(422).json(err));
   },
