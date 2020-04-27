@@ -1,17 +1,7 @@
 const db = require("../models");
 
-
-
 //Methods for studentRoutes.js
 module.exports = {
-  
-
-
-  
-
-
-  
-
   create: ({ body }, res) => {
     db.Student.create(body)
     .then(( { _id }) => db.Teacher.findByIdAndUpdate(
@@ -32,8 +22,4 @@ module.exports = {
         res.json(err);
       });
   },
-
-
-
-  
 };

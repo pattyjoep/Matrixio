@@ -6,10 +6,11 @@ const salt = bcrypt.genSaltSync(saltRounds);
 //Methods for teacherRoutes.js
 module.exports = {
   // authentication:
-  findOne: (req, res) => {
+   findOne: (req, res) => {
     console.log("hello there");
     console.log(req.body);
-    
+    console.log(`REQ.BODY.EMAIL ${req.body.email}`);
+    console.log(`REQ.BODY.PASSWORD ${req.body.password}`);
     db.Teacher.findOne({ email: req.body.email })
       .then(user => {
         //if the user does not exist, return status 400
@@ -24,7 +25,7 @@ module.exports = {
         console.log("After comparesync");
       })
       .then(dbTeacher => res.json(dbTeacher))
-      //.populate("students")
+      .populate("students")
       .catch(err => res.status(422).json(err));
   },
 
