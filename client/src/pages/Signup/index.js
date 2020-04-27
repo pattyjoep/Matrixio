@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import "./style.css";
 import Container from "../../components/Container";
 import HomeNav from "../../components/HomeNav";
@@ -9,6 +10,7 @@ function Signup() {
   const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [redirectToLogin, setRedirectToLogin] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -27,14 +29,22 @@ function Signup() {
         email: email,
         password: password
       };
-      API.createTeacher(newTeacher).catch(err => {
-        console.log(err);
-      });
+      API.createTeacher(newTeacher)
+        .then(res => {
+          //When the new user is created successfully, the redirect will be set to true and the page will redirected to the login page
+          setRedirectToLogin(true);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   };
 
   return (
     <div>
+      {/* When the new user is created, upon submit they will be redirected to the login page */}
+      {redirectToLogin ? <Redirect to="/Login" /> : null}
+
       <HomeNav />
       <Container className="card-container">
         <div className="card signup-card">
