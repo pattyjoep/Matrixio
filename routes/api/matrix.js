@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const matrixController = require("../../controllers/matrixController");
   
-
 //Matches with "/api/matrix"
 router
   .route("/")
