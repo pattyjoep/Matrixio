@@ -3,18 +3,18 @@ import "./style.css";
 import { Col, Row } from "../../components/Grid";
 import Container from "../../components/Container";
 import NavBar from "../../components/NavBar";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 
 function UserProfile(props) {
   const [teacher, setTeacher] = useState({});
   // When this component mounts, grab the teacher with the _id of props.match.params.id
 
-  const { id } = useParams();
-  useEffect(() => {
-    API.getTeacher(id)
-      .then(res => setTeacher(res.data))
-      .catch(err => console.log(err));
-  }, []);
+  // const { id } = useParams();
+  // useEffect(() => {
+  //   API.getTeacher(id)
+  //     .then(res => setTeacher(res.data))
+  //     .catch(err => console.log(err));
+  // }, []);
 
   return (
     <div>

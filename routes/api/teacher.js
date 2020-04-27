@@ -8,8 +8,8 @@ router
   .post(teacherController.create);
 
 //Matches with /api/teacher/login
-router.route("/login").get(teacherController.findOne);
-// .post(teacherController.create);
+//Login require a post instead of a get because it get will not accept req.body.
+router.route("/login").post(teacherController.findOne);
 
 //Matches with /api/teacher/signup
 router

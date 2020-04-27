@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import "./style.css";
 import Container from "../../components/Container";
 import HomeNav from "../../components/HomeNav";
@@ -7,6 +8,8 @@ import API from "../../utils/API";
 function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
+  const [redirectUserProfile, setRedirectUserProfile] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -21,14 +24,21 @@ function Login() {
         email: email,
         password: password
       };
-      API.authenticateTeacher(data).catch(err => {
-        console.log(err);
-      });
+      API.authenticateTeacher(data)
+        .then(res => {
+          //When the users login is authorized the redirect will be set to true
+          setRedirectUserProfile(true);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   };
 
   return (
     <div>
+      {/* When users login is authorized they will be redirected to the user profile page */}
+      {redirectUserProfile ? <Redirect to="/UserProfile" /> : null}
       <HomeNav />
       <Container className="card-container">
         <div className="card text-center login-card">
