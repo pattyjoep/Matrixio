@@ -5,7 +5,8 @@ export default {
 
   authenticateTeacher: data => {
     console.log("Teacher authentication data!", data);
-    return axios.get("/api/teacher", data);
+    //Post request is used because get does not accept req.body, /login was missing which was needed from the /login route on the backend
+    return axios.post("/api/teacher/login", data);
   },
 
   getAllTeachers: () => {
