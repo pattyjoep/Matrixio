@@ -44,14 +44,14 @@ module.exports = {
     db.Teacher.find(req.query)
       .populate("students")
       .sort({ lastName: -1 })
-      .then(dbModel => res.json(dbModel))
+      .then(dbTeacher => res.json(dbTeacher))
       .catch(err => res.status(422).json(err));
   },
 
   findById: (req, res) => {
     db.Teacher.findById(req.params.id)
       .populate("students")
-      .then(dbModel => res.json(dbModel))
+      .then(dbTeacher => res.json(dbTeacher))
       .catch(err => res.status(422).json(err));
   },
 
@@ -63,7 +63,7 @@ module.exports = {
       } else {
         req.body.password = hash;
         db.Teacher.create(req.body)
-          .then(dbModel => res.json(dbModel))
+          .then(dbTeacher => res.json(dbTeacher))
           .catch(err => {
             res.status(422).json(err);
             console.log(err);
@@ -74,14 +74,14 @@ module.exports = {
 
   update: (req, res) => {
     db.Teacher.findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
+      .then(dbTeacher => res.json(dbTeacher))
       .catch(err => res.status(422).json(err));
   },
 
   remove: (req, res) => {
     db.Teacher.findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
+      .then(dbTeacher => dbTeacher.remove())
+      .then(dbTeacher => res.json(dbTeacher))
       .catch(err => res.status(422).json(err));
   }
 };
