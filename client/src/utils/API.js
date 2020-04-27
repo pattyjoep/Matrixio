@@ -30,4 +30,13 @@ export default {
   deleteTeacher: id => {
     return axios.delete("/api/teacher" + id);
   }
+
+  
+
+
+
+
+
+
+
 };
