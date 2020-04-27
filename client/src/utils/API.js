@@ -23,5 +23,9 @@ export default {
 
   deleteTeacher: id => {
     return axios.delete("/api/teacher" + id);
+  },
+
+  createTeacher: data => {
+    return axios.post("/api/teacher", data);
   }
 };
