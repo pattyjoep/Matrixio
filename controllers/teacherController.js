@@ -28,7 +28,7 @@ module.exports = {
           } else {
             console.log("USER AUTHENTICATED!");
             //We want to return the full user object, so that on the front end we can store this object, parse it and use it for pulling data to our pages
-            return res.json(user);
+            return res.json;
           }
         });
         console.log("After comparesync");
