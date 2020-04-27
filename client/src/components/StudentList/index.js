@@ -1,14 +1,48 @@
 import React, {useState} from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
+import API from "../../utils/API";
 
-import { Modal, Button, Form } from "react-bootstrap"
+import { Modal, Button, Form } from "react-bootstrap";
 
 function StudentList() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+
+  const saveModal = e => {
+    e.preventDefault();
+    console.log(`firstName: ${firstName}`);
+    console.log(`lastName: ${lastName}`);
+
+    if (!firstName || !lastName) {
+      return;
+    } else {
+      let newStudent = {
+        firstName: firstName,
+        lastName: lastName,
+      };
+      API.createStudent(newStudent)
+        .then(res => {
+          //When the new user is created successfully, the redirect will be set to true and the page will redirected to the login page
+          // setRedirectToLogin(true);
+        })
+        .catch(err => {
+          console.log(err);
+        })
+        .then(() => {
+          setShow(false)
+        })
+    
+    }
+  };
+
+
+  
 
   return (
     <div>
@@ -20,10 +54,18 @@ function StudentList() {
         <Modal.Body>
           <Form>
             <Form.Group controlId="StudentFirstName">
-              <Form.Control type="text" placeholder="Student's First Name" />
+              <Form.Control 
+                type="text" 
+                placeholder="Student's First Name" 
+                onChange={e => setFirstName(e.target.value)}
+              />
             </Form.Group>
             <Form.Group controlId="StudentLastName">
-              <Form.Control type="text" placeholder="Student's Last Name" />
+              <Form.Control 
+                type="text" 
+                placeholder="Student's Last Name" 
+                onChange={e => setLastName(e.target.value)}
+              />
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -31,7 +73,7 @@ function StudentList() {
           <Button variant="danger" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="success" onClick={handleClose}>
+          <Button variant="success" onClick={saveModal}>
             Save
           </Button>
         </Modal.Footer>

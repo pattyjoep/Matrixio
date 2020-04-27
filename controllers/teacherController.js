@@ -9,8 +9,7 @@ module.exports = {
   findOne: (req, res) => {
     console.log("hello there");
     console.log(req.body);
-    console.log(`REQ.BODY.EMAIL ${req.body.email}`);
-    console.log(`REQ.BODY.PASSWORD ${req.body.password}`);
+    
     db.Teacher.findOne({ email: req.body.email })
       .then(user => {
         //if the user does not exist, return status 400

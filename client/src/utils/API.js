@@ -30,21 +30,27 @@ export default {
   deleteTeacher: id => {
     return axios.delete("/api/teacher" + id);
   },
-
+// ------------------------------------------------------------
   
   getAllStudents: () => {
     return axios.get("/api/student");
   },
 
-  addStudent: studentData => {
+  createStudent: studentData => {
     return axios.post("/api/student", studentData);
   },
 
   getStudent: id => {
     return axios.get("/api/student/", id);
-  }
+  },
 
-  
+  updateStudent: id => {
+    return axios.put("/api/student" + id);
+  },
+
+  deleteStudent: id => {
+    return axios.delete("/api/student/", id);
+  }
 
 
 
