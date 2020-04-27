@@ -16,9 +16,6 @@ module.exports = {
         //if the user does not exist, return status 400
         if (!user) return res.status(400).json({ msg: "User does not exist" });
         console.log(user);
-        // })
-        // .populate("students")
-        // .then(
 
         console.log(salt, req.body.password, user.password);
         //user.password is the hashed password from the database, hash was coming back as undefined because it was not set before the bcrypt compare
@@ -37,6 +34,7 @@ module.exports = {
         console.log("After comparesync");
       })
       .then(dbModel => res.json(dbModel))
+      // .populate("students")
       .catch(err => res.status(422).json(err));
   },
 
