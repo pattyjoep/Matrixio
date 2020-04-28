@@ -25,7 +25,10 @@ module.exports = {
         console.log("After comparesync");
       })
       .then(dbTeacher => res.json(dbTeacher))
+<<<<<<< HEAD
       // .populate("students")
+=======
+>>>>>>> bf43e00b33e42e7ad215a638b86206fcbf6ed4f3
       .catch(err => res.status(422).json(err));
   },
 
