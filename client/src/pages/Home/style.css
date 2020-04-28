@@ -8,3 +8,10 @@ h1 {
   padding: 10px;
   margin-top: 2%;
 }
+
+.uiImg {
+  width: 300px;
+  float: left;
+  border-radius: 20px;
+  padding: 5px;
+}

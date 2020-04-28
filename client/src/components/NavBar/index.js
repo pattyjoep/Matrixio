@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./style.css";
 
@@ -56,6 +57,11 @@ function NavBar() {
               <button className="nav-link" href="#">
                 <i className="fa fa-cog icon-settings"> Settings</i>
               </button>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/">
+                <i className="fas fa-sign-out-alt"> Logout</i>
+              </Link>
             </li>
           </ul>
         </div>

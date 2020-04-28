@@ -4,7 +4,6 @@
   float: right;
 }
 .card {
-  margin-top: 2%;
   opacity: 0.9;
 }
 
@@ -16,6 +15,5 @@
   width: 500px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2%;
   padding: 10px;
 }
