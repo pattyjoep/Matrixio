@@ -73,7 +73,6 @@ function StudentList() {
           </Button>
         </Modal.Footer>
       </Modal>
-
       <div className="accordion" id="accordionExample">
         <div className="card">
           <div className="card-header student-list-header" id="headingOne">
@@ -83,11 +82,7 @@ function StudentList() {
                   <i className="fa fa-graduation-cap"></i> My Students
                 </a>
               </button>
-              <Button
-                variant="add-student-link"
-                data-toggle="modal"
-                onClick={handleShow}
-              >
+              <Button className="add-student-link" data-toggle="modal" onClick={handleShow}>
                 <i className="fa fa-plus"></i>
               </Button>
             </h2>

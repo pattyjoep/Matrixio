@@ -6,11 +6,13 @@
 
 .add-student-link {
     color: #ffffff;
+    background-color: #2ac0ad;
+    border: none;
     float: right;
 }
 
 .add-student-link:hover {
-    color: #ffffff;
+    background-color: #2ac0ad;
 }
 
 .list-group-item.active {
