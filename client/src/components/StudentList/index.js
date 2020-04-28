@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
@@ -24,7 +24,7 @@ function StudentList() {
     } else {
       let newStudent = {
         firstName: firstName,
-        lastName: lastName,
+        lastName: lastName
       };
       API.createStudent(newStudent)
         .then(res => {
@@ -35,18 +35,13 @@ function StudentList() {
           console.log(err);
         })
         .then(() => {
-          setShow(false)
-        })
-    
+          setShow(false);
+        });
     }
   };
 
-
-  
-
   return (
     <div>
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add Student</Modal.Title>
@@ -54,16 +49,16 @@ function StudentList() {
         <Modal.Body>
           <Form>
             <Form.Group controlId="StudentFirstName">
-              <Form.Control 
-                type="text" 
-                placeholder="Student's First Name" 
+              <Form.Control
+                type="text"
+                placeholder="Student's First Name"
                 onChange={e => setFirstName(e.target.value)}
               />
             </Form.Group>
             <Form.Group controlId="StudentLastName">
-              <Form.Control 
-                type="text" 
-                placeholder="Student's Last Name" 
+              <Form.Control
+                type="text"
+                placeholder="Student's Last Name"
                 onChange={e => setLastName(e.target.value)}
               />
             </Form.Group>
@@ -78,7 +73,7 @@ function StudentList() {
           </Button>
         </Modal.Footer>
       </Modal>
-  
+
       <div className="accordion" id="accordionExample">
         <div className="card">
           <div className="card-header student-list-header" id="headingOne">
@@ -88,7 +83,11 @@ function StudentList() {
                   <i className="fa fa-graduation-cap"></i> My Students
                 </a>
               </button>
-              <Button variant="add-student-link" data-toggle="modal" onClick={handleShow}>
+              <Button
+                variant="add-student-link"
+                data-toggle="modal"
+                onClick={handleShow}
+              >
                 <i className="fa fa-plus"></i>
               </Button>
             </h2>
