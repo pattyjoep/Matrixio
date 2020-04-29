@@ -13,15 +13,15 @@ Sign up, log in, and get to work creating your own matrices!
 
 ### Signup Page
 
-![Signup View]()
+![Signup View]("Insert Link Here")
 
 ### Login Page
 
-![Login View]()
+![Login View]("Insert Link Here")
 
 ### User Profile
 
-![Profile Page View]()
+![Profile Page View]("Insert Link Here")
 
 <hr>
 
