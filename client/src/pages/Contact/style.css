@@ -1,0 +1,9 @@
+.uiImg {
+  width: 90%;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+li {
+  list-style-type: none;
+}
