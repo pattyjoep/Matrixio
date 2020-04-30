@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 
 import { Modal, Button, Form } from "react-bootstrap";
 
-function StudentList() {
+function StudentList(props) {
+  
+  
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
+
 
   const saveModal = e => {
     e.preventDefault();
@@ -22,11 +26,12 @@ function StudentList() {
     if (!firstName || !lastName) {
       return;
     } else {
-      let newStudent = {
+      let data = {
+        TeacherID: props.TeacherID,
         firstName: firstName,
         lastName: lastName
       };
-      API.createStudent(newStudent)
+      API.createStudent(data)
         .then(res => {
           //When the new user is created successfully, the redirect will be set to true and the page will redirected to the login page
           // setRedirectToLogin(true);

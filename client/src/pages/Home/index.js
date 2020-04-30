@@ -11,6 +11,7 @@ import DeveloperCard from "../../components/DeveloperCard";
 class Home extends Component {
   state = {
     Developers
+
   };
   render() {
     return (

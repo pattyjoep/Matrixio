@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./style.css";
 
-function NavBar() {
+function NavBar(props) {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark tab-bar">
@@ -26,7 +26,10 @@ function NavBar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link link-nav" to="/Students">
+              <Link 
+                
+                className="nav-link link-nav" 
+                to={`/Students?=${props.TeacherID}`}>
                 <i className="fa fa-graduation-cap"></i> My Students
               </Link>
             </li>

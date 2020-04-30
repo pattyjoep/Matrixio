@@ -4,12 +4,14 @@ const Schema = mongoose.Schema;
 const StudentSchema = new Schema({
   firstName: {
     type: String,
-    trim: true
+    trim: true,
+    required: true
   },
 
   lastName: {
     type: String,
-    trim: true
+    trim: true,
+    required: true
   },
 
   matrices: [
