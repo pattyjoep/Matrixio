@@ -8,22 +8,20 @@ import NavBar from "../../components/NavBar";
 // http://localhost:3000/UserProfile?=23049835897tsdkafj
 
 function UserProfile() {
-  
   const [TeacherID, setTeacherID] = useState();
 
-  const getID = (str) => {
+  const getID = str => {
     let newstr = str.split("=")[1];
     setTeacherID(newstr);
-  }
+  };
 
-
-  useEffect(() => {getID(window.location.href)}, [])
+  useEffect(() => {
+    getID(window.location.href);
+  }, []);
 
   return (
     <div>
-      <NavBar 
-        TeacherID = {TeacherID}
-      />
+      <NavBar TeacherID={TeacherID} />
       <Container>
         <Row>
           <Col size="sm-12 lg-6">

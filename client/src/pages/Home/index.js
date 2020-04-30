@@ -3,7 +3,7 @@ import "./style.css";
 import HomeNav from "../../components/HomeNav";
 import { Col, Row } from "../../components/Grid";
 import Container from "../../components/Container";
-import Teachers from "./teachers.jpg";
+import Teachers from "./images/teachers.jpg";
 
 function Home() {
   return (

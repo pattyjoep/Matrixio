@@ -16,7 +16,7 @@ export default [
   },
   {
     id: 4,
-    // image: require("./images/shelby.png"),
+    image: require("./pages/Team/images/shelby.png"),
     name: "Shelby Palumbo"
   }
 ];

@@ -21,20 +21,18 @@ module.exports = {
         bcrypt.compare(req.body.password, user.password, (err, result) => {
           if (err) {
             throw err;
-          } 
+          }
           if (!result) {
-            res.status(401).json({message: "passwords didn't match"});
+            res.status(401).json({ message: "passwords didn't match" });
             return;
           }
           console.log("Compare Password");
           console.log(user);
-          res.json(user);  
-          
+          res.json(user);
         });
         console.log("After comparesync");
-        
       })
-      
+
       .catch(err => res.status(422).json(err));
   },
 
