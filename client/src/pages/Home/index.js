@@ -3,10 +3,7 @@ import "./style.css";
 import HomeNav from "../../components/HomeNav";
 import { Col, Row } from "../../components/Grid";
 import Container from "../../components/Container";
-import { Link } from "react-router-dom";
-import UI from "./UI.jpg";
-import Developers from "../../developer.js";
-import DeveloperCard from "../../components/DeveloperCard";
+import Teachers from "./teachers.jpg";
 
 class Home extends Component {
   state = {

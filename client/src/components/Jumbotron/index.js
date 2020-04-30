@@ -8,7 +8,7 @@ function Jumbotron() {
         <img
           src="img/MatrixioLogoFull.png"
           alt="MatrixioLogo"
-          className="logo-nav-bar"
+          className="logo-jumbo-bar"
         />
       </div>
     </div>

@@ -21,7 +21,7 @@ function NavBar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link className="nav-link link-nav" to="/UserProfile">
+              <Link className="nav-link main" to="/UserProfile">
                 <i className="fa fa-user"></i> My Profile
               </Link>
             </li>
@@ -35,7 +35,7 @@ function NavBar(props) {
             </li>
             <li className="nav-item dropdown">
               <button
-                className="nav-link dropdown-toggle link-nav"
+                className="nav-link dropdown-toggle"
                 href="#"
                 id="navbarDropdown"
                 data-toggle="dropdown"
@@ -57,14 +57,14 @@ function NavBar(props) {
           </ul>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <button className="nav-link" href="#">
+              <button className="nav-link main" href="#">
                 <i className="fa fa-cog icon-settings"> Settings</i>
               </button>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/">
+              <Redirect className="nav-link main" to="/">
                 <i className="fas fa-sign-out-alt"> Logout</i>
-              </Link>
+              </Redirect>
             </li>
           </ul>
         </div>
