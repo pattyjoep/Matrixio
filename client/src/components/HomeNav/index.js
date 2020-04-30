@@ -34,18 +34,15 @@ function HomeNav() {
                 Contact Us
               </Link>
             </li>
-            <li>
-              {" "}
-              <Link className="nav-link home-nav" to="/Login">
-                <i className="fas fa-door-open"></i> Log in
-              </Link>
-            </li>
-            <li>
-              <Link className="nav-link home-nav" to="/Signup">
-                <i className="fas fa-user-plus"></i> SignUp
-              </Link>
-            </li>
           </ul>
+
+          <Link className="nav-link home-nav" to="/Login">
+            <i className="fas fa-door-open"></i> Log in
+          </Link>
+
+          <Link className="nav-link home-nav" to="/Signup">
+            <i className="fas fa-user-plus"></i> SignUp
+          </Link>
         </div>
       </nav>
     </div>
