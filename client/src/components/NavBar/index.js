@@ -26,7 +26,7 @@ function NavBar(props) {
             </li>
             <li className="nav-item">
               <Link
-                className="nav-link link-nav"
+                className="nav-link main"
                 to={`/Students?=${props.TeacherID}`}
               >
                 <i className="fa fa-graduation-cap"></i> My Students
@@ -34,7 +34,7 @@ function NavBar(props) {
             </li>
             <li className="nav-item dropdown">
               <button
-                className="nav-link dropdown-toggle"
+                className="main dropdown-toggle"
                 href="#"
                 id="navbarDropdown"
                 data-toggle="dropdown"
