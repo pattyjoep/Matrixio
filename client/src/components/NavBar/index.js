@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./style.css";
 
@@ -26,10 +25,10 @@ function NavBar(props) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link 
-                
-                className="nav-link link-nav" 
-                to={`/Students?=${props.TeacherID}`}>
+              <Link
+                className="nav-link link-nav"
+                to={`/Students?=${props.TeacherID}`}
+              >
                 <i className="fa fa-graduation-cap"></i> My Students
               </Link>
             </li>
@@ -62,9 +61,9 @@ function NavBar(props) {
               </button>
             </li>
             <li className="nav-item">
-              <Redirect className="nav-link main" to="/">
+              <Link className="nav-link main" to="/Home">
                 <i className="fas fa-sign-out-alt"> Logout</i>
-              </Redirect>
+              </Link>
             </li>
           </ul>
         </div>
