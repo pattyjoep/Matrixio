@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
+import GenerateMatrix from "../GenerateMatrix"
 
 import { Modal, Button, Form } from "react-bootstrap";
 
@@ -9,15 +10,15 @@ function StudentList(props) {
   
   
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  
+
+  const [MatrixShow, setMatrixShow] = useState(false);
+
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
-
-
+  
   const saveModal = e => {
     e.preventDefault();
     console.log(`firstName: ${firstName}`);
@@ -44,6 +45,23 @@ function StudentList(props) {
         });
     }
   };
+
+  const createAccordion = (user) => {
+    console.log(user)
+
+    // API.getStudent() 
+
+    // .then(res => {
+    //   //When the new user is created successfully, the redirect will be set to true and the page will redirected to the login page
+    //   // setRedirectToLogin(true);
+    // })
+    // .catch(err => {
+    //   console.log(err);
+    // })
+    // .then(() => {
+    //   setShow(false);
+    // });
+  } 
 
   return (
     <div>
@@ -82,7 +100,7 @@ function StudentList(props) {
         <div className="card">
           <div className="card-header student-list-header" id="headingOne">
             <h2 className="mb-0">
-              <button className="btn" type="button">
+              <button className="btn" type="button" onClick={createAccordion}>
                 <a className="student-list-header-link">
                   <i className="fa fa-graduation-cap"></i> My Students
                 </a>
@@ -131,6 +149,13 @@ function StudentList(props) {
                             </li>
                         </ul> */}
               info here
+              <Button className="delete-student-link">
+                <i className="fas fa-trash-alt"></i>
+              </Button>
+              <Button className="new-matrix" onClick={ () => setMatrixShow(true)}>
+                New Matrix
+              </Button>
+              <GenerateMatrix show={MatrixShow} setMatrixShow={ setMatrixShow } />
             </div>
           </div>
         </div>

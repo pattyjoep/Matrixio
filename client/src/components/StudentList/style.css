@@ -15,6 +15,13 @@
     background-color: #2ac0ad;
 }
 
+.delete-student-link, .delete-student-link:hover {
+    color: red;
+    background-color: #ffffff;
+    border: none;
+    float: right;
+}
+
 .list-group-item.active {
     z-index: 2;
     color: #fff;
