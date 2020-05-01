@@ -20,16 +20,29 @@ function HomeNav() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link className="nav-link link-nav" to="/Login">
-                <i className="fas fa-door-open"></i> Log in
+              <Link className="nav-link home-nav" to="/">
+                Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link link-nav" to="/Signup">
-                <i className="fas fa-user-plus"></i> SignUp
+              <Link className="nav-link home-nav" to="/Team">
+                Matrixio Team
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link home-nav" to="/Contact">
+                Contact Us
               </Link>
             </li>
           </ul>
+
+          <Link className="nav-link home-nav" to="/Login">
+            <i className="fas fa-door-open"></i> Log in
+          </Link>
+
+          <Link className="nav-link home-nav" to="/Signup">
+            <i className="fas fa-user-plus"></i> SignUp
+          </Link>
         </div>
       </nav>
     </div>

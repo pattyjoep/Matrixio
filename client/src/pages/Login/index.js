@@ -6,6 +6,7 @@ import HomeNav from "../../components/HomeNav";
 import API from "../../utils/API";
 
 function Login() {
+  const [TeacherID, setTeacherID] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [redirectUserProfile, setRedirectUserProfile] = useState(false);
@@ -25,19 +26,21 @@ function Login() {
       };
       API.authenticateTeacher(data)
         .then(res => {
+          setTeacherID(res.data._id);
           //When the users login is authorized the redirect will be set to true
           setRedirectUserProfile(true);
         })
         .catch(err => {
-          console.log(err);
+          console.log(err.response.data);
         });
     }
   };
-
   return (
     <div>
       {/* When users login is authorized they will be redirected to the user profile page */}
-      {redirectUserProfile ? <Redirect to="/UserProfile" /> : null}
+      {redirectUserProfile ? (
+        <Redirect to={`/UserProfile?=${TeacherID}`} />
+      ) : null}
       <HomeNav />
       <Container className="card-container">
         <div className="card text-center login-card">
@@ -46,7 +49,6 @@ function Login() {
               Login{" "}
               <a
                 href="#"
-                role="button"
                 data-toggle="tooltip"
                 data-html="true"
                 data-placement="bottom"

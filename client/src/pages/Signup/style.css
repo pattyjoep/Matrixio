@@ -3,6 +3,10 @@
   border: 1px solid #20ccb6;
   float: right;
 }
+.signup-btn:hover {
+  color: #ffffff;
+  background-color: #20ccb6;
+}
 .card {
   opacity: 0.9;
 }

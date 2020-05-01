@@ -1,12 +1,12 @@
 .footer {
-  background-color: rgb(200, 241, 238);
+  background-color: rgb(145, 250, 245);
   color: #5c5c5c;
   text-align: center;
-  height: 70px;
-  padding: 20px;
-  border-top: 5px solid #20ccb6;
+  height: 90px;
+  padding: 30px;
+  border-top: 4px solid #3dad9e;
   position: relative;
   bottom: 0;
   width: 100%;
-  font-size: 14px;
+  font-size: 16px;
 }

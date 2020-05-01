@@ -18,13 +18,21 @@ module.exports = {
         console.log(user);
         console.log(salt, req.body.password, user.password);
         //user.password is the hashed password from the database, hash was coming back as undefined because it was not set before the bcrypt compare
-        bcrypt.compare(req.body.password, user.password, (err, res) => {
+        bcrypt.compare(req.body.password, user.password, (err, result) => {
+          if (err) {
+            throw err;
+          }
+          if (!result) {
+            res.status(401).json({ message: "passwords didn't match" });
+            return;
+          }
           console.log("Compare Password");
           console.log(user);
+          res.json(user);
         });
         console.log("After comparesync");
       })
-      .then(dbTeacher => res.json(dbTeacher))
+
       .catch(err => res.status(422).json(err));
   },
 

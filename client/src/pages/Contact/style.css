@@ -1,0 +1,10 @@
+.uiImg {
+  width: 90%;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.contactList {
+  padding: 10px;
+  list-style-type: none;
+}

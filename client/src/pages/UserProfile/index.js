@@ -5,24 +5,27 @@ import Container from "../../components/Container";
 import NavBar from "../../components/NavBar";
 // import API from "../../utils/API";
 
-function UserProfile(props) {
-  const [teacher, setTeacher] = useState({});
-  // When this component mounts, grab the teacher with the _id of props.match.params.id
+// http://localhost:3000/UserProfile?=23049835897tsdkafj
 
-  // const { id } = useParams();
-  // useEffect(() => {
-  //   API.getTeacher(id)
-  //     .then(res => setTeacher(res.data))
-  //     .catch(err => console.log(err));
-  // }, []);
+function UserProfile() {
+  const [TeacherID, setTeacherID] = useState();
+
+  const getID = str => {
+    let newstr = str.split("=")[1];
+    setTeacherID(newstr);
+  };
+
+  useEffect(() => {
+    getID(window.location.href);
+  }, []);
 
   return (
     <div>
-      <NavBar />
+      <NavBar TeacherID={TeacherID} />
       <Container>
         <Row>
           <Col size="sm-12 lg-6">
-            <h1>Hello {teacher.firstName}</h1>
+            <h1>Hello _TeacherNameHere_</h1>
           </Col>
         </Row>
       </Container>

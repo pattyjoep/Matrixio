@@ -1,9 +1,8 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./style.css";
 
-function NavBar() {
+function NavBar(props) {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark tab-bar">
@@ -21,18 +20,21 @@ function NavBar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link className="nav-link link-nav" to="/UserProfile">
+              <Link className="nav-link main" to="/UserProfile">
                 <i className="fa fa-user"></i> My Profile
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link link-nav" to="/Students">
+              <Link
+                className="nav-link link-nav"
+                to={`/Students?=${props.TeacherID}`}
+              >
                 <i className="fa fa-graduation-cap"></i> My Students
               </Link>
             </li>
             <li className="nav-item dropdown">
               <button
-                className="nav-link dropdown-toggle link-nav"
+                className="nav-link dropdown-toggle"
                 href="#"
                 id="navbarDropdown"
                 data-toggle="dropdown"
@@ -54,12 +56,12 @@ function NavBar() {
           </ul>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <button className="nav-link" href="#">
+              <button className="nav-link main" href="#">
                 <i className="fa fa-cog icon-settings"> Settings</i>
               </button>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/">
+              <Link className="nav-link main" to="/Home">
                 <i className="fas fa-sign-out-alt"> Logout</i>
               </Link>
             </li>

@@ -23,6 +23,10 @@
   opacity: 0.9;
 }
 
+.card {
+  border-radius: 20px;
+}
+
 .signup-link {
   color: #20ccb6;
   float: left;
@@ -40,5 +44,6 @@
 
 .card-container {
   background-color: transparent;
-  padding: 5%;
+  padding-top: 5%;
+  height: 70vh;
 }

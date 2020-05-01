@@ -30,8 +30,8 @@ export default {
   deleteTeacher: id => {
     return axios.delete("/api/teacher" + id);
   },
-// ------------------------------------------------------------
-  
+  // ------------------------------------------------------------
+
   getAllStudents: () => {
     return axios.get("/api/student");
   },
@@ -51,11 +51,4 @@ export default {
   deleteStudent: id => {
     return axios.delete("/api/student/", id);
   }
-
-
-
-
-
-
-
 };
