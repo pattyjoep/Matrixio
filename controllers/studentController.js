@@ -24,14 +24,17 @@ module.exports = {
           {
             new: true,
             useFindAndModify: false
-          },
+          }
+        )
+        .then(
           dbTeacher => {
             console.log("dbTeacher: --------------------");
             console.log(dbTeacher);
-            res.json(dbTeacher);
+            // res.json(dbTeacher);
           }
         )
       )
+      
 
       .catch(err => {
         res.json(err);

@@ -3,12 +3,18 @@ import "./style.css";
 import { Col, Row } from "../../components/Grid";
 import Container from "../../components/Container";
 import NavBar from "../../components/NavBar";
-// import API from "../../utils/API";
+import API from "../../utils/API";
 
 // http://localhost:3000/UserProfile?=23049835897tsdkafj
 
 function UserProfile() {
   const [TeacherID, setTeacherID] = useState();
+
+  const [TeacherFName, setTeacherFName] = useState();
+  const [TeacherLName, setTeacherLName] = useState();
+  
+
+  
 
   const getID = str => {
     let newstr = str.split("=")[1];
@@ -21,6 +27,18 @@ function UserProfile() {
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    let data = {
+      TeacherID: TeacherID,
+      firstName: TeacherFName,
+      lastName: TeacherLName
+    }
+
+    API.updateTeacher(data)
+      
+
+
+
   };
   return (
     <div>
@@ -35,11 +53,11 @@ function UserProfile() {
             <form onSubmit={handleSubmit}>
               <label for="fname">First name:</label>
               <br />
-              <input type="text" name="fname" />
+              <input type="text" name="fname" onChange={e => setTeacherFName(e.target.value)}/>
               <br />
               <label for="lname">Last name:</label>
               <br />
-              <input type="text" name="lname" />
+              <input type="text" name="lname" onChange={e => setTeacherLName(e.target.value)}/>
               <br />
               <button type="submit" className="btn login-Btn ml-auto">
                 submit

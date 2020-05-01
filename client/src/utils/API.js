@@ -20,15 +20,15 @@ export default {
   // /api/teacher/:id -------------------------------
 
   getTeacher: id => {
-    return axios.get("/api/teacher" + id);
+    return axios.get("/api/teacher/" + id);
   },
 
   updateTeacher: id => {
-    return axios.put("/api/teacher" + id);
+    return axios.put("/api/teacher/" + id);
   },
 
   deleteTeacher: id => {
-    return axios.delete("/api/teacher" + id);
+    return axios.delete("/api/teacher/" + id);
   },
 
   // ------------------------------------------------------------

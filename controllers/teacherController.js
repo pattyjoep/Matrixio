@@ -68,8 +68,18 @@ module.exports = {
     });
   },
 
+  
+
   update: (req, res) => {
-    db.Teacher.findOneAndUpdate({ _id: req.params.id }, req.body)
+    db.Teacher.findOneAndUpdate(
+      req.body.TeacherID, 
+      req.body.data,
+      {
+        new: true
+      }
+      
+
+      )
       .then(dbTeacher => res.json(dbTeacher))
       .catch(err => res.status(422).json(err));
   },
