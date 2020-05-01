@@ -30,16 +30,46 @@ const TeacherSchema = new Schema({
 
   password: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
 
-  students: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Student"
-    }
-  ]
+  dateCreated: {
+    type: Date,
+    default: Date.now
+  },
+
+  // fullName: {
+  //   type: String
+  // },
+
+  // lastUpdated: {
+  //   type: Date
+  // }
+
+  // students: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "Student"
+  //   }
+  // ]
 });
+
+// TeacherSchema.methods.setFullName = () => {
+//   this.fullName = `${this.firstName} ${this.lastName}`;
+//   console.log("set full name");
+//   console.log(this.fullName);
+
+//   return JSON.stringify(this.fullName);
+// };
+
+// TeacherSchema.methods.setLastUpdated = () => {
+//   this.lastUpdated = Date.now();
+//   console.log("set last updated")
+//   console.log(this.lastUpdated);
+
+//   return this.lastUpdated;
+// };
 
 const Teacher = mongoose.model("Teacher", TeacherSchema);
 

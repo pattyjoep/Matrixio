@@ -44,12 +44,12 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  findById: (req, res) => {
-    db.Teacher.findById(req.params.id)
-      .populate("students")
-      .then(dbTeacher => res.json(dbTeacher))
-      .catch(err => res.status(422).json(err));
-  },
+  // findById: (req, res) => {
+  //   db.Teacher.findById(req.params.id)
+  //     .populate("students")
+  //     .then(dbTeacher => res.json(dbTeacher))
+  //     .catch(err => res.status(422).json(err));
+  // },
 
   create: (req, res) => {
     console.log("I'm hitting the mongoose create");
@@ -58,8 +58,14 @@ module.exports = {
         console.log(err);
       } else {
         req.body.password = hash;
+        // const teacher = new db.Teacher(req.body);
+        // teacher.setFullName();
+        // teacher.setLastUpdated();
+        
         db.Teacher.create(req.body)
-          .then(dbTeacher => res.json(dbTeacher))
+          .then(dbTeacher => {
+            res.json(dbTeacher);
+          })
           .catch(err => {
             res.status(422).json(err);
             console.log(err);
@@ -71,23 +77,31 @@ module.exports = {
   
 
   update: (req, res) => {
+    // console.log(req.body),
+    // console.log(req.body.TeacherID),
+    
     db.Teacher.findOneAndUpdate(
       req.body.TeacherID, 
-      req.body.data,
+      {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName
+      },
       {
         new: true
       }
-      
-
       )
-      .then(dbTeacher => res.json(dbTeacher))
+      .then(dbTeacher => {
+        console.log(dbTeacher);
+        res.json(dbTeacher);
+        
+      })
       .catch(err => res.status(422).json(err));
   },
 
-  remove: (req, res) => {
-    db.Teacher.findById({ _id: req.params.id })
-      .then(dbTeacher => dbTeacher.remove())
-      .then(dbTeacher => res.json(dbTeacher))
-      .catch(err => res.status(422).json(err));
-  }
+  // remove: (req, res) => {
+  //   db.Teacher.findById({ _id: req.params.id })
+  //     .then(dbTeacher => dbTeacher.remove())
+  //     .then(dbTeacher => res.json(dbTeacher))
+  //     .catch(err => res.status(422).json(err));
+  // }
 };

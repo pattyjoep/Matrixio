@@ -19,44 +19,44 @@ export default {
 
   // /api/teacher/:id -------------------------------
 
-  getTeacher: id => {
-    return axios.get("/api/teacher/" + id);
-  },
+  // getTeacher: id => {
+  //   return axios.get("/api/teacher/" + id);
+  // },
 
   updateTeacher: id => {
-    return axios.put("/api/teacher/" + id);
+    return axios.put("/api/teacher", id);
   },
 
-  deleteTeacher: id => {
-    return axios.delete("/api/teacher/" + id);
-  },
+  // deleteTeacher: id => {
+  //   return axios.delete("/api/teacher/" + id);
+  // },
 
   // ------------------------------------------------------------
 
-  getAllStudents: () => {
-    return axios.get("/api/student");
-  },
+  // getAllStudents: () => {
+  //   return axios.get("/api/student");
+  // },
 
-  createStudent: studentData => {
-    return axios.post("/api/student", studentData);
-  },
+  // createStudent: studentData => {
+  //   return axios.post("/api/student", studentData);
+  // },
 
-  getStudent: id => {
-    return axios.get("/api/student/", id);
-  },
+  // getStudent: id => {
+  //   return axios.get("/api/student/", id);
+  // },
 
-  updateStudent: id => {
-    return axios.put("/api/student" + id);
-  },
+  // updateStudent: id => {
+  //   return axios.put("/api/student" + id);
+  // },
 
-  deleteStudent: id => {
-    return axios.delete("/api/student/", id);
-  },
+  // deleteStudent: id => {
+  //   return axios.delete("/api/student/", id);
+  // },
   
-  // ------------------------------------------------------------
+  // // ------------------------------------------------------------
 
-  createMatrix: matrix => {
-    return axios.post("/api/creatematrix", matrix);
-  }
+  // createMatrix: matrix => {
+  //   return axios.post("/api/creatematrix", matrix);
+  // }
 
 };

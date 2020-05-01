@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import "./style.css";
-import { Link } from "react-router-dom";
-import API from "../../utils/API";
+// import { Link } from "react-router-dom";
+// import API from "../../utils/API";
 import GenerateMatrix from "../GenerateMatrix"
 
 import { Modal, Button, Form } from "react-bootstrap";
@@ -26,24 +26,25 @@ function StudentList(props) {
 
     if (!firstName || !lastName) {
       return;
-    } else {
-      let data = {
-        TeacherID: props.TeacherID,
-        firstName: firstName,
-        lastName: lastName
-      };
-      API.createStudent(data)
-        .then(res => {
-          //When the new user is created successfully, the redirect will be set to true and the page will redirected to the login page
-          // setRedirectToLogin(true);
-        })
-        .catch(err => {
-          console.log(err);
-        })
-        .then(() => {
-          setShow(false);
-        });
-    }
+    } 
+    // else {
+    //   let data = {
+    //     TeacherID: props.TeacherID,
+    //     firstName: firstName,
+    //     lastName: lastName
+    //   };
+    //   API.createStudent(data)
+    //     .then(res => {
+    //       //When the new user is created successfully, the redirect will be set to true and the page will redirected to the login page
+    //       // setRedirectToLogin(true);
+    //     })
+    //     .catch(err => {
+    //       console.log(err);
+    //     })
+    //     .then(() => {
+    //       setShow(false);
+    //     });
+    // }
   };
 
   const createAccordion = (user) => {

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.css";
-import { Link } from "react-router-dom";
-import API from "../../utils/API";
+// import { Link } from "react-router-dom";
+// import API from "../../utils/API";
 
 import { Modal, Button, Form } from "react-bootstrap";
 
@@ -30,7 +30,7 @@ function GenerateMatrix(props) {
                 tblBody.prepend(ColumnHeader);
             }
             else {
-                var ColumnHeader = document.createElement("th");
+                ColumnHeader = document.createElement("th");
                 ColumnHeader.setAttribute("contenteditable", "true");
                 ColumnHeader.setAttribute("placeholder", "Enter Here");
                 
@@ -48,7 +48,7 @@ function GenerateMatrix(props) {
             RowHeader.setAttribute("placeholder", "Enter Here");
             row.append(RowHeader);
 
-        for (var j = 0; j < ColumnSize; j++) {
+        for (j = 0; j < ColumnSize; j++) {
             var cell = document.createElement("td");
             // var button = document.createElement("button");
             // button.setAttribute("class", "btn btn-light tableBtn tableBtn-fail");

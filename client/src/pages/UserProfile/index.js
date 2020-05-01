@@ -1,4 +1,4 @@
-import React, { useEffect, useParams, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import { Col, Row } from "../../components/Grid";
 import Container from "../../components/Container";
@@ -32,12 +32,17 @@ function UserProfile() {
       TeacherID: TeacherID,
       firstName: TeacherFName,
       lastName: TeacherLName
-    }
+    };
+    console.log(data);
 
     API.updateTeacher(data)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err)
+      });
       
-
-
 
   };
   return (
@@ -51,11 +56,11 @@ function UserProfile() {
           <Row>
             {" "}
             <form onSubmit={handleSubmit}>
-              <label for="fname">First name:</label>
+              <label htmlFor="fname">First name:</label>
               <br />
               <input type="text" name="fname" onChange={e => setTeacherFName(e.target.value)}/>
               <br />
-              <label for="lname">Last name:</label>
+              <label htmlFor="lname">Last name:</label>
               <br />
               <input type="text" name="lname" onChange={e => setTeacherLName(e.target.value)}/>
               <br />
