@@ -7,7 +7,6 @@ import API from "../../utils/API";
 
 function Login() {
   const [TeacherID, setTeacherID] = useState();
-
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [redirectUserProfile, setRedirectUserProfile] = useState(false);
@@ -50,7 +49,6 @@ function Login() {
               Login{" "}
               <a
                 href="#"
-                className="toolTop"
                 data-toggle="tooltip"
                 data-html="true"
                 data-placement="bottom"
