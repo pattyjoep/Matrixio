@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Students from "./pages/Students";
 import UserProfile from "./pages/UserProfile";
+// import Matrices from "./pages/Matrcies";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/Signup" component={Signup} />
           <Route exact path="/UserProfile" component={UserProfile} />
           <Route exact path="/Students" component={Students} />
+          {/* <Route exact path="Matrices" component={Matrices} /> */}
         </Switch>
       </Wrapper>
       <Footer />
