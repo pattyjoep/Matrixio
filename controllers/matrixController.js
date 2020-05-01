@@ -13,16 +13,37 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
-    db.Matrix.create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+
+  create: (req, res) => {
+    const matrix = req.body;
+    console.log(matrix);
+
+    db.Matrix.create(matrix)
+      .then(matrix =>
+        db.Student.findByIdAndUpdate(
+          student.StudentID,
+          {
+            $push: {
+              matrices: matrix._id
+            }
+          },
+          {
+            new: true,
+            useFindAndModify: false
+          },
+          dbStudent => {
+            console.log("dbStudent: --------------------");
+            console.log(dbStudent);
+            res.json(dbSudent);
+          }
+        )
+      )
+      .catch(err => {
+        res.json(err);
+      });
   },
-  /**
-   * TODO:
-   * Require a little additional coding to update only the square in question.
-   * -matt
-  **/
+  
+
   update: function(req, res) {
     db.Matrix.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
