@@ -21,13 +21,12 @@
 }
 
 .main:hover {
-  /* background-color: #20ccb6; */
-  border-radius: 10px;
+  color: #baece6 !important;
   text-decoration: underline;
 }
 
 .icon-settings:hover {
-  color: #20ccb6;
+  color: #baece6;
 }
 
 .tab-bar {
