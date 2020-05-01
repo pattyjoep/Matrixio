@@ -27,9 +27,9 @@ export default {
     return axios.put("/api/teacher", id);
   },
 
-  // deleteTeacher: id => {
-  //   return axios.delete("/api/teacher/" + id);
-  // },
+  deleteTeacher: id => {
+    return axios.delete("/api/teacher/", {data: {id} });
+  },
 
   // ------------------------------------------------------------
 

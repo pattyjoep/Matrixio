@@ -13,9 +13,6 @@ function UserProfile() {
   const [TeacherFName, setTeacherFName] = useState();
   const [TeacherLName, setTeacherLName] = useState();
   
-
-  
-
   const getID = str => {
     let newstr = str.split("=")[1];
     setTeacherID(newstr);
@@ -24,6 +21,21 @@ function UserProfile() {
   useEffect(() => {
     getID(window.location.href);
   }, []);
+
+  const deleteAccount = () => {
+    let data = {
+      TeacherID: TeacherID
+    }
+    console.log(data)
+
+    API.deleteTeacher(data)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err)
+      });
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -68,7 +80,14 @@ function UserProfile() {
                 submit
               </button>
             </form>
+            <br />
+            <button type="button" className ="btn btn-danger" name="deleteTeacher" onClick={deleteAccount}>
+              Delete Account   
+            </button>
           </Row>
+          
+            
+          
         </Row>
       </Container>
     </div>

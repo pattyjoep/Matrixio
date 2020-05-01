@@ -39,7 +39,7 @@ module.exports = {
   findAll: (req, res) => {
     db.Teacher.find(req.query)
       .populate("students")
-      .sort({ lastName: -1 })
+      .sort({ dateCreated: -1 })
       .then(dbTeacher => res.json(dbTeacher))
       .catch(err => res.status(422).json(err));
   },
@@ -98,10 +98,19 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  // remove: (req, res) => {
-  //   db.Teacher.findById({ _id: req.params.id })
-  //     .then(dbTeacher => dbTeacher.remove())
-  //     .then(dbTeacher => res.json(dbTeacher))
-  //     .catch(err => res.status(422).json(err));
-  // }
+  delete: (req, res) => {
+    console.log("begin delete")
+    console.log(req.body);
+    let message = `Teacher ${req.body.id.TeacherID} destroyed`;
+    db.Teacher.findByIdAndDelete(
+      req.body.id.TeacherID
+    )
+    .then(result => {
+      console.log(message);
+      res.json(result);
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
 };
