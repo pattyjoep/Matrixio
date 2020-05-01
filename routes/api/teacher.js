@@ -6,7 +6,7 @@ router
   .route("/")
   .get(teacherController.findAll)
   .post(teacherController.create)
-  .put(teacherController.update)
+  // .put(teacherController.update)
   .delete(teacherController.delete);
 
 //Matches with /api/teacher/login
@@ -20,10 +20,10 @@ router.route("/login").post(teacherController.findOne);
 //   .post(teacherController.create);
 
 //Matches with "/api/teacher/:id"
-// router
-//   .route("/:id")
+router
+  .route("/:id")
 //   .get(teacherController.findById)
-//   .put(teacherController.update)
+  .put(teacherController.update);
 //   .delete(teacherController.remove);
 
 module.exports = router;

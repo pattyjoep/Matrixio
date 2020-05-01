@@ -38,7 +38,7 @@ module.exports = {
 
   findAll: (req, res) => {
     db.Teacher.find(req.query)
-      .populate("students")
+      // .populate("students")
       .sort({ dateCreated: -1 })
       .then(dbTeacher => res.json(dbTeacher))
       .catch(err => res.status(422).json(err));
@@ -77,11 +77,14 @@ module.exports = {
   
 
   update: (req, res) => {
-    // console.log(req.body),
+    console.log("begin update")
+    console.log(req.body);
+    console.log("params")
+    console.log(req.params);
     // console.log(req.body.TeacherID),
     
     db.Teacher.findOneAndUpdate(
-      req.body.TeacherID, 
+      req.params.id, 
       {
         firstName: req.body.firstName,
         lastName: req.body.lastName
@@ -91,7 +94,7 @@ module.exports = {
       }
       )
       .then(dbTeacher => {
-        console.log(dbTeacher);
+        console.log("dbTeacher here");
         res.json(dbTeacher);
         
       })

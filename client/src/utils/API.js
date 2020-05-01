@@ -23,8 +23,8 @@ export default {
   //   return axios.get("/api/teacher/" + id);
   // },
 
-  updateTeacher: id => {
-    return axios.put("/api/teacher", id);
+  updateTeacher: ({TeacherID, firstName, lastName}) => {
+    return axios.put("/api/teacher/" + TeacherID, {firstName: firstName, lastName: lastName});
   },
 
   deleteTeacher: id => {
