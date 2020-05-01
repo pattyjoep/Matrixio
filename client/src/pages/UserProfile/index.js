@@ -19,6 +19,9 @@ function UserProfile() {
     getID(window.location.href);
   }, []);
 
+  const handleSubmit = e => {
+    e.preventDefault();
+  };
   return (
     <div>
       <NavBar TeacherID={TeacherID} />
@@ -27,6 +30,22 @@ function UserProfile() {
           <Col size="sm-12 lg-6">
             <h1>Hello _TeacherNameHere_</h1>
           </Col>
+          <Row>
+            {" "}
+            <form onSubmit={handleSubmit}>
+              <label for="fname">First name:</label>
+              <br />
+              <input type="text" name="fname" />
+              <br />
+              <label for="lname">Last name:</label>
+              <br />
+              <input type="text" name="lname" />
+              <br />
+              <button type="submit" className="btn login-Btn ml-auto">
+                submit
+              </button>
+            </form>
+          </Row>
         </Row>
       </Container>
     </div>
