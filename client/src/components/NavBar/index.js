@@ -61,7 +61,7 @@ function NavBar(props) {
               </button>
             </li>
             <li className="nav-item">
-              <Link className="nav-link main" to="/Home">
+              <Link className="nav-link main" to="/">
                 <i className="fas fa-sign-out-alt"> Logout</i>
               </Link>
             </li>
