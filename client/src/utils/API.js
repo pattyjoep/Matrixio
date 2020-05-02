@@ -44,9 +44,9 @@ export default {
     return axios.post("/api/student", studentData);
   },
 
-  // getStudent: id => {
-  //   return axios.get("/api/student/", id);
-  // }
+  getStudent: id => {
+    return axios.get("/api/student/", id);
+  },
 
   // updateStudent: id => {
   //   return axios.put("/api/student" + id);
@@ -58,8 +58,8 @@ export default {
 
   // // ------------------------------------------------------------
 
-   createMatrix: matrix => {
-     console.log("axios");
-     return axios.post("/api/creatematrix", matrix);
-   }
+  createMatrix: matrix => {
+    console.log("axios");
+    return axios.post("/api/creatematrix", matrix);
+  }
 };

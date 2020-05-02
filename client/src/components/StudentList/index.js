@@ -8,10 +8,7 @@ import StuListItem from "../StuListItem";
 import { Modal, Button, Form } from "react-bootstrap";
 
 function StudentList(props) {
-  
-  
-
-  const getStudentNames = (arr) => {
+  const getStudentNames = arr => {
     let stuArr = arr.map(stu => {
       return {
         _id: stu._id,
@@ -21,23 +18,23 @@ function StudentList(props) {
         dateCreated: stu.dateCreated,
         fullName: stu.fullName,
         lastUpdated: stu.lastUpdated
-      }
+      };
     });
     return stuArr;
   };
 
   useEffect(() => {
-    console.log("inside useEffect --------")
+    console.log("inside useEffect --------");
     console.log(props);
     API.getTeacher(props.TeacherID)
       .then(teacherResult => {
-        console.log("teacherResult----")
+        console.log("teacherResult----");
         console.log(teacherResult);
-        setStudentsArr(getStudentNames(teacherResult.data.students))
+        setStudentsArr(getStudentNames(teacherResult.data.students));
       })
       .catch(err => {
         console.log(err);
-      })
+      });
   }, [props]);
 
   const [studentsArr, setStudentsArr] = useState([]);
@@ -68,8 +65,6 @@ function StudentList(props) {
       console.log(data);
       API.createStudent(data)
         .then(res => {
-          // When the new user is created successfully, the redirect will be set to true and the page will redirected to the login page
-          // setRedirectToLogin(true);
           console.log(res);
         })
         .catch(err => {
@@ -81,29 +76,11 @@ function StudentList(props) {
     }
   };
 
-  // const deleteStudent = () => {
-  //   let data = {
-  //     TeacherID: TeacherID
-  //   };
-  //   console.log(data);
-
-  //   API.deleteStudent(data)
-  //     .then(res => {
-  //       console.log(res);
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // };
-
   // const createAccordion = (user) => {
   //   console.log(user)
-
   //   API.getStudent()
-
   //   .then(res => {
-  //     //When the new user is created successfully, the redirect will be set to true and the page will redirected to the login page
-  //     // setRedirectToLogin(true);
+  // console.log(res);
   //   })
   //   .catch(err => {
   //     console.log(err);
@@ -168,7 +145,7 @@ function StudentList(props) {
           </div>
         </div>
         {studentsArr.map(stu => {
-          return <StuListItem student={stu} key={stu._id}/>
+          return <StuListItem student={stu} key={stu._id} />;
         })}
       </div>
     </div>
