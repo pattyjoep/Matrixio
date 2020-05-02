@@ -3,41 +3,44 @@ import "./style.css";
 // import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import GenerateMatrix from "../GenerateMatrix";
+import StuListItem from "../StuListItem";
 
 import { Modal, Button, Form } from "react-bootstrap";
 
 function StudentList(props) {
   
-  // const getStudentNames = (arr, stu) => {
-  //   const stuArr = arr.map(stu => {
-  //     return mapped = {
-  //       _id: _id,
-  //       TeacherID: TeacherID,
-  //       firstName: firstName,
-  //       lastName: lastName,
-  //       dateCreated: dateCreated,
-  //       fullName: fullName,
-  //       lastUpdated: lastUpdated
-  //     }
-  //   });
-  //   return stuArr;
-  // };
+  
 
-  // useEffect(() => {
-  //   console.log("inside useEffect --------")
-  //   console.log(props);
-  //   API.getTeacher(props.TeacherID)
-  //     .then(teacherResult => {
-  //       console.log("teacherResult----")
-  //       console.log(teacherResult);
-  //       setStudentsArr(getStudentNames(teacherResult.data.students, teacher))
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     })
-  // }, [props]);
+  const getStudentNames = (arr) => {
+    let stuArr = arr.map(stu => {
+      return {
+        _id: stu._id,
+        TeacherID: stu.TeacherID,
+        firstName: stu.firstName,
+        lastName: stu.lastName,
+        dateCreated: stu.dateCreated,
+        fullName: stu.fullName,
+        lastUpdated: stu.lastUpdated
+      }
+    });
+    return stuArr;
+  };
 
-  // const [studentsArr, setStudentsArr] = useState();
+  useEffect(() => {
+    console.log("inside useEffect --------")
+    console.log(props);
+    API.getTeacher(props.TeacherID)
+      .then(teacherResult => {
+        console.log("teacherResult----")
+        console.log(teacherResult);
+        setStudentsArr(getStudentNames(teacherResult.data.students))
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [props]);
+
+  const [studentsArr, setStudentsArr] = useState([]);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -165,107 +168,9 @@ function StudentList(props) {
             </h2>
           </div>
         </div>
-        <div className="card">
-          <div className="card-header" id="headingOne">
-            <h2 className="mb-0">
-              <button
-                className="btn btn-link studentBtnLink"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseOne"
-                aria-expanded="true"
-                aria-controls="collapseOne"
-              >
-                Name Here
-              </button>
-              <span className="badge badge-pill matrix-amt-badge">14</span>
-            </h2>
-          </div>
-          <div
-            id="collapseOne"
-            className="collapse"
-            aria-labelledby="headingOne"
-            data-parent="#accordionExample"
-          >
-            <div className="card-body">
-              {/* <ul className="list-group">
-                            <li className="list-group-item d-flex justify-content-between align-items-center">
-                                Joe Exotic
-                                <span className="badge badge-primary badge-pill">14</span>
-                            </li>
-                            <li className="list-group-item d-flex justify-content-between align-items-center">
-                                Dapibus ac facilisis in
-                                <span className="badge badge-primary badge-pill">2</span>
-                            </li>
-                            <li className="list-group-item d-flex justify-content-between align-items-center">
-                                Morbi leo risus
-                                <span className="badge badge-primary badge-pill">1</span>
-                            </li>
-                        </ul> */}
-              info here
-              <Button className="delete-student-link">
-                <i className="fas fa-trash-alt"></i>
-              </Button>
-              <Button
-                className="new-matrix"
-                onClick={() => setMatrixShow(true)}
-              >
-                New Matrix
-              </Button>
-              <GenerateMatrix show={MatrixShow} setMatrixShow={setMatrixShow} />
-            </div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="card-header" id="headingTwo">
-            <h2 className="mb-0">
-              <button
-                className="btn btn-link collapsed studentBtnLink"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseTwo"
-                aria-expanded="false"
-                aria-controls="collapseTwo"
-              >
-                Name Here
-              </button>
-              <span className="badge badge-pill matrix-amt-badge">3</span>
-            </h2>
-          </div>
-          <div
-            id="collapseTwo"
-            className="collapse"
-            aria-labelledby="headingTwo"
-            data-parent="#accordionExample"
-          >
-            <div className="card-body">2</div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="card-header" id="headingThree">
-            <h2 className="mb-0">
-              <button
-                className="btn btn-link collapsed studentBtnLink"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseThree"
-                aria-expanded="false"
-                aria-controls="collapseThree"
-              >
-                Name Here
-              </button>
-              <span className="badge badge-pill matrix-amt-badge">8</span>
-            </h2>
-          </div>
-          <div
-            id="collapseThree"
-            className="collapse"
-            aria-labelledby="headingThree"
-            data-parent="#accordionExample"
-          >
-            <div className="card-body">3</div>
-          </div>
-        </div>
+        {studentsArr.map(stu => {
+          return <StuListItem student={stu} key={stu._id}/>
+        })}
       </div>
     </div>
   );
