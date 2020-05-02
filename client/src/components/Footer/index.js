@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer>
       <div className="footer">
-        <img className="footer-logo" src={logo} />
+        <img className="footer-logo" alt="Matrixio_Logo" src={logo} />
         &nbsp;&nbsp;
         <span>
           &#169; Matrixio 2020 &nbsp; <i className="fab fa-facebook"></i> &nbsp;{" "}
