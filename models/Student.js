@@ -23,8 +23,6 @@ const StudentSchema = new Schema({
     type: String
   },
 
-<<<<<<< HEAD
-=======
   fullName: {
     type: String
   },
@@ -33,7 +31,6 @@ const StudentSchema = new Schema({
     type: Date
   },
 
->>>>>>> 8c08da194c2f0349b6b5efc7d564ac88afaf0edc
   matrices: [
     {
       type: Schema.Types.ObjectId,
