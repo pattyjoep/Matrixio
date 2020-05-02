@@ -18,7 +18,9 @@ module.exports = {
 
   create: (req, res) => {
     console.log("beginning backend student creation");
-    const student = req.body;
+    const student = new db.Student(req.body);
+    student.setFullName();
+    student.setLastUpdated();
     console.log(student);
 
     db.Student.create(student)

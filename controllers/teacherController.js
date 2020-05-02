@@ -49,12 +49,21 @@ module.exports = {
       });
   },
 
-  // findById: (req, res) => {
-  //   db.Teacher.findById(req.params.id)
-  //     .populate("students")
-  //     .then(dbTeacher => res.json(dbTeacher))
-  //     .catch(err => res.status(422).json(err));
-  // },
+  findById: (req, res) => {
+    console.log("log req.params.id ---------")
+    console.log(req.params.id);
+    db.Teacher.findById(req.params.id)
+      .populate("students")
+      .then(dbTeacher => {
+        res.json(dbTeacher);
+        console.log("dbTeacher findById --------------");
+        console.log(dbTeacher);
+      })
+      .catch(err => {
+        res.status(422).json(err);
+        
+      });
+  },
 
   create: (req, res) => {
     console.log("beginning backend teacher creation");
@@ -63,17 +72,18 @@ module.exports = {
         console.log(err);
       } else {
         req.body.password = hash;
-        // const teacher = new db.Teacher(req.body);
-        // teacher.setFullName();
-        // teacher.setLastUpdated();
+        const teacher = new db.Teacher(req.body);
+        teacher.setFullName();
+        teacher.setLastUpdated();
         
-        db.Teacher.create(req.body)
+        db.Teacher.create(teacher)
           .then(dbTeacher => {
             res.json(dbTeacher);
           })
           .catch(err => {
             res.status(422).json(err);
             console.log(err);
+            console.log(teacher);
           });
       }
     });

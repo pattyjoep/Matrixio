@@ -23,6 +23,17 @@ const StudentSchema = new Schema({
     type: String
   },
 
+<<<<<<< HEAD
+=======
+  fullName: {
+    type: String
+  },
+
+  lastUpdated: {
+    type: Date
+  },
+
+>>>>>>> 8c08da194c2f0349b6b5efc7d564ac88afaf0edc
   matrices: [
     {
       type: Schema.Types.ObjectId,
@@ -30,6 +41,22 @@ const StudentSchema = new Schema({
     }
   ]
 });
+
+StudentSchema.methods.setFullName = function() {
+  this.fullName = `${this.firstName} ${this.lastName}`;
+  console.log("set full name");
+  console.log(this.fullName);
+
+  return this.fullName;
+};
+
+StudentSchema.methods.setLastUpdated = function() {
+  this.lastUpdated = Date.now();
+  console.log("set last updated")
+  console.log(this.lastUpdated);
+
+  return this.lastUpdated;
+};
 
 const Student = mongoose.model("Student", StudentSchema);
 

@@ -21,7 +21,7 @@ router
 //Matches with "/api/teacher/:id"
 router
   .route("/:id")
-//   .get(teacherController.findById)
+  .get(teacherController.findById)
   .put(teacherController.update);
 
 
