@@ -1,6 +1,13 @@
 .jumbotron {
   text-align: center;
-  background-color: rgb(145, 250, 245);
+  /* background-color: rgb(145, 250, 245); */
+
+  background: rgb(173, 252, 251);
+  background: radial-gradient(
+    circle,
+    rgba(173, 252, 251, 1) 0%,
+    rgba(102, 234, 236, 1) 100%
+  );
 }
 
 .logo-jumbo-bar {
