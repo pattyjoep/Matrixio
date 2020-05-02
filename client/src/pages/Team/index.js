@@ -27,7 +27,9 @@ class Team extends Component {
                       key={teamMember.id}
                       image={teamMember.image}
                       name={teamMember.name}
-                      url={teamMember.url}
+                      portfolio={teamMember.portfolio}
+                      github={teamMember.github}
+                      linkedIn={teamMember.linkedIn}
                     />
                   </Col>
                 ))}
