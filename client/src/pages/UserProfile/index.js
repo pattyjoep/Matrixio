@@ -22,6 +22,7 @@ function UserProfile() {
   const handleSubmit = e => {
     e.preventDefault();
   };
+
   return (
     <div>
       <NavBar TeacherID={TeacherID} />
