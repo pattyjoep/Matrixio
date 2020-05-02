@@ -79,8 +79,6 @@ module.exports = {
     });
   },
 
-  
-
   update: (req, res) => {
     console.log("begin update")
     console.log(req.body);
