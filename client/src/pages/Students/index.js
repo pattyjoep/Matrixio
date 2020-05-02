@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import Container from "../../components/Container";
-import { Row } from "../../components/Grid";
+import { Row, Col } from "../../components/Grid";
 import StudentList from "../../components/StudentList";
 import NavBar from "../../components/NavBar";
 
@@ -24,8 +24,13 @@ function Students(props) {
     <div>
       <NavBar />
       <Container>
+        <h1>Student Dashboard</h1>
+        <hr />
         <Row>
-          <StudentList TeacherID={TeacherID} students={props.firstName} />
+          <Col size="6">
+            <StudentList TeacherID={TeacherID} students={props.firstName} />
+          </Col>
+          <Col size="6"></Col>
         </Row>
       </Container>
     </div>

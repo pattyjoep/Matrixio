@@ -7,7 +7,6 @@ import GenerateMatrix from "../GenerateMatrix";
 import { Modal, Button, Form } from "react-bootstrap";
 
 function StudentList(props) {
-  
   // const getStudentNames = (arr, stu) => {
   //   const stuArr = arr.map(stu => {
   //     return mapped = {
@@ -84,7 +83,7 @@ function StudentList(props) {
   //   };
   //   console.log(data);
 
-  //   API.deleteTeacher(data)
+  //   API.deleteStudent(data)
   //     .then(res => {
   //       console.log(res);
   //     })
@@ -143,7 +142,6 @@ function StudentList(props) {
           <Button variant="success" onClick={saveModal}>
             Save
           </Button>
-          <Button variant="delete">Save</Button>
         </Modal.Footer>
       </Modal>
       <div className="accordion" id="accordionExample">
