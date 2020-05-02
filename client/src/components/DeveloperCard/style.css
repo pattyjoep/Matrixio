@@ -3,3 +3,7 @@
   padding: 10px;
   border: none;
 }
+
+.card-text {
+  color: rgb(156, 30, 146);
+}

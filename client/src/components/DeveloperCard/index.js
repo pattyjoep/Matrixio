@@ -12,8 +12,11 @@ function developerCard(props) {
           className="card-img-top rounded-circle"
         />
         <hr />
-        <h5 className="card-title">{props.name}</h5>
+        <h5 className="card-title">
+          <b>{props.name}</b>
+        </h5>
         <p className="card-text">Front End / Back End</p>
+        <a href={props.url} />
       </div>
     </div>
   );

@@ -9,6 +9,7 @@ class Team extends Component {
   state = {
     Developers
   };
+
   render() {
     return (
       <div>
@@ -26,6 +27,7 @@ class Team extends Component {
                       key={teamMember.id}
                       image={teamMember.image}
                       name={teamMember.name}
+                      url={teamMember.url}
                     />
                   </Col>
                 ))}

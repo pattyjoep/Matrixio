@@ -5,7 +5,7 @@ import HomeNav from "../../components/HomeNav";
 import { Col, Row } from "../../components/Grid";
 import Container from "../../components/Container";
 import Teachers from "./images/teachers.jpg";
-
+import UI from "./images/UI.jpg";
 function Home() {
   return (
     <div>
@@ -28,6 +28,7 @@ function Home() {
               in a database for future reference and analysis.
             </p>
             <p className="quote">
+              <img src={UI} className="uiImg" alt="UI" />
               <b>
                 "Matrixio is a blessing, it solved all my matrix tracking and
                 generating needs."

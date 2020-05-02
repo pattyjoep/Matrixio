@@ -2,23 +2,20 @@ import React, { useState } from "react";
 import "./style.css";
 // import { Link } from "react-router-dom";
 import API from "../../utils/API";
-import GenerateMatrix from "../GenerateMatrix"
+import GenerateMatrix from "../GenerateMatrix";
 
 import { Modal, Button, Form } from "react-bootstrap";
 
 function StudentList(props) {
-  
-  
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
 
   const [MatrixShow, setMatrixShow] = useState(false);
 
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
-  
+
   const saveModal = e => {
     e.preventDefault();
     console.log(`firstName: ${firstName}`);
@@ -26,14 +23,13 @@ function StudentList(props) {
 
     if (!firstName || !lastName) {
       return;
-    } 
-    else {
+    } else {
       let data = {
         TeacherID: props.TeacherID,
         firstName: firstName,
         lastName: lastName
       };
-      console.log("frontend data console")
+      console.log("frontend data console");
       console.log(data);
       API.createStudent(data)
         .then(res => {
@@ -53,7 +49,7 @@ function StudentList(props) {
   // const createAccordion = (user) => {
   //   console.log(user)
 
-  //   API.getStudent() 
+  //   API.getStudent()
 
   //   .then(res => {
   //     //When the new user is created successfully, the redirect will be set to true and the page will redirected to the login page
@@ -65,7 +61,7 @@ function StudentList(props) {
   //   .then(() => {
   //     setShow(false);
   //   });
-  // } 
+  // }
 
   return (
     <div>
@@ -78,6 +74,7 @@ function StudentList(props) {
             <Form.Group controlId="StudentFirstName">
               <Form.Control
                 type="text"
+                value={props.firstName}
                 placeholder="Student's First Name"
                 onChange={e => setFirstName(e.target.value)}
               />
@@ -85,6 +82,7 @@ function StudentList(props) {
             <Form.Group controlId="StudentLastName">
               <Form.Control
                 type="text"
+                value={props.lastName}
                 placeholder="Student's Last Name"
                 onChange={e => setLastName(e.target.value)}
               />
@@ -109,7 +107,11 @@ function StudentList(props) {
                   <i className="fa fa-graduation-cap"></i> My Students
                 </a>
               </button> */}
-              <Button className="add-student-link" data-toggle="modal" onClick={handleShow}>
+              <Button
+                className="add-student-link"
+                data-toggle="modal"
+                onClick={handleShow}
+              >
                 <i className="fa fa-plus"></i>
               </Button>
             </h2>
@@ -156,10 +158,13 @@ function StudentList(props) {
               <Button className="delete-student-link">
                 <i className="fas fa-trash-alt"></i>
               </Button>
-              <Button className="new-matrix" onClick={ () => setMatrixShow(true)}>
+              <Button
+                className="new-matrix"
+                onClick={() => setMatrixShow(true)}
+              >
                 New Matrix
               </Button>
-              <GenerateMatrix show={MatrixShow} setMatrixShow={ setMatrixShow } />
+              <GenerateMatrix show={MatrixShow} setMatrixShow={setMatrixShow} />
             </div>
           </div>
         </div>
