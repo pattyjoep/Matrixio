@@ -3,24 +3,33 @@ export default [
     id: 1,
     image: "https://avatars2.githubusercontent.com/u/52010195?v=4",
     name: "Patrick Petro",
-    url: "https://pjpetro.github.io/ApplicationPortfolio/"
+    portfolio: "https://pjpetro.github.io/ApplicationPortfolio/",
+    github: "https://github.com/pjpetro",
+    linkedIn: "https://www.linkedin.com/in/patrick-j-petro/"
   },
   {
     id: 2,
     image: "https://avatars1.githubusercontent.com/u/56569868?v=4",
-    name: "Patrick Dunn"
-    // url:
+    name: "Patrick Dunn",
+    portfolio: "https://knightmac19.github.io/R-profile/",
+    github: "https://api.github.com/users/knightmac19",
+    linkedIn: "https://www.linkedin.com/in/patrick-dunn-3a14249b/"
   },
   {
     id: 3,
     image: "https://avatars1.githubusercontent.com/u/57408540?v=4",
     name: "Matt Dambra",
-    url: "https://mattdambra.com/"
+    portfolio: "https://mattdambra.com/",
+    github: "https://api.github.com/users/superrmatt",
+    linkedIn: "https://www.linkedin.com/in/mattdambra/"
   },
   {
     id: 4,
     image: "https://avatars3.githubusercontent.com/u/56893630?v=4",
     name: "Shelby Palumbo",
-    url: "https://shelbypalumbo.github.io/Shelby-Palumbo-React-Portfolio/"
+    portfolio:
+      "https://shelbypalumbo.github.io/Shelby-Palumbo-React-Portfolio/",
+    github: "https://github.com/shelbypalumbo",
+    linkedIn: "https://www.linkedin.com/in/shelby-palumbo-a96748196/"
   }
 ];
