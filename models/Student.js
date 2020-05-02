@@ -21,14 +21,14 @@ const StudentSchema = new Schema({
 
    TeacherID: {
      type: String
-   }
+   },
 
-  // matrices: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: "Matrix"
-  //   }
-  // ]
+   matrices: [
+     {
+       type: Schema.Types.ObjectId,
+       ref: "Matrix"
+     }
+   ]
 });
 
 const Student = mongoose.model("Student", StudentSchema);

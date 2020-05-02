@@ -59,6 +59,7 @@ export default {
   // // ------------------------------------------------------------
 
    createMatrix: matrix => {
+     console.log("hello");
      return axios.post("/api/creatematrix", matrix);
    }
 };
