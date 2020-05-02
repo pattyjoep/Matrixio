@@ -19,9 +19,9 @@ const StudentSchema = new Schema({
     default: Date.now
   },
 
-  TeacherID: {
-    type: String
-  }
+  // TeacherID: {
+  //   type: String
+  // }
 
   // matrices: [
   //   {
