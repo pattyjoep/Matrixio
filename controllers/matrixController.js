@@ -26,10 +26,10 @@ module.exports = {
         console.log(matrix);
 
         db.Student.findByIdAndUpdate(
-          Matrix.StudentID,
+          matrix.StudentID,
           {
             $push: {
-              students: student._id
+              matrices: matrix._id
             }
           },
           { new: true }
