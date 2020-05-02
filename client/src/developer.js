@@ -12,7 +12,7 @@ export default [
     image: "https://avatars1.githubusercontent.com/u/56569868?v=4",
     name: "Patrick Dunn",
     portfolio: "https://knightmac19.github.io/R-profile/",
-    github: "https://api.github.com/users/knightmac19",
+    github: "https://github.com/knightmac19",
     linkedIn: "https://www.linkedin.com/in/patrick-dunn-3a14249b/"
   },
   {
@@ -20,7 +20,7 @@ export default [
     image: "https://avatars1.githubusercontent.com/u/57408540?v=4",
     name: "Matt Dambra",
     portfolio: "https://mattdambra.com/",
-    github: "https://api.github.com/users/superrmatt",
+    github: "https://github.com/superrmatt",
     linkedIn: "https://www.linkedin.com/in/mattdambra/"
   },
   {
