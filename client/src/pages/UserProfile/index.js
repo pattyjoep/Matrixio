@@ -9,10 +9,9 @@ import API from "../../utils/API";
 
 function UserProfile() {
   const [TeacherID, setTeacherID] = useState();
-
   const [TeacherFName, setTeacherFName] = useState();
   const [TeacherLName, setTeacherLName] = useState();
-  
+
   const getID = str => {
     let newstr = str.split("=")[1];
     setTeacherID(newstr);
@@ -25,15 +24,15 @@ function UserProfile() {
   const deleteAccount = () => {
     let data = {
       TeacherID: TeacherID
-    }
-    console.log(data)
+    };
+    console.log(data);
 
     API.deleteTeacher(data)
       .then(res => {
         console.log(res);
       })
       .catch(err => {
-        console.log(err)
+        console.log(err);
       });
   };
 
@@ -52,10 +51,8 @@ function UserProfile() {
         console.log(res);
       })
       .catch(err => {
-        console.log(err)
+        console.log(err);
       });
-      
-
   };
 
   return (
@@ -71,24 +68,34 @@ function UserProfile() {
             <form onSubmit={handleSubmit}>
               <label htmlFor="fname">First name:</label>
               <br />
-              <input type="text" name="fname" onChange={e => setTeacherFName(e.target.value)}/>
+              <input
+                type="text"
+                name="fname"
+                onChange={e => setTeacherFName(e.target.value)}
+              />
               <br />
               <label htmlFor="lname">Last name:</label>
               <br />
-              <input type="text" name="lname" onChange={e => setTeacherLName(e.target.value)}/>
+              <input
+                type="text"
+                name="lname"
+                onChange={e => setTeacherLName(e.target.value)}
+              />
               <br />
               <button type="submit" className="btn login-Btn ml-auto">
                 submit
               </button>
             </form>
             <br />
-            <button type="button" className ="btn btn-danger" name="deleteTeacher" onClick={deleteAccount}>
-              Delete Account   
+            <button
+              type="button"
+              className="btn btn-danger"
+              name="deleteTeacher"
+              onClick={deleteAccount}
+            >
+              Delete Account
             </button>
           </Row>
-          
-            
-          
         </Row>
       </Container>
     </div>
