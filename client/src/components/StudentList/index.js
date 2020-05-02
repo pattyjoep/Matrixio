@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 // import { Link } from "react-router-dom";
 import API from "../../utils/API";
@@ -7,6 +7,38 @@ import GenerateMatrix from "../GenerateMatrix";
 import { Modal, Button, Form } from "react-bootstrap";
 
 function StudentList(props) {
+  
+  // const getStudentNames = (arr, stu) => {
+  //   const stuArr = arr.map(stu => {
+  //     return mapped = {
+  //       _id: _id,
+  //       TeacherID: TeacherID,
+  //       firstName: firstName,
+  //       lastName: lastName,
+  //       dateCreated: dateCreated,
+  //       fullName: fullName,
+  //       lastUpdated: lastUpdated
+  //     }
+  //   });
+  //   return stuArr;
+  // };
+
+  // useEffect(() => {
+  //   console.log("inside useEffect --------")
+  //   console.log(props);
+  //   API.getTeacher(props.TeacherID)
+  //     .then(teacherResult => {
+  //       console.log("teacherResult----")
+  //       console.log(teacherResult);
+  //       setStudentsArr(getStudentNames(teacherResult.data.students, teacher))
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     })
+  // }, [props]);
+
+  // const [studentsArr, setStudentsArr] = useState();
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -15,8 +47,6 @@ function StudentList(props) {
 
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
-
-
 
 
   const saveModal = e => {

@@ -19,9 +19,9 @@ export default {
 
   // /api/teacher/:id -------------------------------
 
-  // getTeacher: id => {
-  //   return axios.get("/api/teacher/" + id);
-  // },
+  getTeacher: id => {
+    return axios.get("/api/teacher/" + id);
+  },
 
   updateTeacher: ({ TeacherID, firstName, lastName }) => {
     return axios.put("/api/teacher/" + TeacherID, {

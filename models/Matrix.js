@@ -7,6 +7,11 @@
    
    StudentID: {
     type: String
+   },
+
+   dateCreated: {
+     type: Date,
+     default: Date.now
    }
   
  });

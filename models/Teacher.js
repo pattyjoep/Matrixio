@@ -39,13 +39,13 @@ const TeacherSchema = new Schema({
     default: Date.now
   },
 
-  // fullName: {
-  //   type: String
-  // },
+  fullName: {
+    type: String
+  },
 
-  // lastUpdated: {
-  //   type: Date
-  // },
+  lastUpdated: {
+    type: Date
+  },
 
   students: [
     {
@@ -55,21 +55,21 @@ const TeacherSchema = new Schema({
   ]
 });
 
-// TeacherSchema.methods.setFullName = () => {
-//   this.fullName = `${this.firstName} ${this.lastName}`;
-//   console.log("set full name");
-//   console.log(this.fullName);
+TeacherSchema.methods.setFullName = function() {
+  this.fullName = `${this.firstName} ${this.lastName}`;
+  console.log("set full name");
+  console.log(this.fullName);
 
-//   return this.fullName;
-// };
+  return this.fullName;
+};
 
-// this.methods.setLastUpdated = () => {
-//   this.lastUpdated = Date.now();
-//   console.log("set last updated")
-//   console.log(this.lastUpdated);
+TeacherSchema.methods.setLastUpdated = function() {
+  this.lastUpdated = Date.now();
+  console.log("set last updated")
+  console.log(this.lastUpdated);
 
-//   return this.lastUpdated;
-// };
+  return this.lastUpdated;
+};
 
 const Teacher = mongoose.model("Teacher", TeacherSchema);
 
