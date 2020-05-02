@@ -22,7 +22,7 @@ function developerCard(props) {
           rel="noreferrer noopener"
           target="_blank"
         >
-          <i class="fas fa-laptop"></i>&nbsp;Portfolio
+          <i className="fas fa-laptop"></i>&nbsp;Portfolio
         </a>{" "}
         <br />
         <a
@@ -31,7 +31,7 @@ function developerCard(props) {
           rel="noreferrer noopener"
           target="_blank"
         >
-          <i class="fab fa-github"></i>&nbsp; Github
+          <i className="fab fa-github"></i>&nbsp; Github
         </a>{" "}
         <br />
         <a
@@ -40,7 +40,7 @@ function developerCard(props) {
           rel="noreferrer noopener"
           target="_blank"
         >
-          <i class="fab fa-linkedin"></i> &nbsp; LinkedIn
+          <i className="fab fa-linkedin"></i> &nbsp; LinkedIn
         </a>
       </div>
     </div>

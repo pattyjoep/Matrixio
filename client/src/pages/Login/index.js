@@ -47,15 +47,15 @@ function Login() {
           <div className="card-body">
             <h5 className="card-title">
               Login{" "}
-              <button
+              <a
                 href="#"
                 data-toggle="tooltip"
                 data-html="true"
                 data-placement="bottom"
                 title="Matrixio is an application for educators seeking to create a Training Matrix for...."
               >
-                <i className="far fa-question-circle login-question-mark "></i>
-              </button>
+                <i className="far fa-question-circle login-question-mark"></i>
+              </a>
             </h5>
             <p className="card-text"></p>
             <form onSubmit={handleSubmit}>

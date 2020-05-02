@@ -34,11 +34,11 @@ function NavBar(props) {
             </li>
           </ul>
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <button className="nav-link main" href="#">
                 <i className="fa fa-cog icon-settings"> Settings</i>
               </button>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link className="nav-link main" to="/">
                 <i className="fas fa-sign-out-alt"> Logout</i>
