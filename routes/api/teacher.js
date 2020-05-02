@@ -14,10 +14,10 @@ router
 router.route("/login").post(teacherController.findOne);
 
 //Matches with /api/teacher/signup
-// router
-//   .route("/signup")
-//   .get(teacherController.findOne)
-//   .post(teacherController.create);
+ router
+   .route("/signup")
+   .get(teacherController.findOne)
+   .post(teacherController.create);
 
 //Matches with "/api/teacher/:id"
 router
