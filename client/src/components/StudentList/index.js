@@ -16,9 +16,6 @@ function StudentList(props) {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
 
-
-
-
   const saveModal = e => {
     e.preventDefault();
     console.log(`firstName: ${firstName}`);
@@ -48,6 +45,21 @@ function StudentList(props) {
         });
     }
   };
+
+  // const deleteStudent = () => {
+  //   let data = {
+  //     TeacherID: TeacherID
+  //   };
+  //   console.log(data);
+
+  //   API.deleteTeacher(data)
+  //     .then(res => {
+  //       console.log(res);
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // };
 
   // const createAccordion = (user) => {
   //   console.log(user)
@@ -99,6 +111,7 @@ function StudentList(props) {
           <Button variant="success" onClick={saveModal}>
             Save
           </Button>
+          <Button variant="delete">Save</Button>
         </Modal.Footer>
       </Modal>
       <div className="accordion" id="accordionExample">

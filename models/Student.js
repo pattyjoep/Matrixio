@@ -13,22 +13,22 @@ const StudentSchema = new Schema({
     trim: true,
     required: true
   },
-  
+
   dateCreated: {
     type: Date,
     default: Date.now
   },
 
-   TeacherID: {
-     type: String
-   },
+  TeacherID: {
+    type: String
+  },
 
-   matrices: [
-     {
-       type: Schema.Types.ObjectId,
-       ref: "Matrix"
-     }
-   ]
+  matrices: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Matrix"
+    }
+  ]
 });
 
 const Student = mongoose.model("Student", StudentSchema);

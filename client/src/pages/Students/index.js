@@ -17,6 +17,7 @@ function Students(props) {
   useEffect(() => {
     getID(window.location.href);
   }, []);
+
   console.log("Students page");
 
   return (

@@ -19,7 +19,7 @@ function developerCard(props) {
         <a
           href={props.portfolio}
           className="developer-links"
-          el="noreferrer noopener"
+          rel="noreferrer noopener"
           target="_blank"
         >
           <i class="fas fa-laptop"></i>&nbsp;Portfolio
@@ -28,7 +28,7 @@ function developerCard(props) {
         <a
           href={props.github}
           className="developer-links"
-          el="noreferrer noopener"
+          rel="noreferrer noopener"
           target="_blank"
         >
           <i class="fab fa-github"></i>&nbsp; Github
@@ -37,7 +37,7 @@ function developerCard(props) {
         <a
           href={props.linkedIn}
           className="developer-links"
-          el="noreferrer noopener"
+          rel="noreferrer noopener"
           target="_blank"
         >
           <i class="fab fa-linkedin"></i> &nbsp; LinkedIn
