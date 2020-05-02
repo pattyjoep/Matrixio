@@ -9,7 +9,7 @@ const MatrixSchema = new Schema({
     type: String
   }
 
-});
+}, { collection: "matrices" });
 
 const Matrix = mongoose.model("Matrix", MatrixSchema);
 
