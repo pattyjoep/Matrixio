@@ -19,7 +19,7 @@ module.exports = {
     console.log("1 - create");
     const matrix = req.body;
     console.log(matrix);
-
+    
     db.Matrix.create(matrix)
       .then(matrix => {
         console.log("2 - then");
