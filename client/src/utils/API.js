@@ -42,7 +42,7 @@ export default {
 
   createStudent: studentData => {
     return axios.post("/api/student", studentData);
-  }
+  },
 
   // getStudent: id => {
   //   return axios.get("/api/student/", id);
@@ -58,7 +58,7 @@ export default {
 
   // // ------------------------------------------------------------
 
-  // createMatrix: matrix => {
-  //   return axios.post("/api/creatematrix", matrix);
-  // }
+   createMatrix: matrix => {
+     return axios.post("/api/creatematrix", matrix);
+   }
 };

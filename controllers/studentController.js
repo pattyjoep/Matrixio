@@ -2,6 +2,7 @@ const db = require("../models");
 
 //Methods for studentRoutes.js
 module.exports = {
+  
   findAll: (req, res) => {
     console.log("begin stu find all");
     db.Student.find(req.query)
