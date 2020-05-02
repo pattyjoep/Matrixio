@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./style.css";
 import HomeNav from "../../components/HomeNav";
 import { Col, Row } from "../../components/Grid";

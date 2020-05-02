@@ -37,29 +37,40 @@ module.exports = {
   },
 
   findAll: (req, res) => {
+    console.log("begin teach find all");
     db.Teacher.find(req.query)
       .populate("students")
-      .sort({ lastName: -1 })
-      .then(dbTeacher => res.json(dbTeacher))
-      .catch(err => res.status(422).json(err));
+      .sort({ dateCreated: -1 })
+      .then(dbTeacher => {
+        res.json(dbTeacher);
+      })
+      .catch(err => {
+        res.status(422).json(err);
+      });
   },
 
-  findById: (req, res) => {
-    db.Teacher.findById(req.params.id)
-      .populate("students")
-      .then(dbTeacher => res.json(dbTeacher))
-      .catch(err => res.status(422).json(err));
-  },
+  // findById: (req, res) => {
+  //   db.Teacher.findById(req.params.id)
+  //     .populate("students")
+  //     .then(dbTeacher => res.json(dbTeacher))
+  //     .catch(err => res.status(422).json(err));
+  // },
 
   create: (req, res) => {
-    console.log("I'm hitting the mongoose create");
+    console.log("beginning backend teacher creation");
     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
       if (err) {
         console.log(err);
       } else {
         req.body.password = hash;
+        // const teacher = new db.Teacher(req.body);
+        // teacher.setFullName();
+        // teacher.setLastUpdated();
+        
         db.Teacher.create(req.body)
-          .then(dbTeacher => res.json(dbTeacher))
+          .then(dbTeacher => {
+            res.json(dbTeacher);
+          })
           .catch(err => {
             res.status(422).json(err);
             console.log(err);
@@ -68,16 +79,46 @@ module.exports = {
     });
   },
 
+  
+
   update: (req, res) => {
-    db.Teacher.findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbTeacher => res.json(dbTeacher))
+    console.log("begin update")
+    console.log(req.body);
+    console.log("params")
+    console.log(req.params);
+    // console.log(req.body.TeacherID),
+    
+    db.Teacher.findOneAndUpdate(
+      req.params.id, 
+      {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName
+      },
+      {
+        new: true
+      }
+      )
+      .then(dbTeacher => {
+        console.log("dbTeacher here");
+        res.json(dbTeacher);
+        
+      })
       .catch(err => res.status(422).json(err));
   },
 
-  remove: (req, res) => {
-    db.Teacher.findById({ _id: req.params.id })
-      .then(dbTeacher => dbTeacher.remove())
-      .then(dbTeacher => res.json(dbTeacher))
-      .catch(err => res.status(422).json(err));
+  delete: (req, res) => {
+    console.log("begin delete")
+    console.log(req.body);
+    let message = `Teacher ${req.body.id.TeacherID} destroyed`;
+    db.Teacher.findByIdAndDelete(
+      req.body.id.TeacherID
+    )
+    .then(result => {
+      console.log(message);
+      res.json(result);
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
 };

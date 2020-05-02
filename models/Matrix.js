@@ -1,12 +1,12 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+// const mongoose = require("mongoose");
+// const Schema = mongoose.Schema;
 
-const MatrixSchema = new Schema({
+// const MatrixSchema = new Schema({
   
-  matrix: Object
+//   matrix: Object
   
-});
+// });
 
-const Matrix = mongoose.model("Matrix", MatrixSchema);
+// const Matrix = mongoose.model("Matrix", MatrixSchema);
 
-module.exports = Matrix;
+// module.exports = Matrix;
