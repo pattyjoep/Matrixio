@@ -7,3 +7,9 @@
 .card-text {
   color: rgb(156, 30, 146);
 }
+.developer-links {
+  color: gray;
+}
+.developer-links:hover {
+  color: teal;
+}
