@@ -8,10 +8,10 @@ router
   .post(studentController.create);
 
 // Matches with "/api/student/:id"
-router
-  .route("/:id")
-  .get(studentController.findById)
-  .put(studentController.update)
-  .delete(studentController.remove);
+// router
+//   .route("/:id")
+//   .get(studentController.findById)
+//   .put(studentController.update)
+//   .delete(studentController.remove);
 
 module.exports = router;
