@@ -32,34 +32,13 @@ function NavBar(props) {
                 <i className="fa fa-graduation-cap"></i> My Students
               </Link>
             </li>
-            <li className="nav-item dropdown">
-              <button
-                className="main dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <i className="fa fa-plus"></i> Add
-              </button>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link className="dropdown-item" to="/TrainingMatrices">
-                  Training Matrix
-                </Link>
-                <div className="dropdown-divider"></div>
-                <Link className="dropdown-item" to="/Students">
-                  Students
-                </Link>
-              </div>
-            </li>
           </ul>
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <button className="nav-link main" href="#">
                 <i className="fa fa-cog icon-settings"> Settings</i>
               </button>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link className="nav-link main" to="/">
                 <i className="fas fa-sign-out-alt"> Logout</i>

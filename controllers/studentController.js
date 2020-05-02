@@ -2,10 +2,11 @@ const db = require("../models");
 
 //Methods for studentRoutes.js
 module.exports = {
-  
+
   findAll: (req, res) => {
     console.log("begin stu find all");
     db.Student.find(req.query)
+      .populate("matrices")
       .sort({ dateCreated: -1 })
       .then(dbStudent => {
         res.json(dbStudent);
@@ -22,23 +23,24 @@ module.exports = {
     student.setLastUpdated();
     console.log(student);
 
-    db.Student.create(student).then(student => {
-      console.log("inside then");
-      console.log(student);
+    db.Student.create(student)
+      .then(student => {
+        console.log("inside then");
+        console.log(student);
 
-      db.Teacher.findByIdAndUpdate(
-        student.TeacherID,
-        {
-          $push: {
-            students: student._id
-          }
-        },
-        { new: true }
-      ).then(dbTeacher => {
-        console.log("dbTeacher----");
-        console.log(dbTeacher);
-        res.json(dbTeacher);
+        db.Teacher.findByIdAndUpdate(
+          student.TeacherID,
+          {
+            $push: {
+              students: student._id
+            }
+          },
+          { new: true }
+        ).then(dbTeacher => {
+          console.log("dbTeacher----");
+          console.log(dbTeacher);
+          res.json(dbTeacher);
+        });
       });
-    });
   }
 };

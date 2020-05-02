@@ -21,17 +21,17 @@ function HomeNav() {
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link className="nav-link home-nav" to="/">
-                Home
+                <i className="fas fa-home"></i> &nbsp;Home
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link home-nav" to="/Team">
-                Matrixio Team
+                <i className="fas fa-users"></i> &nbsp;Matrixio Team
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link home-nav" to="/Contact">
-                Contact
+                <i className="far fa-hand-paper"></i> &nbsp;Contact
               </Link>
             </li>
           </ul>
