@@ -37,9 +37,9 @@ export default {
   //   return axios.get("/api/student");
   // },
 
-  // createStudent: studentData => {
-  //   return axios.post("/api/student", studentData);
-  // },
+  createStudent: studentData => {
+    return axios.post("/api/student", studentData);
+  },
 
   // getStudent: id => {
   //   return axios.get("/api/student/", id);

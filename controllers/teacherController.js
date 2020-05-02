@@ -37,11 +37,16 @@ module.exports = {
   },
 
   findAll: (req, res) => {
+    console.log("begin teach find all");
     db.Teacher.find(req.query)
-      // .populate("students")
+      .populate("students")
       .sort({ dateCreated: -1 })
-      .then(dbTeacher => res.json(dbTeacher))
-      .catch(err => res.status(422).json(err));
+      .then(dbTeacher => {
+        res.json(dbTeacher);
+      })
+      .catch(err => {
+        res.status(422).json(err);
+      });
   },
 
   // findById: (req, res) => {
@@ -52,7 +57,7 @@ module.exports = {
   // },
 
   create: (req, res) => {
-    console.log("I'm hitting the mongoose create");
+    console.log("beginning backend teacher creation");
     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
       if (err) {
         console.log(err);

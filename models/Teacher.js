@@ -47,12 +47,12 @@ const TeacherSchema = new Schema({
   //   type: Date
   // }
 
-  // students: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: "Student"
-  //   }
-  // ]
+  students: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Student"
+    }
+  ]
 });
 
 // TeacherSchema.methods.setFullName = () => {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 // import { Link } from "react-router-dom";
-// import API from "../../utils/API";
+import API from "../../utils/API";
 import GenerateMatrix from "../GenerateMatrix"
 
 import { Modal, Button, Form } from "react-bootstrap";
@@ -27,42 +27,45 @@ function StudentList(props) {
     if (!firstName || !lastName) {
       return;
     } 
-    // else {
-    //   let data = {
-    //     TeacherID: props.TeacherID,
-    //     firstName: firstName,
-    //     lastName: lastName
-    //   };
-    //   API.createStudent(data)
-    //     .then(res => {
-    //       //When the new user is created successfully, the redirect will be set to true and the page will redirected to the login page
-    //       // setRedirectToLogin(true);
-    //     })
-    //     .catch(err => {
-    //       console.log(err);
-    //     })
-    //     .then(() => {
-    //       setShow(false);
-    //     });
-    // }
+    else {
+      let data = {
+        TeacherID: props.TeacherID,
+        firstName: firstName,
+        lastName: lastName
+      };
+      console.log("frontend data console")
+      console.log(data);
+      API.createStudent(data)
+        .then(res => {
+          // When the new user is created successfully, the redirect will be set to true and the page will redirected to the login page
+          // setRedirectToLogin(true);
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        })
+        .then(() => {
+          setShow(false);
+        });
+    }
   };
 
-  const createAccordion = (user) => {
-    console.log(user)
+  // const createAccordion = (user) => {
+  //   console.log(user)
 
-    // API.getStudent() 
+  //   API.getStudent() 
 
-    // .then(res => {
-    //   //When the new user is created successfully, the redirect will be set to true and the page will redirected to the login page
-    //   // setRedirectToLogin(true);
-    // })
-    // .catch(err => {
-    //   console.log(err);
-    // })
-    // .then(() => {
-    //   setShow(false);
-    // });
-  } 
+  //   .then(res => {
+  //     //When the new user is created successfully, the redirect will be set to true and the page will redirected to the login page
+  //     // setRedirectToLogin(true);
+  //   })
+  //   .catch(err => {
+  //     console.log(err);
+  //   })
+  //   .then(() => {
+  //     setShow(false);
+  //   });
+  // } 
 
   return (
     <div>
@@ -101,11 +104,11 @@ function StudentList(props) {
         <div className="card">
           <div className="card-header student-list-header" id="headingOne">
             <h2 className="mb-0">
-              <button className="btn" type="button" onClick={createAccordion}>
+              {/* <button className="btn" type="button" onClick={createAccordion}>
                 <a className="student-list-header-link">
                   <i className="fa fa-graduation-cap"></i> My Students
                 </a>
-              </button>
+              </button> */}
               <Button className="add-student-link" data-toggle="modal" onClick={handleShow}>
                 <i className="fa fa-plus"></i>
               </Button>

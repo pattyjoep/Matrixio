@@ -1,43 +1,45 @@
-// const db = require("../models");
+const db = require("../models");
 
-// //Methods for studentRoutes.js
-// module.exports = {
-//   update: (req, res) => {
-//     db.Student.findOneAndUpdate({ _id: req.params.id }, req.body)
-//       .then(dbStudent => res.json(dbStudent))
-//       .catch(err => res.status(422).json(err));
-//   },
+//Methods for studentRoutes.js
+module.exports = {
+  
 
-//   create: (req, res) => {
-//     const student = req.body;
-//     console.log(student);
+  findAll: (req, res) => {
+    console.log("begin stu find all");
+    db.Student.find(req.query)
+      .sort({ dateCreated: -1 })
+      .then(dbStudent => {
+        res.json(dbStudent);
+      })
+      .catch(err => {
+        res.status(422).json(err);
+      });
+  },
 
-//     db.Student.create(student)
-//       .then(student =>
-//         db.Teacher.findByIdAndUpdate(
-//           student.TeacherID,
-//           {
-//             $push: {
-//               students: student._id
-//             }
-//           },
-//           {
-//             new: true,
-//             useFindAndModify: false
-//           }
-//         )
-//         .then(
-//           dbTeacher => {
-//             console.log("dbTeacher: --------------------");
-//             console.log(dbTeacher);
-//             // res.json(dbTeacher);
-//           }
-//         )
-//       )
-      
+  create: (req, res) => {
+    console.log("beginning backend student creation");
+    const student = req.body;
+    console.log(student);
 
-//       .catch(err => {
-//         res.json(err);
-//       });
-//   }
-// };
+    db.Student.create(student)
+      .then(student => {
+        console.log("inside then");
+        console.log(student);
+        
+        db.Teacher.findByIdAndUpdate(
+          student.TeacherID,
+          {
+            $push: {
+              students: student._id
+            }
+          },
+          { new: true }
+        )
+        .then(dbTeacher => {
+          console.log("dbTeacher----");
+          console.log(dbTeacher);
+          res.json(dbTeacher);
+        })
+      })
+  }
+};

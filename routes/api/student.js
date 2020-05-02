@@ -1,9 +1,10 @@
-// const router = require("express").Router();
-// const studentController = require("../../controllers/studentController");
+const router = require("express").Router();
+const studentController = require("../../controllers/studentController");
 
-// //Matches with "/api/student"
-// router
-//   .route("/")
-//   .post(studentController.create)
+//Matches with "/api/student"
+router
+  .route("/")
+  .get(studentController.findAll)
+  .post(studentController.create);
 
-// module.exports = router;
+module.exports = router;
