@@ -24,3 +24,10 @@ p {
   border-radius: 20px;
   background-color: rgb(240, 238, 238);
 }
+
+.uiImg {
+  float: right;
+  width: 30%;
+  border-radius: 20px;
+  padding: 5px;
+}

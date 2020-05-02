@@ -31,7 +31,7 @@ function HomeNav() {
             </li>
             <li className="nav-item">
               <Link className="nav-link home-nav" to="/Contact">
-                Contact Us
+                Contact
               </Link>
             </li>
           </ul>
