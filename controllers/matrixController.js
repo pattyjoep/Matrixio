@@ -1,12 +1,29 @@
 const db = require("../models");
 
-//Methods for matrixRoutes.js
+/**
+ * * * * * * * Matrix Controller * * * * * * * 
+ * TODO: matrix can be passed as anything, this is dangerous: 
+ *  can update id, 
+ *  risks data integrity.
+ * 
+ * Matrix Controller responsible for handling axios requests to the server.
+ * FindAll: returns all matrices in collection.
+ * findById: finds matrix by id.
+ * create: creates new matrix as { }.
+ * update: finds matrix and updates as { }.
+ * remove: finds matrix and deletes.
+ */
 module.exports = {
   findAll: function (req, res) {
-    db.Matrix.find(req.query)
-      .sort({ _id: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+db.Matrix.find({ }, function(err, docs) {
+    if (!err) { 
+        console.log(docs);
+        process.exit();
+    }
+    else {
+        throw err;
+    }
+});
   },
 
   findById: function (req, res) {
@@ -42,7 +59,8 @@ module.exports = {
   },
 
   /**
-   * TODO: Update studentwith their new matrix.
+   * TODO: Update student with their new matrix, if studentid changes.
+   * req.body needs to be formatted in /../client/src/utils/API.js
    * @param {*} req 
    * @param {*} res 
    */

@@ -33,7 +33,7 @@ export default {
   },
 
   deleteTeacher: id => {
-    return axios.delete("/api/teacher/", { data: { id } });
+    return axios.delete("/api/teacher", { data: { id } });
   },
 
 
@@ -52,15 +52,15 @@ export default {
   },
 
   getStudent: id => {
-    return axios.get("/api/student/", id);
+    return axios.get("/api/student", id);
   },
 
   // updateStudent: id => {
-  //   return axios.put("/api/student" + id);
+  //   return axios.put("/api/student/" + id);
   // },
 
   deleteStudent: id => {
-    return axios.delete("/api/student/", {data: { id } });
+    return axios.delete("/api/student", {data: { id } });
   },
 
 
@@ -78,7 +78,8 @@ export default {
   /**
    * TODO: Prevent any object from being passed.
    * Need to figure out how to handlem atrices on front end.
-   * Currently can pass any object as matrix. Allows updating of ObjectID
+   * Currently can pass any object as matrix. Allows updating of ObjectID.
+   * Risks data integrity.
    */
   updateMatrix: ({ matrix }, id) => {
     console.log("axios - updatematrix");
@@ -88,6 +89,10 @@ export default {
   deletematrix: id => {
     console.log("axios - deletematrix");
     return axios.delete("/api/matrix/" + id)
-  }
-  
+  },
+
+  getAllMatrices: () => {
+    console.log("axios - findall");
+    return axios.get("/api/matrix");
+  },
 };
