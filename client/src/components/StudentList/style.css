@@ -15,13 +15,19 @@
   background-color: #2ac0ad;
 }
 
-.delete-student-link,
-.delete-student-link:hover {
+.delete-student-link {
   color: rgb(245, 50, 50);
   background-color: #ffffff;
   border: none;
   float: right;
   font-size: 20pt;
+}
+.delete-student-link:hover {
+  color: rgb(245, 50, 50);
+  background-color: #ffffff;
+  border: none;
+  float: right;
+  font-size: 25pt;
 }
 
 .list-group-item.active {

@@ -14,12 +14,22 @@
   height: 130px;
   margin-left: auto;
   margin-right: auto;
-  /* -webkit-box-reflect: below -10px -webkit-gradient(
-      linear,
-      left top,
-      left bottom,
-      from(transparent),
-      color-stop(0.5, transparent),
-      to(white)
-    ); */
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  animation: mymove 10s infinite;
+  animation-delay: 1s;
+  animation-direction: alternate;
+}
+
+@keyframes mymove {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 680px;
+  }
 }
