@@ -13,16 +13,20 @@ function UserProfile() {
   const [UpdateLName, setUpdateLName] = useState();
   const [getTeacher, setGetTeacher] = useState(false);
   const [TeacherData, setTeacherData] = useState({});
+  // const [runEffect, setRunEffect] = useState(true)
 
   const getID = str => {
     let newstr = str.split("=")[1];
     setTeacherID(newstr);
-    setGetTeacher(true);
+    
   };
 
+  
+
   useEffect(() => {
+    setGetTeacher(true);
     getID(window.location.href);
-  }, []);
+  });
 
   useEffect(() => {
     if (getTeacher) {
@@ -77,7 +81,10 @@ function UserProfile() {
 
   return (
     <div>
-      <NavBar TeacherID={TeacherID} />
+      <div>
+        { TeacherID ? <NavBar TeacherID={TeacherID} /> : null }
+      </div>
+      
       <Container>
         <Row>
           <Col size="sm-12 lg-6">
