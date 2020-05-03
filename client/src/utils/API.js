@@ -62,7 +62,7 @@ export default {
   deleteStudent: id => {
     return axios.delete("/api/student/", {data: { id } });
   },
-  
+
 
   /**
   * * * * * * * * * * * * * * * * * * * * * *
@@ -75,6 +75,11 @@ export default {
     return axios.post("/api/matrix", matrix);
   },  
   
+  /**
+   * TODO: Prevent any object from being passed.
+   * Need to figure out how to handlem atrices on front end.
+   * Currently can pass any object as matrix. Allows updating of ObjectID
+   */
   updateMatrix: ({ matrix }, id) => {
     console.log("axios - updatematrix");
     return axios.put("/api/matrix/" + id, matrix);
