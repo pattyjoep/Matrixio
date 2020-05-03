@@ -71,7 +71,7 @@ export default {
   * */
 
   createMatrix: matrix => {
-    console.log("axios - creatematrix");
+    JSON.stringify(matrix);
     return axios.post("/api/matrix", matrix);
   },  
   
@@ -82,17 +82,14 @@ export default {
    * Risks data integrity.
    */
   updateMatrix: ({ matrix }, id) => {
-    console.log("axios - updatematrix");
     return axios.put("/api/matrix/" + id, matrix);
   },
 
   deletematrix: id => {
-    console.log("axios - deletematrix");
     return axios.delete("/api/matrix/" + id)
   },
 
   getAllMatrices: () => {
-    console.log("axios - findall");
     return axios.get("/api/matrix");
   },
 };

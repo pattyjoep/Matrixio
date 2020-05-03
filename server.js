@@ -17,9 +17,9 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Matrixio", { 
   useUnifiedTopology: true, 
   useNewUrlParser: true,
-  useCreateIndex: true 
+  useCreateIndex: true,
+  useFindAndModify: false 
 });
-
 
 app.listen(PORT, () => {
   console.log(`🌎  ==> Listening on PORT ${PORT}!`);
