@@ -103,7 +103,9 @@ module.exports = {
       req.params.id,
       {
         firstName: req.body.firstName,
-        lastName: req.body.lastName
+        lastName: req.body.lastName,
+        fullName: req.body.firstName + " " + req.body.lastName,
+        lastUpdated: Date.now()
       },
       {
         new: true
