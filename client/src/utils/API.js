@@ -1,11 +1,15 @@
 import axios from "axios";
 
 export default {
-  // /api/teacher --------------------------------------
+
+  /**
+  * * * * * * * * * * * * * * * * * * * * * * 
+  * * * * * * Teacher  Operations * * * * * * 
+  * * * * * * * * * * * * * * * * * * * * * * 
+  * */ 
 
   authenticateTeacher: data => {
     console.log("Teacher authentication data!", data);
-    //Post request is used because get does not accept req.body, /login was missing which was needed from the /login route on the backend
     return axios.post("/api/teacher/login", data);
   },
 
@@ -16,8 +20,6 @@ export default {
   createTeacher: teacherData => {
     return axios.post("/api/teacher", teacherData);
   },
-
-  // /api/teacher/:id -------------------------------
 
   getTeacher: id => {
     return axios.get("/api/teacher/" + id);
@@ -34,7 +36,11 @@ export default {
     return axios.delete("/api/teacher/", { data: { id } });
   },
 
-  // ------------------------------------------------------------
+  /**
+  * * * * * * * * * * * * * * * * * * * * * * 
+  * * * * * * Student  Operations * * * * * *  
+  * * * * * * * * * * * * * * * * * * * * * * 
+  * */ 
 
   // getAllStudents: () => {
   //   return axios.get("/api/student");
@@ -56,10 +62,25 @@ export default {
   //   return axios.delete("/api/student/", id);
   // },
 
-  // // ------------------------------------------------------------
+  /**
+  * * * * * * * * * * * * * * * * * * * * * * 
+  * * * * * * Matrix Operations * * * * * * * 
+  * * * * * * * * * * * * * * * * * * * * * * 
+  * */ 
 
   createMatrix: matrix => {
-    console.log("axios");
-    return axios.post("/api/creatematrix", matrix);
+    console.log("axios - creatematrix");
+    return axios.post("/api/matrix", matrix);
+  },  
+  
+  updateMatrix: ({ matrix }, id) => {
+    console.log("axios - updatematrix");
+    return axios.put("/api/matrix/" + id, matrix);
+  },
+
+  deletematrix: id => {
+    console.log("axios - deletematrix");
+    return axios.delete("/api/matrix/" + id)
   }
+  
 };

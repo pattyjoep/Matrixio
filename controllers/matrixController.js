@@ -41,6 +41,11 @@ module.exports = {
       });
   },
 
+  /**
+   * TODO: Update studentwith their new matrix.
+   * @param {*} req 
+   * @param {*} res 
+   */
   update: function (req, res) {
     db.Matrix.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
