@@ -33,7 +33,7 @@ export default {
   },
 
   deleteTeacher: id => {
-    return axios.delete("/api/teacher", { data: { id } });
+    return axios.delete("/api/teacher/", { data: { id } });
   },
 
 
@@ -52,15 +52,15 @@ export default {
   },
 
   getStudent: id => {
-    return axios.get("/api/student", id);
+    return axios.get("/api/student/", id);
   },
 
   // updateStudent: id => {
-  //   return axios.put("/api/student/" + id);
+  //   return axios.put("/api/student" + id);
   // },
 
   deleteStudent: id => {
-    return axios.delete("/api/student", {data: { id } });
+    return axios.delete("/api/student/", {data: { id } });
   },
 
 
