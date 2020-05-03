@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
+import API from "../../utils/API";
 
 function NavBar(props) {
+  const [TeacherID, setTeacherID] = useState();
+
+  useEffect(() => {
+    API.getTeacher(props.TeacherID)
+        .then(res => {
+          console.log("Navbar get Teacher----");
+          console.log(res.data);
+          setTeacherID(res.data._id);
+        })
+        .catch(err => {
+          console.log(err);
+        })
+  }, [TeacherID]);
+
+  // console.log(`Navbar props ${JSON.stringify(props)}`);
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark tab-bar">
@@ -20,14 +37,14 @@ function NavBar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link className="nav-link main" to="/UserProfile">
+              <Link className="nav-link main" to={`/UserProfile?=${TeacherID}`}>
                 <i className="fa fa-user"></i> My Profile
               </Link>
             </li>
             <li className="nav-item">
               <Link
                 className="nav-link main"
-                to={`/Students?=${props.TeacherID}`}
+                to={`/Students?=${TeacherID}`}
               >
                 <i className="fa fa-graduation-cap"></i> My Students
               </Link>

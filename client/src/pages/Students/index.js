@@ -18,17 +18,22 @@ function Students(props) {
     getID(window.location.href);
   }, []);
 
-  console.log("Students page");
+  console.log("Students page props ------");
+  console.log(props)
+  console.log("Students page TeacherID");
+  console.log(TeacherID)
 
   return (
     <div>
-      <NavBar />
+      <div>
+        { TeacherID ? <NavBar TeacherID={TeacherID} /> : null }
+      </div>
       <Container>
         <h1>Student Dashboard</h1>
         <hr />
         <Row>
           <Col size="6">
-            <StudentList TeacherID={TeacherID} students={props.firstName} />
+            <StudentList TeacherID={TeacherID} />
           </Col>
           <Col size="6"></Col>
         </Row>
