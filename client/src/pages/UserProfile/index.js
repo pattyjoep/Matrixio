@@ -9,17 +9,37 @@ import API from "../../utils/API";
 
 function UserProfile() {
   const [TeacherID, setTeacherID] = useState();
-  const [TeacherFName, setTeacherFName] = useState();
-  const [TeacherLName, setTeacherLName] = useState();
+  const [UpdateFName, setUpdateFName] = useState();
+  const [UpdateLName, setUpdateLName] = useState();
+  const [getTeacher, setGetTeacher] = useState(false);
+  const [TeacherData, setTeacherData] = useState({});
 
   const getID = str => {
     let newstr = str.split("=")[1];
     setTeacherID(newstr);
+    setGetTeacher(true);
   };
 
   useEffect(() => {
     getID(window.location.href);
   }, []);
+
+  useEffect(() => {
+    if (getTeacher) {
+      API.getTeacher(TeacherID)
+        .then(res => {
+          console.log("userProfile get Teacher----");
+          console.log(res);
+          setTeacherData(res.data);
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    }
+    else {
+      return;
+    }
+  }, [getTeacher])
 
   const deleteAccount = () => {
     let data = {
@@ -41,8 +61,8 @@ function UserProfile() {
 
     let data = {
       TeacherID: TeacherID,
-      firstName: TeacherFName,
-      lastName: TeacherLName
+      firstName: UpdateFName,
+      lastName: UpdateLName
     };
     console.log(data);
 
@@ -61,7 +81,7 @@ function UserProfile() {
       <Container>
         <Row>
           <Col size="sm-12 lg-6">
-            <h1>Hello _TeacherNameHere_</h1>
+            <h1>Hello {TeacherData.fullName}!</h1>
           </Col>
           <Row>
             {" "}
@@ -71,7 +91,7 @@ function UserProfile() {
               <input
                 type="text"
                 name="fname"
-                onChange={e => setTeacherFName(e.target.value)}
+                onChange={e => setUpdateFName(e.target.value)}
               />
               <br />
               <label htmlFor="lname">Last name:</label>
@@ -79,7 +99,7 @@ function UserProfile() {
               <input
                 type="text"
                 name="lname"
-                onChange={e => setTeacherLName(e.target.value)}
+                onChange={e => setUpdateLName(e.target.value)}
               />
               <br />
               <button type="submit" className="btn login-Btn ml-auto">
