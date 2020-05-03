@@ -15,15 +15,15 @@ const db = require("../models");
  */
 module.exports = {
   findAll: function (req, res) {
-db.Matrix.find({ }, function(err, docs) {
-    if (!err) { 
-        console.log(docs);
-        process.exit();
-    }
-    else {
-        throw err;
-    }
-});
+    db.Matrix.find({ }, function(err, docs) {
+      if (!err) { 
+          console.log(docs);
+          process.exit();
+      }
+      else {
+          throw err;
+      }
+    });
   },
 
   findById: function (req, res) {
