@@ -3,9 +3,9 @@ import axios from "axios";
 export default {
 
   /**
-  * * * * * * * * * * * * * * * * * * * * * * 
-  * * * * * * Teacher  Operations * * * * * * 
-  * * * * * * * * * * * * * * * * * * * * * * 
+  * * * * * * * * * * * * * * * * * * * * * *
+  * * * * * * Teacher  Routes * * * * * * * *
+  * * * * * * * * * * * * * * * * * * * * * *
   * */ 
 
   authenticateTeacher: data => {
@@ -37,9 +37,9 @@ export default {
   },
 
   /**
-  * * * * * * * * * * * * * * * * * * * * * * 
-  * * * * * * Student  Operations * * * * * *  
-  * * * * * * * * * * * * * * * * * * * * * * 
+  * * * * * * * * * * * * * * * * * * * * * *
+  * * * * * * Student  Operations * * * * * *
+  * * * * * * * * * * * * * * * * * * * * * *
   * */ 
 
   // getAllStudents: () => {
@@ -63,10 +63,10 @@ export default {
   },
 
   /**
-  * * * * * * * * * * * * * * * * * * * * * * 
-  * * * * * * Matrix Operations * * * * * * * 
-  * * * * * * * * * * * * * * * * * * * * * * 
-  * */ 
+  * * * * * * * * * * * * * * * * * * * * * *
+  * * * * * * Matrix Operations * * * * * * *
+  * * * * * * * * * * * * * * * * * * * * * *
+  * */
 
   createMatrix: matrix => {
     console.log("axios - creatematrix");
