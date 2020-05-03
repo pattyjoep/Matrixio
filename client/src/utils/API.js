@@ -58,9 +58,9 @@ export default {
   //   return axios.put("/api/student" + id);
   // },
 
-  // deleteStudent: id => {
-  //   return axios.delete("/api/student/", id);
-  // },
+  deleteStudent: id => {
+    return axios.delete("/api/student/", {data: { id } });
+  },
 
   /**
   * * * * * * * * * * * * * * * * * * * * * * 

@@ -7,18 +7,22 @@ import API from "../../utils/API";
 import { Button } from "react-bootstrap";
 
 function StuListItem(props) {
-  // console.log("StuListItem props----");
-  // console.log(props);
+  console.log("StuListItem props----");
+  console.log(props);
+  
 
   //======================
   //Delete Student
-  const deleteStudent = stuArr => {
-    let data = stuArr;
+  const deleteStudent = () => {
+    let data = {
+      StudentID: props.student._id
+    };
     console.log(data);
 
-    API.deleteStudent(data._id)
+    API.deleteStudent(data)
       .then(res => {
         console.log(res, "DELETE STUDENT");
+        // window.location.reload();
       })
       .catch(err => {
         console.log(err);
