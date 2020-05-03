@@ -36,6 +36,7 @@ export default {
     return axios.delete("/api/teacher/", { data: { id } });
   },
 
+
   /**
   * * * * * * * * * * * * * * * * * * * * * *
   * * * * * * Student  Routes * * * * * * * *
@@ -61,6 +62,7 @@ export default {
   deleteStudent: id => {
     return axios.delete("/api/student/", {data: { id } });
   },
+  
 
   /**
   * * * * * * * * * * * * * * * * * * * * * *
