@@ -1,44 +1,44 @@
 function generateMatrix() {
     // get the reference for the body
-    var body = $("#NewTableContainer");
-    var RowSize = parseInt(document.getElementById("RowSize").value)
-    var ColumnSize = parseInt(document.getElementById("ColumnSize").value)
+    let body = $("#NewTableContainer");
+    let RowSize = parseInt(document.getElementById("RowSize").value)
+    let ColumnSize = parseInt(document.getElementById("ColumnSize").value)
     // creates a <table> element and a <tbody> element
-    var tbl = document.createElement("table");
-    var tblBody = document.createElement("tbody");
-    for (var j = 0; j < ColumnSize + 1; j++) {
+    let tbl = document.createElement("table");
+    let tblBody = document.createElement("tbody");
+    for (let j = 0; j < ColumnSize + 1; j++) {
             // creates a table column header
             if (j === 0) {
-                var ColumnHeader = document.createElement("th");
+                let ColumnHeader = document.createElement("th");
                 ColumnHeader.setAttribute("contenteditable", "true");
                 ColumnHeader.setAttribute("placeholder", "Enter Here")
                 tblBody.prepend(ColumnHeader);
             }
             else {
-                var ColumnHeader = document.createElement("th");
+                let ColumnHeader = document.createElement("th");
                 ColumnHeader.setAttribute("contenteditable", "true");
                 ColumnHeader.setAttribute("placeholder", "Enter Here");
                 tblBody.prepend(ColumnHeader);
             }
         }
     // creating all cells
-    for (var i = 0; i < RowSize; i++) {
+    for (let i = 0; i < RowSize; i++) {
         // creates a table row
-        var row = document.createElement("tr");
+        let row = document.createElement("tr");
         // creates a table row header
-        var RowHeader = document.createElement("th");
+        let RowHeader = document.createElement("th");
             RowHeader.setAttribute("contenteditable", "true");
             RowHeader.setAttribute("placeholder", "Enter Here");
             row.append(RowHeader);
-        for (var j = 0; j < ColumnSize; j++) {
-            var cell = document.createElement("td");
-            // var button = document.createElement("button");
+        for (let j = 0; j < ColumnSize; j++) {
+            let cell = document.createElement("td");
+            // let button = document.createElement("button");
             // button.setAttribute("class", "btn btn-light tableBtn tableBtn-fail");
             // button.setAttribute("onClick", "Pass()");
             // button.textContent = "X"
-            var StatusCard = document.createElement("div")
-            var StatusCardFront = document.createElement("div")
-            var StatusCardBack = document.createElement("div")
+            let StatusCard = document.createElement("div")
+            let StatusCardFront = document.createElement("div")
+            let StatusCardBack = document.createElement("div")
             StatusCard.setAttribute("onClick", "changeStatus()");
             StatusCard.setAttribute("class", "status-card")
             StatusCard.setAttribute("id", ColumnSize[j])
