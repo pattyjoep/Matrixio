@@ -68,8 +68,8 @@ module.exports = {
   delete: (req, res) => {
     console.log("Begin student delete.");
     console.log(req.body);
-    // let message = `Student ${req.body.id.TeacherID} destroyed`;
-    db.Teacher.findByIdAndDelete(student.TeacherID)
+    let message = `Student ${req.body.id.StudentID} destroyed`;
+    db.Student.findByIdAndDelete(req.body.id.StudentID)
       .then(result => {
         console.log(message);
         res.json(result);

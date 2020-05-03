@@ -5,7 +5,8 @@ const studentController = require("../../controllers/studentController");
 router
   .route("/")
   .get(studentController.findAll)
-  .post(studentController.create);
+  .post(studentController.create)
+  .delete(studentController.delete);
 
 // Matches with "/api/student/:id"
 // router
