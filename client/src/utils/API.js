@@ -38,7 +38,7 @@ export default {
 
   /**
   * * * * * * * * * * * * * * * * * * * * * *
-  * * * * * * Student  Operations * * * * * *
+  * * * * * * Student  Routes * * * * * * * *
   * * * * * * * * * * * * * * * * * * * * * *
   * */ 
 
@@ -64,7 +64,7 @@ export default {
 
   /**
   * * * * * * * * * * * * * * * * * * * * * *
-  * * * * * * Matrix Operations * * * * * * *
+  * * * * * * * Matrix Routes * * * * * * * *
   * * * * * * * * * * * * * * * * * * * * * *
   * */
 
