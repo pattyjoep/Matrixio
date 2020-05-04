@@ -7,7 +7,7 @@ const db = require("../models");
  *  risks data integrity.
  * 
  * Matrix Controller responsible for handling axios requests to the server.
- * FindAll: returns all matrices in collection.
+ * FindAll: returns all matrices in collection, sorted by lastUpdated.
  * findById: finds matrix by id.
  * create: creates new matrix as { }.
  * update: finds matrix and updates as { }.
@@ -15,15 +15,14 @@ const db = require("../models");
  */
 module.exports = {
   findAll: function (req, res) {
-    db.Matrix.find({ }, function(err, docs) {
-      if (!err) { 
-          console.log(docs);
-          process.exit();
-      }
-      else {
-          throw err;
-      }
-    });
+    db.Matrix.find({ })
+      .sort({ lastUpdated: -1 })
+      .then(dbMatrix => {
+        res.json(dbMatrix);
+      })
+      .catch(err => {
+        res.status(422).json(err);
+      });
   },
 
   findById: function (req, res) {
@@ -33,15 +32,11 @@ module.exports = {
   },
 
   create: (req, res) => {
-    console.log("1 - create");
     const matrix = req.body;
-    console.log(matrix);
+    matrix.lastUpdated = Date.now();
     
     db.Matrix.create(matrix)
       .then(matrix => {
-        console.log("2 - then");
-        console.log(matrix);
-
         db.Student.findByIdAndUpdate(
           matrix.StudentID,
           {
@@ -50,9 +45,7 @@ module.exports = {
             }
           },
           { new: true }
-        ).then(dbStudent => {
-          console.log("3 - dbstudent");
-          console.log(matrix);
+        ).then(dbMatrix => {
           res.json(matrix);
         });
       });
@@ -65,7 +58,9 @@ module.exports = {
    * @param {*} res 
    */
   update: function (req, res) {
-    db.Matrix.findOneAndUpdate({ _id: req.params.id }, req.body)
+    let matrix = req.body;
+    matrix.lastUpdated = Date.now();
+    db.Matrix.findOneAndUpdate({ _id: req.params.id }, matrix)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
