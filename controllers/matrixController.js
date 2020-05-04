@@ -60,7 +60,7 @@ module.exports = {
 
   /**
    * TODO: Update student with their new matrix, if studentid changes.
-   * req.body needs to be formatted in /../client/src/utils/API.js
+   * req.body needs to be formatted in ../client/src/utils/API.js
    * @param {*} req 
    * @param {*} res 
    */

@@ -68,7 +68,6 @@ export default {
    * */
 
   createMatrix: matrix => {
-    JSON.stringify(matrix);
     return axios.post("/api/matrix", matrix);
   },
 
