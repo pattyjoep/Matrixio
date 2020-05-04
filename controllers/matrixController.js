@@ -52,8 +52,8 @@ module.exports = {
           { new: true }
         ).then(dbStudent => {
           console.log("3 - dbstudent");
-          console.log(dbStudent);
-          res.json(dbStudent);
+          console.log(matrix);
+          res.json(matrix);
         });
       });
   },
