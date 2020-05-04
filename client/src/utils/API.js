@@ -53,8 +53,11 @@ export default {
     return axios.get("/api/student/", id);
   },
 
-  updateStudent: id => {
-    return axios.put("/api/student" + id);
+  updateStudent: ({ StudentID, firstName, lastName }) => {
+    return axios.put("/api/student/" + StudentID, {
+      firstName: firstName,
+      lastName: lastName
+    });
   },
 
   deleteStudent: id => {

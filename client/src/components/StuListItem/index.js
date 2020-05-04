@@ -20,8 +20,8 @@ function StuListItem(props) {
   //Update Student Modal--------------
   const updateModal = e => {
     e.preventDefault();
-    console.log(`firstName: ${firstName}`);
-    console.log(`lastName: ${lastName}`);
+    console.log(`updateModal firstName: ${firstName}`);
+    console.log(`updateModal lastName: ${lastName}`);
 
     if (!firstName || !lastName) {
       return;
@@ -107,6 +107,7 @@ function StuListItem(props) {
               data-target="#collapseOne"
               aria-expanded="true"
               aria-controls="collapseOne"
+              // data-id={props.student._id}
             >
               {props.student.fullName}
             </button>

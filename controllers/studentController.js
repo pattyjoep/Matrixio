@@ -57,22 +57,27 @@ module.exports = {
   update: (req, res) => {
     console.log("Begin student update.");
     console.log("Req.body", req.body);
+    console.log("req.params", req.params);
 
     db.Student.findByIdAndUpdate(
-      req.body.StudentID,
+      req.params.id,
       {
         firstName: req.body.firstName,
-        lastName: req.body.lastName
+        lastName: req.body.lastName,
+        fullName: req.body.firstName + " " + req.body.lastName,
+        lastUpdated: Date.now()
       },
       {
         new: true
       }
     )
       .then(updatedStudent => {
-        console.log("Students here");
-        res.json(student);
+        console.log("updatedStudent", updatedStudent);
+        res.json(updatedStudent);
       })
-      .catch(err => res.status(422).json(err));
+      .catch(err => {
+        res.status(422).json(err);
+      });
   },
 
   //Delete a student
