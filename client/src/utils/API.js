@@ -74,7 +74,7 @@ export default {
 
   /**
    * TODO: Prevent any object from being passed.
-   * Need to figure out how to handlem atrices on front end.
+   * Need to figure out how to handle matrices on front end.
    * Currently can pass any object as matrix. Allows updating of ObjectID.
    * Risks data integrity.
    */

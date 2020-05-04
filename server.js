@@ -22,5 +22,5 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Matrixio", {
 });
 
 app.listen(PORT, () => {
-  console.log(`🌎  ==> Listening on PORT ${PORT}!`);
+  console.log(`🌎  ==> Listening on PORT ${PORT}!!`);
 });
