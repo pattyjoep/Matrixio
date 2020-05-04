@@ -23,11 +23,11 @@ const MatrixSchema = new Schema({
     type: String
   },
 
-  dateCreated: {
+/*  dateCreated: {
     tpye: Date,
     default: Date.now
   },
-  
+*/
   lastUpdated: {
     type: Date
   }
