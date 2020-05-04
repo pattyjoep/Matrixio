@@ -34,14 +34,7 @@ module.exports = {
           {
             $push: {
               students: {
-                // matrices: student.matrices,
                 _id: student._id
-                // TeacherID: student.TeacherID,
-                // firstName: student.firstName,
-                // lastName: student.lastName,
-                // dateCreated: student.dateCreated,
-                // fullName: student.fullName,
-                // lastUpdated: student.lastUpdated
               }
             }
           },
