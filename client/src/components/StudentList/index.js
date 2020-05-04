@@ -61,11 +61,21 @@ function StudentList(props) {
         firstName: firstName,
         lastName: lastName
       };
-      console.log("frontend data console");
+      console.log("Save Modal");
       console.log(data);
       API.createStudent(data)
         .then(res => {
-          console.log(res);
+          console.log("CREATING NEW STUDENT", res);
+          setStudentsArr([
+            ...studentsArr,
+            {
+              _id: res.data._id,
+              TeacherID: data.TeacherID,
+              firstName: data.firstName,
+              lastName: data.lastName,
+              fullName: data.firstName + " " + data.lastName
+            }
+          ]);
         })
         .catch(err => {
           console.log(err);

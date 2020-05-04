@@ -18,10 +18,7 @@ function UserProfile() {
   const getID = str => {
     let newstr = str.split("=")[1];
     setTeacherID(newstr);
-    
   };
-
-  
 
   useEffect(() => {
     setGetTeacher(true);
@@ -33,17 +30,16 @@ function UserProfile() {
       API.getTeacher(TeacherID)
         .then(res => {
           console.log("userProfile get Teacher----");
-          console.log(res);
+          console.log(res.data);
           setTeacherData(res.data);
         })
         .catch(err => {
           console.log(err);
-        })
-    }
-    else {
+        });
+    } else {
       return;
     }
-  }, [getTeacher])
+  }, [getTeacher]);
 
   const deleteAccount = () => {
     let data = {
@@ -81,10 +77,8 @@ function UserProfile() {
 
   return (
     <div>
-      <div>
-        { TeacherID ? <NavBar TeacherID={TeacherID} /> : null }
-      </div>
-      
+      <div>{TeacherID ? <NavBar TeacherID={TeacherID} /> : null}</div>
+
       <Container>
         <Row>
           <Col size="sm-12 lg-6">

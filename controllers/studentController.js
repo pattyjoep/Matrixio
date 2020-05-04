@@ -37,9 +37,9 @@ module.exports = {
         },
         { new: true }
       ).then(dbTeacher => {
-        console.log("dbTeacher----");
-        console.log(dbTeacher);
-        res.json(dbTeacher);
+        console.log("Student----");
+        console.log(student);
+        res.json(student);
       });
     });
   },
@@ -49,17 +49,20 @@ module.exports = {
   update: (req, res) => {
     console.log("Begin student update.");
     console.log("Req.body", req.body);
-    console.log("params", req.params);
-    // console.log(req.body.TeacherID),
 
-    db.Teacher.findByIdAndUpdate(student.TeacherID, {
-      $push: {
-        students: student._id
+    db.Student.findByIdAndUpdate(
+      req.body.StudentID,
+      {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName
+      },
+      {
+        new: true
       }
-    })
-      .then(dbTeacher => {
-        console.log("dbTeacher here");
-        res.json(dbTeacher);
+    )
+      .then(updatedStudent => {
+        console.log("Students here");
+        res.json(student);
       })
       .catch(err => res.status(422).json(err));
   },
@@ -67,7 +70,7 @@ module.exports = {
   //Delete a student
   delete: (req, res) => {
     console.log("Begin student delete.");
-    console.log(req.body);
+    console.log("STUDENT DELETE", req.body);
     let message = `Student ${req.body.id.StudentID} destroyed`;
     db.Student.findByIdAndDelete(req.body.id.StudentID)
       .then(result => {

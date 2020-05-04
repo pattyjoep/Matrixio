@@ -121,12 +121,18 @@ module.exports = {
   //Delete teacher by ID
   delete: (req, res) => {
     console.log("Begin teacher delete.");
-    console.log(req.body);
+    console.log("TEACHER DELETE!!!", req.body);
     let message = `Teacher ${req.body.id.TeacherID} destroyed`;
+
     db.Teacher.findByIdAndDelete(req.body.id.TeacherID)
-      .then(result => {
-        console.log(message);
-        res.json(result);
+      .then(removeStudents => {
+        console.log("Remove students!", removeStudents);
+        db.Student.deleteMany({ _id: { $in: removeStudents.students } }).then(
+          result => {
+            console.log(message);
+            res.json(result);
+          }
+        );
       })
       .catch(err => {
         console.log(err);

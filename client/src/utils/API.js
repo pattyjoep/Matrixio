@@ -1,12 +1,11 @@
 import axios from "axios";
 
 export default {
-
   /**
-  * * * * * * * * * * * * * * * * * * * * * *
-  * * * * * * Teacher  Routes * * * * * * * *
-  * * * * * * * * * * * * * * * * * * * * * *
-  * */ 
+   * * * * * * * * * * * * * * * * * * * * * *
+   * * * * * * Teacher  Routes * * * * * * * *
+   * * * * * * * * * * * * * * * * * * * * * *
+   * */
 
   authenticateTeacher: data => {
     console.log("Teacher authentication data!", data);
@@ -36,12 +35,11 @@ export default {
     return axios.delete("/api/teacher/", { data: { id } });
   },
 
-
   /**
-  * * * * * * * * * * * * * * * * * * * * * *
-  * * * * * * Student  Routes * * * * * * * *
-  * * * * * * * * * * * * * * * * * * * * * *
-  * */ 
+   * * * * * * * * * * * * * * * * * * * * * *
+   * * * * * * Student  Routes * * * * * * * *
+   * * * * * * * * * * * * * * * * * * * * * *
+   * */
 
   // getAllStudents: () => {
   //   return axios.get("/api/student");
@@ -55,26 +53,25 @@ export default {
     return axios.get("/api/student/", id);
   },
 
-  // updateStudent: id => {
-  //   return axios.put("/api/student" + id);
-  // },
-
-  deleteStudent: id => {
-    return axios.delete("/api/student/", {data: { id } });
+  updateStudent: id => {
+    return axios.put("/api/student" + id);
   },
 
+  deleteStudent: id => {
+    return axios.delete("/api/student/", { data: { id } });
+  },
 
   /**
-  * * * * * * * * * * * * * * * * * * * * * *
-  * * * * * * * Matrix Routes * * * * * * * *
-  * * * * * * * * * * * * * * * * * * * * * *
-  * */
+   * * * * * * * * * * * * * * * * * * * * * *
+   * * * * * * * Matrix Routes * * * * * * * *
+   * * * * * * * * * * * * * * * * * * * * * *
+   * */
 
   createMatrix: matrix => {
     JSON.stringify(matrix);
     return axios.post("/api/matrix", matrix);
-  },  
-  
+  },
+
   /**
    * TODO: Prevent any object from being passed.
    * Need to figure out how to handlem atrices on front end.
@@ -86,10 +83,10 @@ export default {
   },
 
   deletematrix: id => {
-    return axios.delete("/api/matrix/" + id)
+    return axios.delete("/api/matrix/" + id);
   },
 
   getAllMatrices: () => {
     return axios.get("/api/matrix");
-  },
+  }
 };

@@ -1,15 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import "./style.css";
 // import { Link } from "react-router-dom";
 import API from "../../utils/API";
 // import GenerateMatrix from "../GenerateMatrix";
 
-import { Button } from "react-bootstrap";
+import { Modal, Button, Form } from "react-bootstrap";
 
 function StuListItem(props) {
   console.log("StuListItem props----");
   console.log(props);
-  
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+
+  //Update Student Modal--------------
+  const updateModal = e => {
+    e.preventDefault();
+    console.log(`firstName: ${firstName}`);
+    console.log(`lastName: ${lastName}`);
+
+    if (!firstName || !lastName) {
+      return;
+    } else {
+      let data = {
+        StudentID: props.student._id,
+        firstName: firstName,
+        lastName: lastName
+      };
+      console.log("STUDENT UPDATE", data);
+      API.updateStudent(data)
+        .then(res => {
+          console.log(res);
+          window.location.reload(false).then(() => {
+            setShow(false);
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  };
 
   //======================
   //Delete Student
@@ -22,24 +56,7 @@ function StuListItem(props) {
     API.deleteStudent(data)
       .then(res => {
         console.log(res, "DELETE STUDENT");
-        // window.location.reload();
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-  //Update Student
-  const updateStudent = e => {
-    e.preventDefault();
-
-    let data = {
-      TeacherID: props.TeacherID
-    };
-    console.log(data);
-
-    API.updateStudent(data)
-      .then(res => {
-        console.log(res, "UPDATE STUDENT");
+        window.location.reload(false);
       })
       .catch(err => {
         console.log(err);
@@ -48,6 +65,38 @@ function StuListItem(props) {
 
   return (
     <div>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Update Student</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group controlId="StudentFirstName">
+              <Form.Control
+                type="text"
+                placeholder={props.student.firstName}
+                onChange={e => setFirstName(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group controlId="StudentLastName">
+              <Form.Control
+                type="text"
+                placeholder={props.student.lastName}
+                onChange={e => setLastName(e.target.value)}
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button variant="success" onClick={updateModal}>
+            Save
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
       <div className="card">
         <div className="card-header" id="headingOne">
           <h2 className="mb-0">
@@ -81,7 +130,7 @@ function StuListItem(props) {
             <Button
               className="update-student-link"
               name="updateStudent"
-              onClick={updateStudent}
+              onClick={handleShow}
             >
               <i className="fas fa-user-edit"></i>&nbsp;Edit Student
             </Button>
