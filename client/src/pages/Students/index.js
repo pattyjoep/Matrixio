@@ -7,7 +7,7 @@ import NavBar from "../../components/NavBar";
 
 function Students(props) {
   const [TeacherID, setTeacherID] = useState();
-  const [students, setStudent] = useState();
+  // const [students, setStudent] = useState();
 
   const getID = str => {
     let newstr = str.split("=")[1];

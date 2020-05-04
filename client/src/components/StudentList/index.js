@@ -2,12 +2,23 @@ import React, { useState, useEffect } from "react";
 import "./style.css";
 // import { Link } from "react-router-dom";
 import API from "../../utils/API";
-import GenerateMatrix from "../GenerateMatrix";
+// import GenerateMatrix from "../GenerateMatrix";
 import StuListItem from "../StuListItem";
 
 import { Modal, Button, Form } from "react-bootstrap";
 
 function StudentList(props) {
+  const [studentsArr, setStudentsArr] = useState([]);
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  // const [MatrixShow, setMatrixShow] = useState(false);
+
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+
   const getStudentNames = arr => {
     let stuArr = arr.map(stu => {
       return {
@@ -23,9 +34,7 @@ function StudentList(props) {
     return stuArr;
   };
 
-  useEffect(() => {
-    console.log("inside useEffect --------");
-    console.log(props);
+  const retrieveTeacher = (props) => {
     API.getTeacher(props.TeacherID)
       .then(teacherResult => {
         console.log("teacherResult----");
@@ -35,18 +44,15 @@ function StudentList(props) {
       .catch(err => {
         console.log(err);
       });
+  };
+
+  useEffect(() => {
+    console.log("inside useEffect --------");
+    console.log(props);
+    retrieveTeacher(props);
+    
   }, [props]);
 
-  const [studentsArr, setStudentsArr] = useState([]);
-
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  const [MatrixShow, setMatrixShow] = useState(false);
-
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
 
   const saveModal = e => {
     e.preventDefault();
@@ -65,17 +71,11 @@ function StudentList(props) {
       console.log(data);
       API.createStudent(data)
         .then(res => {
-          console.log("CREATING NEW STUDENT", res);
-          setStudentsArr([
-            ...studentsArr,
-            {
-              _id: res.data._id,
-              TeacherID: data.TeacherID,
-              firstName: data.firstName,
-              lastName: data.lastName,
-              fullName: data.firstName + " " + data.lastName
-            }
-          ]);
+          console.log("frontend dbstudent create result", res);
+          
+          retrieveTeacher(props);
+          console.log("CREATE STUDENT RES STUDENTSARR")
+          console.log(studentsArr);
         })
         .catch(err => {
           console.log(err);

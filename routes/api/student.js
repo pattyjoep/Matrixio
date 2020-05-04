@@ -9,10 +9,10 @@ router
   .delete(studentController.delete);
 
 // Matches with "/api/student/:id"
-// router
-//   .route("/:id")
+router
+  .route("/:id")
 //   .get(studentController.findById)
-//   .put(studentController.update)
+  .put(studentController.update)
 //   .delete(studentController.remove);
 
 module.exports = router;

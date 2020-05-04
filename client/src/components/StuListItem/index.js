@@ -7,8 +7,8 @@ import API from "../../utils/API";
 import { Modal, Button, Form } from "react-bootstrap";
 
 function StuListItem(props) {
-  console.log("StuListItem props----");
-  console.log(props);
+  // console.log("StuListItem props----");
+  // console.log(props);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
