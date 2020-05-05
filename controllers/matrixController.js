@@ -60,15 +60,25 @@ module.exports = {
   update: function (req, res) {
     let matrix = req.body;
     matrix.lastUpdated = Date.now();
-    db.Matrix.findOneAndUpdate({ _id: req.params.id }, matrix)
+    let thisMatrix = db.Matrix.findOneAndUpdate({ _id: req.params.id }, matrix)
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => res.status(422).json(err)
+    );
+    /**
+     * if(thisMatrix.StudentID != req.body.StudentID){
+     *  //update student.
+     * }
+     * if studentID changes, we can update which student has this matrix. 
+     * HOWEVER, is this functionality we need? Presently, would require passing studentID into all matrix update calls, which isn't hard, but is extra, and could be risky exposing IDs like that.
+     */
+    
   },
 
   remove: function (req, res) {
     db.Matrix.findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => res.status(422).json(err)
+    );
   }
 };
