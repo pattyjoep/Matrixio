@@ -45,8 +45,9 @@ function UserProfile() {
 
       <Container>
         <Row>
-          <Col size="sm-12 lg-6">
+          <Col size="12">
             <h1>Hello {TeacherData.fullName}!</h1>
+            <Row></Row>
           </Col>
         </Row>
       </Container>

@@ -3,7 +3,7 @@
   background: rgb(173, 252, 251);
   background: radial-gradient(
     circle,
-    rgba(173, 252, 251, 1) 0%,
+    rgb(185, 250, 249) 0%,
     rgba(102, 234, 236, 1) 100%
   );
 }

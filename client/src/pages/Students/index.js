@@ -30,10 +30,9 @@ function Students(props) {
         <h1>Student Dashboard</h1>
         <hr />
         <Row>
-          <Col size="6">
+          <Col size="12">
             <StudentList TeacherID={TeacherID} />
           </Col>
-          <Col size="6"></Col>
         </Row>
       </Container>
     </div>
