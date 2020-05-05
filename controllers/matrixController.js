@@ -7,7 +7,7 @@ const db = require("../models");
  *  risks data integrity.
  * 
  * Matrix Controller responsible for handling axios requests to the server.
- * FindAll: returns all matrices in collection, sorted by lastUpdated.
+ * findAll: returns all matrices in collection, sorted by lastUpdated.
  * findById: finds matrix by id.
  * create: creates new matrix as { }.
  * update: finds matrix and updates as { }.
