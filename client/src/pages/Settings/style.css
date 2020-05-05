@@ -29,3 +29,12 @@
   width: 60%;
   margin-bottom: 20px;
 }
+
+.updateEmail-Btn {
+  background-color: yellow;
+  color: rgb(70, 68, 68);
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  margin: 0px 0px 30px 70px;
+}

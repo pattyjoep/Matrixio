@@ -31,6 +31,12 @@ export default {
     });
   },
 
+  updateEmail: ({ TeacherID, email }) => {
+    return axios.put("/api/teacher/" + TeacherID, {
+      email: email
+    });
+  },
+
   deleteTeacher: id => {
     return axios.delete("/api/teacher/", { data: { id } });
   },

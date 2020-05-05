@@ -10,6 +10,7 @@ function Settings() {
   const [TeacherID, setTeacherID] = useState();
   const [UpdateFName, setUpdateFName] = useState();
   const [UpdateLName, setUpdateLName] = useState();
+  const [UpdateEmail, setUpdateEmail] = useState();
   const [getTeacher, setGetTeacher] = useState(false);
   const [TeacherData, setTeacherData] = useState({});
   //   const [runEffect, setRunEffect] = useState(true);
@@ -79,6 +80,26 @@ function Settings() {
         console.log(err);
       });
   };
+
+  const handleEmailUpdate = e => {
+    e.preventDefault();
+
+    let data = {
+      TeacherID: TeacherID,
+      email: UpdateEmail
+    };
+    console.log(data);
+
+    API.updateEmail(data)
+      .then(res => {
+        console.log(res);
+        window.location.reload(false);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   return (
     <div>
       {redirectHome ? <Redirect to="/" /> : null}
@@ -114,6 +135,22 @@ function Settings() {
               <br />
               <button type="submit" className="updateTeacher-Btn">
                 Save Updates <i class="fas fa-pen-alt"></i>
+              </button>
+            </form>
+            <h3>Change Email Address:</h3>
+            <h5>Current Email: {TeacherData.email}</h5>
+            <form className="updateEmailForm" onSubmit={handleEmailUpdate}>
+              <label htmlFor="fname">New Email:</label>
+              <br />
+              <input
+                className="inputName"
+                type="text"
+                name="email"
+                onChange={e => setUpdateEmail(e.target.value)}
+              />{" "}
+              <br />
+              <button type="submit" className="updateEmail-Btn">
+                Save Email <i className="fas fa-redo"></i>
               </button>
             </form>
           </Col>
