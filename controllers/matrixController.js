@@ -66,7 +66,7 @@ module.exports = {
     );
     /**
      * if(thisMatrix.StudentID != req.body.StudentID){
-     *  //update student.
+     *  //update student with their new matrix.
      * }
      * if studentID changes, we can update which student has this matrix. 
      * HOWEVER, is this functionality we need? Presently, would require passing studentID into all matrix update calls, which isn't hard, but is extra, and could be risky exposing IDs like that.
