@@ -18,7 +18,6 @@ function Login() {
     console.log("Handling login submit!!");
     if (!email || !password) {
       return;
-      // do something -- tell user it didn't work
     } else {
       let data = {
         email: email,
@@ -31,7 +30,9 @@ function Login() {
           setRedirectUserProfile(true);
         })
         .catch(err => {
+          alert("There was an error with your email or password. Try again.");
           console.log(err.response.data);
+          return;
         });
     }
   };

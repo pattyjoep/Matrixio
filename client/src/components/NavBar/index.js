@@ -8,14 +8,14 @@ function NavBar(props) {
 
   useEffect(() => {
     API.getTeacher(props.TeacherID)
-        .then(res => {
-          console.log("Navbar get Teacher----");
-          console.log(res.data);
-          setTeacherID(res.data._id);
-        })
-        .catch(err => {
-          console.log(err);
-        })
+      .then(res => {
+        console.log("Navbar get Teacher----");
+        console.log(res.data);
+        setTeacherID(res.data._id);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }, [TeacherID]);
 
   // console.log(`Navbar props ${JSON.stringify(props)}`);
@@ -42,20 +42,19 @@ function NavBar(props) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                className="nav-link main"
-                to={`/Students?=${TeacherID}`}
-              >
+              <Link className="nav-link main" to={`/Students?=${TeacherID}`}>
                 <i className="fa fa-graduation-cap"></i> My Students
               </Link>
             </li>
           </ul>
           <ul className="navbar-nav ml-auto">
-            {/* <li className="nav-item">
-              <button className="nav-link main" href="#">
+            {/* Settings====== */}
+            <li className="nav-item">
+              <Link className="nav-link main" to={`/Settings?=${TeacherID}`}>
                 <i className="fa fa-cog icon-settings"> Settings</i>
-              </button>
-            </li> */}
+              </Link>
+            </li>
+            {/* ======================= */}
             <li className="nav-item">
               <Link className="nav-link main" to="/">
                 <i className="fas fa-sign-out-alt"> Logout</i>
