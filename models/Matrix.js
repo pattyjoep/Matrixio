@@ -31,12 +31,7 @@ const MatrixSchema = new Schema(
     lastUpdated: {
       type: Date
     }
-    /**
-     * ,
-     * TeacherID: {
-     * //might need to track teacherID later, but seems not useful?
-     * }
-     */
+
   },
   { collection: "matrices" }
 );
