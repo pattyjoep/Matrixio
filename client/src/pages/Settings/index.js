@@ -121,7 +121,7 @@ function Settings() {
             <h3>Remove Account:</h3>
             <button
               type="button"
-              className="btn btn-danger"
+              className="btn btn-danger deleteTeacher"
               name="deleteTeacher"
               onClick={deleteAccount}
             >
