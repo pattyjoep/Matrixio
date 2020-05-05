@@ -48,13 +48,11 @@ function NavBar(props) {
             </li>
           </ul>
           <ul className="navbar-nav ml-auto">
-            {/* Settings====== */}
             <li className="nav-item">
               <Link className="nav-link main" to={`/Settings?=${TeacherID}`}>
                 <i className="fa fa-cog icon-settings"> Settings</i>
               </Link>
             </li>
-            {/* ======================= */}
             <li className="nav-item">
               <Link className="nav-link main" to="/">
                 <i className="fas fa-sign-out-alt"> Logout</i>

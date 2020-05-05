@@ -104,6 +104,7 @@ module.exports = {
       {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        email: req.body.email,
         fullName: req.body.firstName + " " + req.body.lastName,
         lastUpdated: Date.now()
       },

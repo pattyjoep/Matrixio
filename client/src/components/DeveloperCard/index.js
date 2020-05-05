@@ -15,7 +15,7 @@ function developerCard(props) {
         <h5 className="card-title developer-name">
           <b>{props.name}</b>
         </h5>
-        <p className="card-text">Front End / Back End</p>
+        <p className="card-text">{props.role}</p>
         <a
           href={props.portfolio}
           className="developer-links"
