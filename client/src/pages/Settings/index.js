@@ -121,7 +121,6 @@ function Settings() {
                 className="inputName"
                 type="text"
                 name="email"
-                value={TeacherData.lastName}
                 onChange={e => setUpdateEmail(e.target.value)}
               />
               <button type="submit" className="updateTeacher-Btn">
