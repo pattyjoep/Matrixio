@@ -1,6 +1,6 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const db = require("../models/Teacher");
+const Teacher = require("../../models/Teacher");
 const bcrypt = require("bcryptjs");
 
 /**
@@ -46,7 +46,6 @@ const logoutStrategy = new LocalStrategy(
         done
     ) {
         Teacher.findOne({ email })
-            .lean()
             .exec((err, user) => {
                 if (err) {
                     return done(err, null);
@@ -70,7 +69,6 @@ const signupStrategy = new Strategy(
         done
     ) {
         Teacher.findOne({ email })
-            .lean()
             .exec((err, user) => {
                 if (err) {
                     return done(err, null);

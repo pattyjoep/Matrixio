@@ -1,5 +1,5 @@
 const passport = require("passport");
-const Teacher = require("../models/Teacher");
+const Teacher = require("../../../models/Teacher");
 const strategies = require("./strategies/strategies");
 
 passport.serializeUser(function (user, done) {
@@ -8,7 +8,6 @@ passport.serializeUser(function (user, done) {
 
 passport.deserializeUser(function (email, done) {
   Teacher.findOne({ email })
-    .lean()
     .exec((err, user) => {
       done(err, user);
     });
