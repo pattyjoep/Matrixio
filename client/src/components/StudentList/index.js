@@ -1,7 +1,5 @@
 // let's see if this comment and whitespace fixes our version control issues....
 
-
-
 import React, { useState, useEffect } from "react";
 import "./style.css";
 // import { Link } from "react-router-dom";
@@ -38,7 +36,7 @@ function StudentList(props) {
     return stuArr;
   };
 
-  const retrieveTeacher = (props) => {
+  const retrieveTeacher = props => {
     API.getTeacher(props.TeacherID)
       .then(teacherResult => {
         console.log("teacherResult----");
@@ -54,9 +52,7 @@ function StudentList(props) {
     console.log("inside useEffect --------");
     console.log(props);
     retrieveTeacher(props);
-    
   }, [props]);
-
 
   const saveModal = e => {
     e.preventDefault();
@@ -76,9 +72,9 @@ function StudentList(props) {
       API.createStudent(data)
         .then(res => {
           console.log("frontend dbstudent create result", res);
-          
+
           retrieveTeacher(props);
-          console.log("CREATE STUDENT RES STUDENTSARR")
+          console.log("CREATE STUDENT RES STUDENTSARR");
           console.log(studentsArr);
         })
         .catch(err => {

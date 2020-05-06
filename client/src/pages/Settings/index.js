@@ -46,6 +46,7 @@ function Settings() {
     }
   }, [getTeacher]);
 
+  //Delete account function
   const deleteAccount = () => {
     let data = {
       TeacherID: TeacherID
@@ -65,25 +66,74 @@ function Settings() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (!UpdateLName && !UpdateFName) {
+      let data = {
+        TeacherID: TeacherID,
+        firstName: TeacherData.firstName,
+        lastName: TeacherData.lastName,
+        email: UpdateEmail
+      };
+      API.updateTeacher(data)
+        .then(res => {
+          console.log(res);
+          window.location.reload(false);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    } else if (!UpdateFName && !UpdateEmail) {
+      let data = {
+        TeacherID: TeacherID,
+        firstName: TeacherData.firstName,
+        lastName: UpdateLName,
+        email: TeacherData.email
+      };
+      console.log(data);
 
-    let data = {
-      TeacherID: TeacherID,
-      firstName: UpdateFName,
-      lastName: UpdateLName,
-      email: UpdateEmail
-    };
-    console.log(data);
+      API.updateTeacher(data)
+        .then(res => {
+          console.log(res);
+          window.location.reload(false);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    } else if (!UpdateLName && !UpdateEmail) {
+      let data = {
+        TeacherID: TeacherID,
+        firstName: UpdateFName,
+        lastName: TeacherData.lastName,
+        email: TeacherData.email
+      };
+      console.log(data);
 
-    API.updateTeacher(data)
-      .then(res => {
-        console.log(res);
-        window.location.reload(false);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+      API.updateTeacher(data)
+        .then(res => {
+          console.log(res);
+          window.location.reload(false);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    } else if (UpdateLName && UpdateFName) {
+      let data = {
+        TeacherID: TeacherID,
+        firstName: UpdateFName,
+        lastName: UpdateLName,
+        email: TeacherData.email
+      };
+      console.log(data);
+
+      API.updateTeacher(data)
+        .then(res => {
+          console.log(res);
+          window.location.reload(false);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
   };
-
   return (
     <div>
       {redirectHome ? <Redirect to="/" /> : null}
@@ -92,50 +142,56 @@ function Settings() {
         <Row>
           <Col size="12">
             <h1>Account Settings</h1>
+            <div className="signUpDate">
+              Member since: &nbsp;
+              <Moment format="MMMM DD, YYYY">{TeacherData.dateCreated}</Moment>
+            </div>
             <hr />
           </Col>
         </Row>
         <Row>
           <Col size="lg-6 md-12">
-            <p className="signUpDate">
-              <h5>
-                Member since: &nbsp;
-                <Moment format="MMMM DD, YYYY">
-                  {TeacherData.dateCreated}
-                </Moment>
-              </h5>
-            </p>
-            <h3>Update User:</h3>
             <form className="updateForm" onSubmit={handleSubmit}>
-              <label htmlFor="fname">First name:</label>
-              <br />
-              <input
-                className="inputName"
-                type="text"
-                name="fname"
-                onChange={e => setUpdateFName(e.target.value)}
-              />
-              <br />
-              <label htmlFor="lname">Last name:</label>
-              <br />
-              <input
-                className="inputName"
-                type="text"
-                name="lname"
-                onChange={e => setUpdateLName(e.target.value)}
-              />
-              <br />
-              <label htmlFor="email">Email:</label>
-              <br />
-              <input
-                className="inputName"
-                type="text"
-                name="email"
-                onChange={e => setUpdateEmail(e.target.value)}
-              />
-              <button type="submit" className="updateTeacher-Btn">
-                Save Updates <i class="fas fa-pen-alt"></i>
-              </button>
+              <div className="updateName">
+                <h3>Update User:</h3>
+                <label htmlFor="fname">First Name:</label>
+                <br />
+                <input
+                  className="inputName"
+                  type="text"
+                  name="fname"
+                  onChange={e => setUpdateFName(e.target.value)}
+                />
+                <br />
+                <label htmlFor="lname">Last Name:</label>
+                <br />
+                <input
+                  className="inputName"
+                  type="text"
+                  name="lname"
+                  onChange={e => setUpdateLName(e.target.value)}
+                />
+                <br />
+                <button type="submit" className="updateTeacher-Btn">
+                  Update Name <i className="fas fa-pen-alt"></i>
+                </button>
+              </div>
+              <div className="updateEmail">
+                <h5>
+                  Current Email Address:{" "}
+                  <p className="currentEmail">{TeacherData.email}</p>
+                </h5>
+                <label htmlFor="email">Email: &nbsp;</label>
+                <input
+                  className="inputEmail"
+                  type="text"
+                  name="email"
+                  onChange={e => setUpdateEmail(e.target.value)}
+                />
+                <button type="submit" className="updateEmail-Btn">
+                  Update Email <i className="fas fa-pen-alt"></i>
+                </button>
+              </div>
             </form>
           </Col>
           <Col size="lg-6 md-12">
