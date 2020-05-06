@@ -13,7 +13,7 @@ passport.deserializeUser(function (email, done) {
     });
 });
 
-passport.use("local-signin", strategies.LoginStrategy);
-passport.use("local-signup", strategies.signupStrategy)
+passport.use("local-signin", strategies.loginStrategy);
+passport.use("local-signup", strategies.signupStrategy);
 
 module.exports = passport;

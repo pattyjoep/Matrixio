@@ -1,7 +1,11 @@
 const db = require("../models");
+const passport = require("../client/config/passport")
+
+
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const salt = bcrypt.genSaltSync(saltRounds);
+
 
 //Methods for teacherRoutes.js
 module.exports = {
@@ -66,6 +70,16 @@ module.exports = {
       });
   },
 
+/*  create: (req, res) => {
+    passport.authenticate("local-signup", function (err, user, info) {
+      if (err) {
+        return res.status(500).json({
+          message: err || "Signup failed, please try again",
+        });
+      }
+
+  }
+  */
   //Create a new teacher
   create: (req, res) => {
     console.log("Beginning of backend teacher create");
@@ -90,6 +104,8 @@ module.exports = {
       }
     });
   },
+
+
 
   //Update an existing teacher by ID
   update: (req, res) => {
