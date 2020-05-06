@@ -1,6 +1,6 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const Teacher = require("../../models/Teacher");
+const Teacher = require("../../../../models/Teacher");
 const bcrypt = require("bcryptjs");
 
 /**
