@@ -134,7 +134,7 @@ function Settings() {
                 onChange={e => setUpdateEmail(e.target.value)}
               />
               <button type="submit" className="updateTeacher-Btn">
-                Save Updates <i className="fas fa-pen-alt"></i>
+                Save Updates <i class="fas fa-pen-alt"></i>
               </button>
             </form>
           </Col>

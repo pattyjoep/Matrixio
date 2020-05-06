@@ -24,10 +24,11 @@ export default {
     return axios.get("/api/teacher/" + id);
   },
 
-  updateTeacher: ({ TeacherID, firstName, lastName }) => {
+  updateTeacher: ({ TeacherID, firstName, lastName, email }) => {
     return axios.put("/api/teacher/" + TeacherID, {
       firstName: firstName,
-      lastName: lastName
+      lastName: lastName,
+      email, email
     });
   },
 
