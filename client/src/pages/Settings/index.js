@@ -67,30 +67,12 @@ function Settings() {
     let data = {
       TeacherID: TeacherID,
       firstName: UpdateFName,
-      lastName: UpdateLName
-    };
-    console.log(data);
-
-    API.updateTeacher(data)
-      .then(res => {
-        console.log(res);
-        window.location.reload(false);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
-  const handleEmailUpdate = e => {
-    e.preventDefault();
-
-    let data = {
-      TeacherID: TeacherID,
+      lastName: UpdateLName,
       email: UpdateEmail
     };
     console.log(data);
 
-    API.updateEmail(data)
+    API.updateTeacher(data)
       .then(res => {
         console.log(res);
         window.location.reload(false);
@@ -133,24 +115,17 @@ function Settings() {
                 onChange={e => setUpdateLName(e.target.value)}
               />
               <br />
-              <button type="submit" className="updateTeacher-Btn">
-                Save Updates <i class="fas fa-pen-alt"></i>
-              </button>
-            </form>
-            <h3>Change Email Address:</h3>
-            <h5>Current Email: {TeacherData.email}</h5>
-            <form className="updateEmailForm" onSubmit={handleEmailUpdate}>
-              <label htmlFor="fname">New Email:</label>
+              <label htmlFor="email">Email:</label>
               <br />
               <input
                 className="inputName"
                 type="text"
                 name="email"
+                value={TeacherData.lastName}
                 onChange={e => setUpdateEmail(e.target.value)}
-              />{" "}
-              <br />
-              <button type="submit" className="updateEmail-Btn">
-                Save Email <i className="fas fa-redo"></i>
+              />
+              <button type="submit" className="updateTeacher-Btn">
+                Save Updates <i class="fas fa-pen-alt"></i>
               </button>
             </form>
           </Col>
