@@ -4,6 +4,8 @@ import Container from "../../components/Container";
 import { Col, Row } from "../../components/Grid";
 import NavBar from "../../components/NavBar";
 import API from "../../utils/API";
+import Moment from "react-moment";
+import "moment-timezone";
 import "./style.css";
 
 function Settings() {
@@ -95,6 +97,14 @@ function Settings() {
         </Row>
         <Row>
           <Col size="lg-6 md-12">
+            <p className="signUpDate">
+              <h5>
+                Member since: &nbsp;
+                <Moment format="MMMM DD, YYYY">
+                  {TeacherData.dateCreated}
+                </Moment>
+              </h5>
+            </p>
             <h3>Update User:</h3>
             <form className="updateForm" onSubmit={handleSubmit}>
               <label htmlFor="fname">First name:</label>

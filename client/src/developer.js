@@ -30,7 +30,7 @@ export default [
     id: 4,
     image: "https://avatars3.githubusercontent.com/u/56893630?v=4",
     name: "Shelby Palumbo",
-    role: "Front End layout design and login authentication.",
+    role: "Front End",
     portfolio:
       "https://shelbypalumbo.github.io/Shelby-Palumbo-React-Portfolio/",
     github: "https://github.com/shelbypalumbo",

@@ -95,3 +95,8 @@
   opacity: 0.8;
   background-color: rgb(209, 33, 150);
 }
+
+.date {
+  float: left;
+  text-align: left;
+}

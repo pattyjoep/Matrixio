@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 // import GenerateMatrix from "../GenerateMatrix";
 import { Modal, Button, Form } from "react-bootstrap";
+import Moment from "react-moment";
+import "moment-timezone";
 
 function StuListItem(props) {
   // console.log("StuListItem props----");
@@ -135,6 +137,13 @@ function StuListItem(props) {
               <i className="fas fa-user-edit"></i>&nbsp;Edit Student
             </Button>
             <br />
+            <br />
+            <div className="date">
+              <h6>Last Update: </h6>
+              <Moment format="MMMM DD, YYYY @ hh:mm">
+                {props.student.lastUpdated}
+              </Moment>
+            </div>
             <Button
               className="delete-student-link"
               name="deleteStudent"
