@@ -8,7 +8,7 @@ const db = require("../models/Teacher");
  * Logout strategy: Similiar to login, logout logs a user out and terminates their authenticated status.
  */
 
-const loginStrategy = new Strategy(
+const loginStrategy = new LocalStrategy(
     // Our user will sign in using an email, rather than a "username"
     { usernameField: "email" },
     function (email, password, done) {
@@ -33,7 +33,7 @@ const loginStrategy = new Strategy(
     }
 );
 
-const logoutStrategy = new Strategy(
+const logoutStrategy = new LocalStrategy(
     { usernameField: "email" },
     function (
         email,
@@ -66,4 +66,4 @@ passport.deserializeUser(function (obj, cb) {
 });
 
 // Exporting our configured passport
-module.exports = passport;
+module.exports = strategies;
