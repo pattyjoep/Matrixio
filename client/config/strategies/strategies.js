@@ -4,6 +4,7 @@ const db = require("../models/Teacher");
 
 /**
  * Passport JS is used to manage authentication and user login status.
+ * This file creates two strategies to handle logins and logouts.
  * Login strategy: Logs a user in by quering database to ensure user exists and passwords match.
  * Logout strategy: Similiar to login, logout logs a user out and terminates their authenticated status.
  */
@@ -53,17 +54,6 @@ const logoutStrategy = new LocalStrategy(
             });
     }
 );
-
-// In order to help keep authentication state across HTTP requests,
-// Sequelize needs to serialize and deserialize the user
-// Just consider this part boilerplate needed to make it all work
-passport.serializeUser(function (user, cb) {
-    cb(null, user);
-});
-
-passport.deserializeUser(function (obj, cb) {
-    cb(null, obj);
-});
 
 // Exporting our configured passport
 module.exports = strategies;
