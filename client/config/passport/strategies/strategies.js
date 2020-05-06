@@ -13,26 +13,22 @@ const bcrypt = require("bcryptjs");
 const salt = bcrypt.genSaltSync(10);
 const strategies = {
     loginStrategy: new LocalStrategy(
-        // Our user will sign in using an email, rather than a "username"
         { usernameField: "email" },
-        function (email, password, done) {
-            Teacher.findOne({ email: email })
-                .then(function (dbUser) {
-                    // No user associated with email
-                    if (!dbUser) {
-                        return done(null, false, {
-                            message: "Incorrect email."
-                        });
-                    }
-                    // Correct email, but incorrect password
-                    else if (!dbUser.validPassword(password)) {
-                        return done(null, false, {
-                            message: "Incorrect password."
-                        });
-                    }
-                    // If none of the above, return the user
-                    return done(null, dbUser);
-                });
+        function(email, password, done) {
+            Teacher.findOne({ email: email }, (err, user) => {
+                if (err) 
+                    return done(err)
+                if (!user)
+                    return done(null, false, { message: "No user" })
+
+                if (!bcrypt.compareSync(password, user.password)) {
+                    console.log("password = " + password);
+                    console.log("user.password = "  + user.password);
+                    console.log(bcrypt.compareSync(password, user.password))
+                  return done("Email or Password not valid ", null);
+            }
+                return done(null, user)
+            })
         }
     ),
 
@@ -45,12 +41,10 @@ const strategies = {
         ) {
             Teacher.findOne({ email })
                 .exec((err, user) => {
-                    if (err) {
+                    if (err)
                         return done(err, null);
-                    }
-                    if (!user) {
+                    if (!user)
                         return done("No user found ", null);
-                    }
                     return done(null, user);
                 });
         }
@@ -58,38 +52,33 @@ const strategies = {
 
     signupStrategy: new LocalStrategy(
         { usernameField: "email" },
-        function (
-            firstName,
-            lastName,
-            email,
-            password,
-            students,
-            done
-        ) {
-            Teacher.findOne({ email })
+        function (firstName, lastName, email, password, students, done) {
+            Teacher.findOne({ email: email })
                 .exec((err, user) => {
-                    if (err) {
+                    console.log("signupstrategy - post exec()-------------------------------")
+                    if (err) 
                         return done(err, null);
-                    }
-                    if (user) {
+                    if (user) 
                         return done("User already exists", null);
-                    }
 
-                    const encryptedPassword = bcrypt.hashSync(password, salt);
+                    console.log("password = " + user.password);
+                    const encryptedPassword = bcrypt.hashSync(user.password, salt);
                     let newTeacher = new Teacher({
                         firstName,
                         lastName,
                         email,
                         password: encryptedPassword,
-                        students
+                        students: []
                     });
                     newTeacher.setFullName();
                     newTeacher.setLastUpdated();
 
+                    console.log("signupstrategy - post newTeacher--------------------------------");
+                    console.log("newteacher = " + newTeacher);
+
                     newTeacher.save((err, inserted) => {
-                        if (err) {
+                        if (err)
                             return done(err, null);
-                        }
 
                         return done(null, inserted);
                     });
@@ -97,4 +86,5 @@ const strategies = {
         }
     )
 }
+
 module.exports = strategies;

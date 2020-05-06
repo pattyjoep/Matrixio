@@ -1,16 +1,27 @@
 const db = require("../models");
 const passport = require("../client/config/passport")
 
-
+/*
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const salt = bcrypt.genSaltSync(saltRounds);
-
+*/
 
 //Methods for teacherRoutes.js
 module.exports = {
+
+  findByEmail: (req, res) => {
+    console.log("teacher find one - start")
+    db.Teacher.findOne({ email: req.body.email })
+      .catch(err => {
+        res.status(422).json(err);
+        console.log(err);
+      });
+      console.log("teacher find one - end");
+  },
+
   // Teacher/User authentication:
-  findOne: (req, res) => {
+ /* findOne: (req, res) => {
     console.log("hello there");
     console.log(req.body);
     console.log(`REQ.BODY.EMAIL ${req.body.email}`);
@@ -39,7 +50,7 @@ module.exports = {
 
       .catch(err => res.status(422).json(err));
   },
-
+*/
   //Find all teachers in the database
   findAll: (req, res) => {
     console.log("Begin teacher findAll.");
@@ -70,18 +81,25 @@ module.exports = {
       });
   },
 
-/*  create: (req, res) => {
-    passport.authenticate("local-signup", function (err, user, info) {
-      if (err) {
-        return res.status(500).json({
-          message: err || "Signup failed, please try again",
-        });
-      }
-
-  }
-  */
-  //Create a new teacher
   create: (req, res) => {
+    const teacher = new db.Teacher(req.body);
+    teacher.setFullName();
+    teacher.setLastUpdated();
+    console.log("teachercontroller create - post new teacher-------------------------------------------");
+    console.log("teacher = " + teacher);
+
+    db.Teacher.create(teacher)
+      .then(dbTeacher => {
+        res.json(dbTeacher);
+      })
+      .catch(err => {
+        res.status(422).json(err);
+        console.log(err);
+      });
+  },
+  
+  //Create a new teacher
+/*  create: (req, res) => {
     console.log("Beginning of backend teacher create");
     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
       if (err) {
@@ -104,7 +122,7 @@ module.exports = {
       }
     });
   },
-
+*/
 
 
   //Update an existing teacher by ID

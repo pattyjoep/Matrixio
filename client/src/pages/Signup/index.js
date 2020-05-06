@@ -12,7 +12,33 @@ function Signup() {
   const [password, setPassword] = useState();
   const [redirectToLogin, setRedirectToLogin] = useState(false);
 
+
+
   const handleSubmit = e => {
+    e.preventDefault();
+    if (!firstName || !lastName || !email || !password)
+      return;
+
+    let newTeacher = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password
+    };
+    API.createTeacher(newTeacher)
+      .then(res => {
+        //When the new user is created successfully, the redirect will be set to true and the page will redirected to the login page
+        setRedirectToLogin(true);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    
+  }
+
+
+
+ /* const handleSubmit = e => {
     e.preventDefault();
     //TODO: Remove these console logs on finished product
     console.log(`firstName: ${firstName}`);
@@ -39,7 +65,7 @@ function Signup() {
         });
     }
   };
-
+*/
   return (
     <div>
       {/* When the new user is created, upon submit they will be redirected to the login page */}

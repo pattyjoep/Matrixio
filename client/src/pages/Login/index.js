@@ -4,6 +4,7 @@ import "./style.css";
 import Container from "../../components/Container";
 import HomeNav from "../../components/HomeNav";
 import API from "../../utils/API";
+import axios from "axios";
 
 function Login() {
   const [TeacherID, setTeacherID] = useState();
@@ -12,6 +13,32 @@ function Login() {
   const [redirectUserProfile, setRedirectUserProfile] = useState(false);
 
   const handleSubmit = e => {
+    e.preventDefault();
+    const { email, password } = this.state;
+    axios({
+      url: "/authentication/login",
+      method: "POST",
+
+      data: {
+        email,
+        password,
+      },
+    })
+      .then((response) => {
+        console.log("data:", response);
+        const isAuthenticated = response.data.isAuthenticated;
+        window.localStorage.setItem("isAuthenticated", isAuthenticated);
+      })
+      .catch((error) => {
+        this.setState({
+          loginErrors: error.response.data.message,
+        });
+      });
+  };
+  
+  
+  
+  /*const handleSubmit = e => {
     e.preventDefault();
     console.log(`Email: ${email}`);
     console.log(`Password: ${password}`);
@@ -36,6 +63,9 @@ function Login() {
         });
     }
   };
+
+
+  */
   return (
     <div>
       {/* When users login is authorized they will be redirected to the user profile page */}
