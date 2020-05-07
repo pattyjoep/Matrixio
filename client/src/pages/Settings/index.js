@@ -154,13 +154,14 @@ function Settings() {
                   Current Email Address:{" "}
                   <p className="currentEmail">{TeacherData.email}</p>
                 </h5>
-                <label htmlFor="email">Email: &nbsp;</label>
+                <label htmlFor="email">Email: &nbsp;</label> <br />
                 <input
                   className="inputEmail"
                   type="text"
                   name="email"
                   onChange={e => setUpdateEmail(e.target.value)}
                 />
+                <br />
                 <button type="submit" className="updateEmail-Btn">
                   Update Email <i className="fas fa-pen-alt"></i>
                 </button>

@@ -22,6 +22,7 @@
   border: none;
   float: right;
   font-size: 20pt;
+  padding: 3px;
 }
 .delete-student-link:hover {
   color: rgb(245, 50, 50);
