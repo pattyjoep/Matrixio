@@ -63,17 +63,7 @@ select {
   padding: 20px;
 }
 
-.tableBtn-success {
-  background-color: #9be69b;
-}
-
-.tableBtn-fail {
-  color: white;
-  background-color: #ff7575;
-}
-
-td,
-th {
+td, th {
   border: 1px solid #f1f1f1;
   padding: 5px;
 }
@@ -87,30 +77,16 @@ th {
   text-align: center;
 }
 
-.status-card div {
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
 .status-card-front {
   height: 50px;
+  color: #ffffff;
   background: red;
   padding: 14px;
 }
-.status-card-back {
+
+.status-card-success {
   height: 50px;
+  color: #ffffff;
   background: green;
   padding: 14px;
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-}
-
-.flipped {
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-  transform: rotateY(180deg);
 }
