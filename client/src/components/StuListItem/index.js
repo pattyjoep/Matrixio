@@ -7,6 +7,9 @@ import { Modal, Button, Form } from "react-bootstrap";
 import Moment from "react-moment";
 import "moment-timezone";
 
+import GenerateMatrix from "../GenerateMatrix"
+import NewMatrix from "../NewMatrix"
+
 function StuListItem(props) {
   // console.log("StuListItem props----");
   // console.log(props);
@@ -17,6 +20,55 @@ function StuListItem(props) {
 
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
+
+
+
+  const [MatrixShow, setMatrixShow] = useState(false);
+
+  const [rows, setRows] = useState([]);
+  const [columns, setColumns] = useState([]);
+
+  const [selectRow, setSelectRow] = useState("")
+  const [selectColumn, setSelectColumn] = useState("")
+  const [displayTable, setDisplayTable] =  useState(false)
+
+  const handleChangeStatus = (event) => {  
+    var cell = event.target
+    cell.setAttribute("class", "status-card-success")
+    cell.textContent = "✓"
+  }
+
+  const handleInputChangeRow = (event) => {
+    const { value } = event.target;
+    setSelectRow(value) 
+    console.log(value)
+  }
+  
+  const handleSubmit = () => {
+    setDisplayTable(true)
+    console.log("row/col")
+    console.log(selectColumn, selectRow)
+  
+    const tempRows = [];
+    const tempColumns = [];
+  
+    for (let i = 0;i < selectRow; i++) {
+      tempRows.push(i)
+    }
+    setRows(tempRows)
+  
+    for (let i = 0;i < selectColumn; i++) {
+      tempColumns.push(i)
+    }
+    setColumns(tempColumns)
+    setMatrixShow(false) 
+  }
+  
+  const handleInputChangeColumn = (event) => {
+    const { value } = event.target;
+    setSelectColumn(value) 
+    console.log(value)
+  }
 
   //Update Student Modal--------------
   const updateModal = e => {
@@ -79,6 +131,7 @@ function StuListItem(props) {
 
   return (
     <div>
+      {/* Update Student Modal */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Update Student</Modal.Title>
@@ -137,11 +190,12 @@ function StuListItem(props) {
           <div className="card-body">
             <Button
               className="new-matrix"
-              // onClick={() => setMatrixShow(true)}
+              onClick={() => setMatrixShow(true)}
             >
               <i className="fas fa-folder-plus"></i> &nbsp;New Matrix
             </Button>
-            {/* <GenerateMatrix show={MatrixShow} setMatrixShow={setMatrixShow} /> */}
+              <GenerateMatrix handleSubmit={handleSubmit} handleInputChangeRow={handleInputChangeRow} handleInputChangeColumn={handleInputChangeColumn}
+              selectRow={selectRow} selectColumn={selectColumn} show={MatrixShow} setMatrixShow={ setMatrixShow } />
             <Button
               className="update-student-link"
               name="updateStudent"
@@ -167,6 +221,7 @@ function StuListItem(props) {
           </div>
         </div>
       </div>
+      {displayTable ? <NewMatrix rows={selectRow} rowsArray={rows} columnsArray={columns} columns={selectColumn} changeStatus={handleChangeStatus} /> : ""}
     </div>
   );
 }
