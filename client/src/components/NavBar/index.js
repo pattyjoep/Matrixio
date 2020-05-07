@@ -50,12 +50,12 @@ function NavBar(props) {
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link className="nav-link main" to={`/Settings?=${TeacherID}`}>
-                <i className="fa fa-cog icon-settings"> Settings</i>
+                <i className="fa fa-cog icon-settings"> </i> Settings
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link main" to="/">
-                <i className="fas fa-sign-out-alt"> Logout</i>
+                <i className="fas fa-sign-out-alt"></i> Logout
               </Link>
             </li>
           </ul>

@@ -23,27 +23,40 @@ function StuListItem(props) {
     e.preventDefault();
     console.log(`updateModal firstName: ${firstName}`);
     console.log(`updateModal lastName: ${lastName}`);
-
-    if (!firstName || !lastName) {
-      return;
+    let data;
+    console.log(props);
+    if (firstName && !lastName) {
+      data = {
+        StudentID: props.student._id,
+        firstName: firstName,
+        lastName: props.student.lastName
+      };
+    } else if (!firstName && lastName) {
+      console.log("ELSE IF!");
+      data = {
+        StudentID: props.student._id,
+        firstName: props.student.firstName,
+        lastName: lastName
+      };
     } else {
-      let data = {
+      console.log("BOTH F & L");
+      data = {
         StudentID: props.student._id,
         firstName: firstName,
         lastName: lastName
       };
-      console.log("STUDENT UPDATE", data);
-      API.updateStudent(data)
-        .then(res => {
-          console.log(res);
-          window.location.reload(false).then(() => {
-            setShow(false);
-          });
-        })
-        .catch(err => {
-          console.log(err);
-        });
     }
+    console.log("STUDENT UPDATE", data);
+    API.updateStudent(data)
+      .then(res => {
+        console.log(res);
+        window.location.reload(false).then(() => {
+          setShow(false);
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   //======================
@@ -140,7 +153,7 @@ function StuListItem(props) {
             <br />
             <div className="date">
               <h6>Last Update: </h6>
-              <Moment format="MMMM DD, YYYY @ hh:mm">
+              <Moment format="MMMM DD, YYYY @ hh:mm A">
                 {props.student.lastUpdated}
               </Moment>
             </div>

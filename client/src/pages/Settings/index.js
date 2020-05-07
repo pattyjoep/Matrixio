@@ -66,74 +66,47 @@ function Settings() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    let data;
     if (!UpdateLName && !UpdateFName) {
-      let data = {
+      data = {
         TeacherID: TeacherID,
         firstName: TeacherData.firstName,
         lastName: TeacherData.lastName,
         email: UpdateEmail
       };
-      API.updateTeacher(data)
-        .then(res => {
-          console.log(res);
-          window.location.reload(false);
-        })
-        .catch(err => {
-          console.log(err);
-        });
     } else if (!UpdateFName && !UpdateEmail) {
-      let data = {
+      data = {
         TeacherID: TeacherID,
         firstName: TeacherData.firstName,
         lastName: UpdateLName,
         email: TeacherData.email
       };
-      console.log(data);
-
-      API.updateTeacher(data)
-        .then(res => {
-          console.log(res);
-          window.location.reload(false);
-        })
-        .catch(err => {
-          console.log(err);
-        });
     } else if (!UpdateLName && !UpdateEmail) {
-      let data = {
+      data = {
         TeacherID: TeacherID,
         firstName: UpdateFName,
         lastName: TeacherData.lastName,
         email: TeacherData.email
       };
-      console.log(data);
-
-      API.updateTeacher(data)
-        .then(res => {
-          console.log(res);
-          window.location.reload(false);
-        })
-        .catch(err => {
-          console.log(err);
-        });
     } else if (UpdateLName && UpdateFName) {
-      let data = {
+      data = {
         TeacherID: TeacherID,
         firstName: UpdateFName,
         lastName: UpdateLName,
         email: TeacherData.email
       };
-      console.log(data);
-
-      API.updateTeacher(data)
-        .then(res => {
-          console.log(res);
-          window.location.reload(false);
-        })
-        .catch(err => {
-          console.log(err);
-        });
     }
+    console.log(data);
+    API.updateTeacher(data)
+      .then(res => {
+        console.log(res);
+        window.location.reload(false);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
+
   return (
     <div>
       {redirectHome ? <Redirect to="/" /> : null}

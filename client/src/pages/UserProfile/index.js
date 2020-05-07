@@ -48,6 +48,11 @@ function UserProfile() {
           <Col size="12">
             <h1>Hello {TeacherData.fullName}!</h1>
             <hr />
+            <Row>
+              <Col size="6">
+                <h3>Notes</h3>
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Container>
