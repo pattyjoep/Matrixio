@@ -174,7 +174,7 @@ function StuListItem(props) {
               aria-controls="collapseOne"
               // data-id={props.student._id}
             >
-              <i class="far fa-user-circle"></i> {props.student.fullName}
+              <i className="far fa-user-circle"></i> {props.student.fullName}
             </button>
             <span className="badge badge-pill matrix-amt-badge">14</span>
           </h2>

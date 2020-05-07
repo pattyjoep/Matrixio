@@ -35,11 +35,16 @@ Sign up, log in, and get to work creating your own matrices!
 ## Technologies Used
 
 - React
+- Bcrypt
+- Passport
+- Express.js
 - Node.js
+- JSX
 - HTML
 - CSS
 - Javascript
-- JSX
+- React-moment | https://www.npmjs.com/package/react-moment
+- React-bootstrap | https://react-bootstrap.github.io/
 
 ### Additional Styling Framework
 
