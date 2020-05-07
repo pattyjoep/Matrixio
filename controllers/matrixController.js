@@ -25,11 +25,11 @@ module.exports = {
       });
   },
 
-  findById: function (req, res) {
-    db.Matrix.findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
+  // findById: function (req, res) {
+  //   db.Matrix.findById(req.params.id)
+  //     .then(dbModel => res.json(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  // },
 
   create: (req, res) => {
     const matrix = req.body;
@@ -74,7 +74,7 @@ module.exports = {
     
   },
 
-  remove: function (req, res) {
+  delete: function (req, res) {
     db.Matrix.findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))

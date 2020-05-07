@@ -5,13 +5,14 @@
  router
    .route("/")
    .get(matrixController.findAll)
-   .post(matrixController.create);
+   .post(matrixController.create)
+   .delete(matrixController.delete);
   
  //Matches with "/api/matrix/:id"
  router
    .route("/:id")
-   .get(matrixController.findById)
+  //  .get(matrixController.findById)
    .put(matrixController.update)
-   .delete(matrixController.remove);
+  //  .delete(matrixController.remove);
 
  module.exports = router;

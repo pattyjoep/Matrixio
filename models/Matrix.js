@@ -33,7 +33,7 @@ const MatrixSchema = new Schema(
     }
 
   },
-  { collection: "matrices" }
+  // { collection: "matrices" }
 );
 
 MatrixSchema.methods.setLastUpdated = function() {
