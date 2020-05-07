@@ -4,10 +4,13 @@ import Container from "../../components/Container";
 import { Row, Col } from "../../components/Grid";
 import StudentList from "../../components/StudentList";
 import NavBar from "../../components/NavBar";
+import API from "../../utils/API";
 
 function Students(props) {
   const [TeacherID, setTeacherID] = useState();
-  // const [students, setStudent] = useState();
+  const [getTeacher, setGetTeacher] = useState(false);
+  const [TeacherData, setTeacherData] = useState({});
+  // const [runEffect, setRunEffect] = useState(true)
 
   const getID = str => {
     let newstr = str.split("=")[1];
@@ -15,8 +18,25 @@ function Students(props) {
   };
 
   useEffect(() => {
+    setGetTeacher(true);
     getID(window.location.href);
-  }, []);
+  });
+
+  useEffect(() => {
+    if (getTeacher) {
+      API.getTeacher(TeacherID)
+        .then(res => {
+          console.log("userProfile get Teacher----");
+          console.log(res.data);
+          setTeacherData(res.data);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    } else {
+      return;
+    }
+  }, [getTeacher]);
 
   // console.log("Students page props ------");
   // console.log(props)
@@ -27,11 +47,16 @@ function Students(props) {
     <div>
       <div>{TeacherID ? <NavBar TeacherID={TeacherID} /> : null}</div>
       <Container>
-        <h1>Student Dashboard</h1>
-        <hr />
         <Row>
           <Col size="12">
-            <StudentList TeacherID={TeacherID} />
+            <h1>Hello {TeacherData.fullName}.</h1>
+            <hr />
+            <div className="studentDash">
+              <h3>
+                My Students: <i className="fa fa-graduation-cap"></i>
+              </h3>
+              <StudentList TeacherID={TeacherID} />
+            </div>
           </Col>
         </Row>
       </Container>

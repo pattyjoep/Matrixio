@@ -39,9 +39,7 @@ function Login() {
   return (
     <div>
       {/* When users login is authorized they will be redirected to the user profile page */}
-      {redirectUserProfile ? (
-        <Redirect to={`/UserProfile?=${TeacherID}`} />
-      ) : null}
+      {redirectUserProfile ? <Redirect to={`/Students?=${TeacherID}`} /> : null}
       <HomeNav />
       <Container className="card-container">
         <div className="card text-center login-card">

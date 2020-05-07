@@ -4,6 +4,8 @@ import { Col, Row } from "../../components/Grid";
 import Container from "../../components/Container";
 import NavBar from "../../components/NavBar";
 import API from "../../utils/API";
+import Moment from "react-moment";
+import "moment-timezone";
 
 // http://localhost:3000/UserProfile?=23049835897tsdkafj
 
@@ -50,6 +52,13 @@ function UserProfile() {
             <hr />
             <Row>
               <Col size="6">
+                <div>
+                  Member since: &nbsp;
+                  <Moment format="MMMM DD, YYYY">
+                    {TeacherData.dateCreated}
+                  </Moment>
+                </div>
+                <br />
                 <h3>Notes</h3>
               </Col>
             </Row>
