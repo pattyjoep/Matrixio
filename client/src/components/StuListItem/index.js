@@ -64,12 +64,9 @@ function StuListItem(props) {
     setColumns(tempColumns);
     setMatrixShow(false);
 
-    //mattland
-
-
     let rowsArr = [];
     let matrix = [];
-    let topRow = ["firsttitle", "Secondtitle", "thirdtitle", "etc......"]; //for loop to build
+    let topRow = ["0", "Secondtitle", "thirdtitle", "etc......"]; //for loop to build
     matrix.push(topRow);
     for (let i = 0; i < parseInt(selectRow) + 1; i++) {
       rowsArr.push("X");
@@ -83,26 +80,18 @@ function StuListItem(props) {
       matrix.push(tmpArr);
     }
 
-    console.log(matrix);
-
-    console.log("props = " + JSON.stringify(props));
     let matrixDB = {
       title: title,
       matrix: matrix,
-      rowLength: selectRow,
-      columnLength: selectColumn,
       StudentID: props.student._id
     };
-    console.log(matrixDB);
+
     API.createMatrix(matrixDB);
   };
-
-  //end mattland
 
   const handleInputChangeColumn = event => {
     const { value } = event.target;
     setSelectColumn(value);
-    console.log(value);
   };
 
   //Update Student Modal--------------

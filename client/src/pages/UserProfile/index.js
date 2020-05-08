@@ -26,8 +26,6 @@ function UserProfile(props) {
     if (getTeacher) {
       API.getTeacher(TeacherID)
         .then(res => {
-          console.log("userProfile get Teacher----");
-          console.log(res.data);
           setTeacherData(res.data);
         })
         .catch(err => {
@@ -38,10 +36,6 @@ function UserProfile(props) {
     }
   }, [getTeacher]);
 
-  // console.log("Students page props ------");
-  // console.log(props)
-  // console.log("Students page TeacherID");
-  // console.log(TeacherID)
 
   return (
     <div>

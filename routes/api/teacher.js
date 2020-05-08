@@ -24,5 +24,4 @@ router
   .get(teacherController.findById)
   .put(teacherController.update);
 
-
 module.exports = router;

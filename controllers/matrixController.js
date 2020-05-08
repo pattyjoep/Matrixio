@@ -52,12 +52,6 @@ module.exports = {
       });
   },
 
-  /**
-   * TODO: Update student with their new matrix, if studentid changes.
-   * req.body needs to be formatted in ../client/src/utils/API.js
-   * @param {*} req 
-   * @param {*} res 
-   */
   update: function (req, res) {
     let matrix = req.body;
     matrix.lastUpdated = Date.now();
@@ -65,14 +59,6 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err)
       );
-    /**
-     * if(thisMatrix.StudentID != req.body.StudentID){
-     *  //update student with their new matrix.
-     * }
-     * if studentID changes, we can update which student has this matrix. 
-     * HOWEVER, is this functionality we need? Presently, would require passing studentID into all matrix update calls, which isn't hard, but is extra, and could be risky exposing IDs like that.
-     */
-
   },
 
   delete: function (req, res) {

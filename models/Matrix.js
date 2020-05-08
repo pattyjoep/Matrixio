@@ -32,10 +32,6 @@ const MatrixSchema = new Schema(
       type: Number
     },
 
-    rows: [],
-
-    columns: [],
-
     dateCreated: {
       type: Date,
       default: Date.now

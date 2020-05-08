@@ -25,7 +25,6 @@ export default {
   },
 
   updateTeacher: ({ TeacherID, firstName, lastName, email }) => {
-    console.log("TEACHER UPDATE");
     return axios.put("/api/teacher/" + TeacherID, {
       firstName: firstName,
       lastName: lastName,

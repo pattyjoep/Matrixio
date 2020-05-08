@@ -8,7 +8,6 @@ import API from "../../utils/API";
 import "./style.css";
 
 function Matrices(props) {
-  // console.log("studentID", StudentID);
   const [TeacherID, setTeacherID] = useState();
   const [StudentID, setStudentID] = useState();
   const [getStudent, setGetStudent] = useState(false);
@@ -24,15 +23,13 @@ function Matrices(props) {
   useEffect(() => {
     getID(window.location.href);
     setGetStudent(true);
-    console.log("use Effect studentID", StudentID);
+
   });
 
   useEffect(() => {
     if (getStudent) {
       API.getStudent(StudentID)
         .then(res => {
-          console.log("Matrices Page----");
-          console.log(res.data);
           setStudentData(res.data);
         })
         .catch(err => {
@@ -42,7 +39,6 @@ function Matrices(props) {
       return;
     }
   }, [getStudent]);
-  console.log("STUDENT", StudentID);
   return (
     <div>
       <div>{StudentID ? <NavBar TeacherID={TeacherID} /> : null}</div>
