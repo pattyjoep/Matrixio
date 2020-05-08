@@ -9,6 +9,9 @@ router
  // .post(teacherController.create)
   .delete(teacherController.delete);
 
+  router.get("/current", (req, res) => {
+    res.json(req.user);
+  });
 /*
 //Matches with /api/teacher/login
 //Login require a post instead of a get because it get will not accept req.body.

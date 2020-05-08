@@ -17,6 +17,10 @@ export default {
     return axios.post("/api/teacher/signup", data);
   },
 
+  getCurrentTeacher: () => {
+    return axios.get("/api/teacher/current");
+  },
+
   getAllTeachers: () => {
     return axios.get("/api/teacher");
   },
