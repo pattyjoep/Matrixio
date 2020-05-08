@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from "react";
-// import "./style.css";
-// import { Link } from "react-router-dom";
 import API from "../../utils/API";
-// import GenerateMatrix from "../GenerateMatrix";
 import { Modal, Button, Form } from "react-bootstrap";
 import Moment from "react-moment";
 import "moment-timezone";
 
-import GenerateMatrix from "../GenerateMatrix";
-import NewMatrix from "../NewMatrix";
+import GenerateMatrix from "../GenerateMatrix"
 
 function StuListItem(props) {
-  // console.log("StuListItem props----");
-  // console.log(props);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -43,10 +37,18 @@ function StuListItem(props) {
   };
 
   const handleSubmit = () => {
+<<<<<<< Updated upstream
     setDisplayTable(true);
     console.log("row/col");
     console.log(selectColumn, selectRow);
 
+=======
+    //setDisplayTable(true)
+    props.handleRenderTable()
+    console.log("row/col")
+    console.log(selectColumn, selectRow)
+  
+>>>>>>> Stashed changes
     const tempRows = [];
     const tempColumns = [];
 
@@ -176,7 +178,7 @@ function StuListItem(props) {
             >
               <i className="far fa-user-circle"></i> {props.student.fullName}
             </button>
-            <span className="badge badge-pill matrix-amt-badge">14</span>
+            <span className="badge badge-pill matrix-amt-badge">2</span>
           </h2>
         </div>
         <div
@@ -186,6 +188,7 @@ function StuListItem(props) {
           data-parent="#accordionExample"
         >
           <div className="card-body">
+<<<<<<< Updated upstream
             <Button className="new-matrix" onClick={() => setMatrixShow(true)}>
               <i className="fas fa-ruler-combined"></i> &nbsp;New Matrix
             </Button>
@@ -198,6 +201,16 @@ function StuListItem(props) {
               show={MatrixShow}
               setMatrixShow={setMatrixShow}
             />
+=======
+            <Button
+              className="new-matrix"
+              onClick={() => props.setMatrixShow(true)}
+            >
+              <i className="fas fa-folder-plus"></i> &nbsp;New Matrix
+            </Button>
+              <GenerateMatrix handleSubmit={props.handleSubmit} handleInputChangeRow={props.handleInputChangeRow} handleInputChangeColumn={props.handleInputChangeColumn}
+              selectRow={props.selectRow} selectColumn={props.selectColumn} show={props.show} setMatrixShow={ props.setMatrixShow } />
+>>>>>>> Stashed changes
             <Button
               className="update-student-link"
               name="updateStudent"
@@ -223,6 +236,7 @@ function StuListItem(props) {
           </div>
         </div>
       </div>
+<<<<<<< Updated upstream
       {displayTable ? (
         <NewMatrix
           rows={selectRow}
@@ -234,6 +248,8 @@ function StuListItem(props) {
       ) : (
         ""
       )}
+=======
+>>>>>>> Stashed changes
     </div>
   );
 }

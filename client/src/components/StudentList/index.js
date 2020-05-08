@@ -86,20 +86,6 @@ function StudentList(props) {
     }
   };
 
-  // const createAccordion = (user) => {
-  //   console.log(user)
-  //   API.getStudent()
-  //   .then(res => {
-  // console.log(res);
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //   })
-  //   .then(() => {
-  //     setShow(false);
-  //   });
-  // }
-
   return (
     <div>
       <Modal show={show} onHide={handleClose}>
@@ -139,11 +125,10 @@ function StudentList(props) {
         <div className="card">
           <div className="card-header student-list-header" id="headingOne">
             <h2 className="mb-0">
-              {/* <button className="btn" type="button" onClick={createAccordion}>
+              <button className="btn" type="button">
                 <a className="student-list-header-link">
-                  <i className="fa fa-graduation-cap"></i> My Students
-                </a>
-              </button> */}
+                  <i className="fa fa-graduation-cap"></i> My Students</a>
+              </button>
               <Button
                 className="add-student-link"
                 data-toggle="modal"
@@ -155,7 +140,7 @@ function StudentList(props) {
           </div>
         </div>
         {studentsArr.map(stu => {
-          return <StuListItem student={stu} key={stu._id} />;
+          return <StuListItem handleRenderTable={props.handleRenderTable} handleSubmit={props.handleSubmit} handleInputChangeRow={props.handleInputChangeRow} handleInputChangeColumn={props.handleInputChangeColumn} selectRow={props.selectRow} selectColumn={props.selectColumn} show={props.show} setMatrixShow={ props.setMatrixShow }student={stu} key={stu._id} />;
         })}
       </div>
     </div>

@@ -80,13 +80,15 @@ th {
 .status-card-front {
   height: 50px;
   color: #ffffff;
-  background: red;
+  background: #ff2c2c;
   padding: 14px;
+  border-radius: 5px;
 }
 
 .status-card-success {
   height: 50px;
   color: #ffffff;
-  background: green;
+  background: #00b500;
   padding: 14px;
+  border-radius: 5px;
 }
