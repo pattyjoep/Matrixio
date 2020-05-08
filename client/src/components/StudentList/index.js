@@ -10,6 +10,27 @@ import StuListItem from "../StuListItem";
 import { Modal, Button, Form } from "react-bootstrap";
 
 function StudentList(props) {
+
+
+  // function component() {
+  //   const [cellValue, setCellValue] = useState("");
+
+  //   const handleCell1Change = e => {
+  //     setCellValue(e.target.value);
+  //   };
+
+  //   return (
+  //     <div>
+  //       <td
+  //         placeholder="Enter Here"
+  //         onChange={handleCell1Change}
+  //       >
+
+  //       </td>
+  //     </div>
+  //   )
+
+  // }
   const [studentsArr, setStudentsArr] = useState([]);
 
   const [show, setShow] = useState(false);

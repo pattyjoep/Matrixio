@@ -40,12 +40,17 @@ const strategies = {
         },
         function (req, email, password, done) {
             console.log("start of signup strat ----------------------------------------");
+            console.log("signup strategy email: ", email);
+
             //create teacher here.. don't find then update
 
             try {
                 const encryptedPassword = bcrypt.hashSync(password, salt);
                 console.log("encrypt..... " + encryptedPassword);
-                console.log("req = " + req);
+                // console.log("SIGNUP STRATEGY REQ.headers----- = ", req.rawHeaders.session);
+                console.log("SIGNUP STRATEGY REQ.body----- = ", req.body);
+                console.log("SIGNUP STRATEGY REQ._passport----- = ", req._passport);
+                console.log("SIGNUP STRATEGY REQ.user----- = ", req.user);
                 let newTeacher = new Teacher({
                     firstName: req.body.firstName,
                     lastName: req.body.lastName,

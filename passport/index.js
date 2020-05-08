@@ -3,6 +3,8 @@ const Teacher = require("../models/Teacher");
 const strategies = require("./strategies/strategies");
 
 passport.serializeUser((user, done) => {
+  console.log("passport serializeUser-----");
+  console.log(user)
   done(null, user._id )
 });
 
