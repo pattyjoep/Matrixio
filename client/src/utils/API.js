@@ -37,7 +37,7 @@ export default {
     return axios.put("/api/teacher/" + TeacherID, {
       firstName: firstName,
       lastName: lastName,
-      email, email
+      email: email
     });
   },
 

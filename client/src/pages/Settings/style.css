@@ -4,7 +4,6 @@
   border-radius: 5px;
   border: none;
   padding: 10px;
-  margin: 0px 0px 10px 70px;
 }
 .updateTeacher-Btn:hover {
   background-color: rgb(152, 231, 24);
@@ -27,18 +26,41 @@
 
 .inputName {
   width: 60%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.updateName {
+  margin: -20px 0px 50px 30px;
 }
 
 .updateEmail-Btn {
-  background-color: yellow;
+  background-color: rgb(241, 195, 109);
   color: rgb(70, 68, 68);
   border-radius: 5px;
   border: none;
   padding: 10px;
-  margin: 0px 0px 30px 70px;
+  margin-top: 5px;
+}
+
+.updateEmail-Btn:hover {
+  background-color: rgb(235, 169, 48);
 }
 
 .signUpDate {
-  color: gray;
+  color: rgb(83, 81, 81);
+  padding: 10px;
+  float: right;
+}
+
+.inputEmail {
+  width: 60%;
+}
+
+.updateEmail {
+  margin: 30px;
+}
+
+.currentEmail {
+  color: teal;
+  font-size: 12pt;
 }
