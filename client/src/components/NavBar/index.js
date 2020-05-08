@@ -9,16 +9,12 @@ function NavBar(props) {
   useEffect(() => {
     API.getTeacher(props.TeacherID)
       .then(res => {
-        console.log("Navbar get Teacher----");
-        console.log(res.data);
         setTeacherID(res.data._id);
       })
       .catch(err => {
         console.log(err);
       });
   }, [TeacherID]);
-
-  // console.log(`Navbar props ${JSON.stringify(props)}`);
 
   return (
     <div>

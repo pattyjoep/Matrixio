@@ -40,8 +40,6 @@ function StudentList(props) {
   const retrieveTeacher = props => {
     API.getTeacher(props.TeacherID)
       .then(teacherResult => {
-        console.log("teacherResult----");
-        console.log(teacherResult);
         setStudentsArr(getStudentNames(teacherResult.data.students));
       })
       .catch(err => {
@@ -50,15 +48,11 @@ function StudentList(props) {
   };
 
   useEffect(() => {
-    console.log("inside useEffect --------");
-    console.log(props);
     retrieveTeacher(props);
   }, [props]);
 
   const saveModal = e => {
     e.preventDefault();
-    console.log(`firstName: ${firstName}`);
-    console.log(`lastName: ${lastName}`);
 
     if (!firstName || !lastName) {
       return;
@@ -68,15 +62,10 @@ function StudentList(props) {
         firstName: firstName,
         lastName: lastName
       };
-      console.log("Save Modal");
-      console.log(data);
       API.createStudent(data)
         .then(res => {
-          console.log("frontend dbstudent create result", res);
 
           retrieveTeacher(props);
-          console.log("CREATE STUDENT RES STUDENTSARR");
-          console.log(studentsArr);
         })
         .catch(err => {
           console.log(err);
@@ -86,20 +75,6 @@ function StudentList(props) {
         });
     }
   };
-
-  // const createAccordion = (user) => {
-  //   console.log(user)
-  //   API.getStudent()
-  //   .then(res => {
-  // console.log(res);
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //   })
-  //   .then(() => {
-  //     setShow(false);
-  //   });
-  // }
 
   return (
     <div>
