@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import "./style.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import API from "../../utils/API";
 // import GenerateMatrix from "../GenerateMatrix";
 import { Modal, Button, Form } from "react-bootstrap";
@@ -132,6 +132,7 @@ function StuListItem(props) {
       });
   };
 
+  console.log("STUDENT IDDDDDDDD", props.student._id);
   return (
     <div>
       {/* Update Student Modal */}
@@ -194,6 +195,10 @@ function StuListItem(props) {
             <Button className="new-matrix" onClick={() => setMatrixShow(true)}>
               <i className="fas fa-ruler-combined"></i> &nbsp;New Matrix
             </Button>
+            <br />
+            <Link to={`/Matrices?=${props.student._id}`}>
+              View All Matrices
+            </Link>
             <GenerateMatrix
               handleTitleChange={handleTitleChange}
               handleSubmit={handleSubmit}

@@ -1,7 +1,9 @@
 .wrapper {
   font-family: "Montserrat", sans-serif;
-  background-image: url("./graphy.png");
+  background-image: url("./childReading.jpg");
   background-color: rgb(214, 248, 248);
-  height: auto;
+  height: 100%;
+  background-size: cover;
+  background-image: no-repeat;
   padding-bottom: 0.3%;
 }

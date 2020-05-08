@@ -52,7 +52,7 @@ export default {
   },
 
   getStudent: id => {
-    return axios.get("/api/student/", id);
+    return axios.get("/api/student/" + id);
   },
 
   updateStudent: ({ StudentID, firstName, lastName }) => {

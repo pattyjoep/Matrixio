@@ -24,31 +24,30 @@ module.exports = {
     student.setLastUpdated();
     console.log(student);
 
-    db.Student.create(student)
-      .then(student => {
-        console.log("Inside studentController then");
-        console.log(student);
+    db.Student.create(student).then(student => {
+      console.log("Inside studentController then");
+      console.log(student);
 
-        db.Teacher.findByIdAndUpdate(
-          student.TeacherID,
-          {
-            $push: {
-              students: {
-                _id: student._id
-              }
+      db.Teacher.findByIdAndUpdate(
+        student.TeacherID,
+        {
+          $push: {
+            students: {
+              _id: student._id
             }
-          },
-          { new: true } 
-        )
+          }
+        },
+        { new: true }
+      )
         .then(dbTeacher => {
-        console.log("backend dbTeacher create result ----");
-        console.log(dbTeacher);
-        res.json(dbTeacher);
-      })
-      .catch(err => {
-        res.status(422).json(err);
-        console.log(err);
-      });
+          console.log("backend dbTeacher create result ----");
+          console.log(dbTeacher);
+          res.json(dbTeacher);
+        })
+        .catch(err => {
+          res.status(422).json(err);
+          console.log(err);
+        });
     });
   },
 

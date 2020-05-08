@@ -9,10 +9,9 @@ import Team from "./pages/Team";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Students from "./pages/Students";
-// import UserProfile from "./pages/UserProfile";
+import UserProfile from "./pages/UserProfile";
 import Settings from "./pages/Settings";
-// import Matrices from "./pages/Matrcies";
+import Matrices from "./pages/Matrices";
 
 function App() {
   return (
@@ -25,10 +24,9 @@ function App() {
           <Route exact path="/Contact" component={Contact} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/Signup" component={Signup} />
-          {/* <Route exact path="/UserProfile" component={UserProfile} /> */}
-          <Route exact path="/Students" component={Students} />
+          <Route exact path="/UserProfile" component={UserProfile} />
           <Route exact path="/Settings" component={Settings} />
-          {/* <Route exact path="Matrices" component={Matrices} /> */}
+          <Route exact path="Matrices" component={Matrices} />
         </Switch>
       </Wrapper>
       <Footer />

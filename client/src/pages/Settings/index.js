@@ -33,8 +33,7 @@ function Settings() {
     if (getTeacher) {
       API.getTeacher(TeacherID)
         .then(res => {
-          console.log("&&&&&I IM ON THE SETTINGS PAGE");
-          console.log("userProfile get Teacher----");
+          console.log("IM ON THE SETTINGS PAGE");
           console.log(res.data);
           setTeacherData(res.data);
         })
