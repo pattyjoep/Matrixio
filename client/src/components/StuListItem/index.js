@@ -3,11 +3,10 @@ import API from "../../utils/API";
 import { Modal, Button, Form } from "react-bootstrap";
 import Moment from "react-moment";
 import "moment-timezone";
-
-import GenerateMatrix from "../GenerateMatrix"
+import NewMatrix from "../NewMatrix";
+import GenerateMatrix from "../GenerateMatrix";
 
 function StuListItem(props) {
-
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -38,10 +37,10 @@ function StuListItem(props) {
 
   const handleSubmit = () => {
     //setDisplayTable(true)
-    props.handleRenderTable()
-    console.log("row/col")
-    console.log(selectColumn, selectRow)
-  
+    props.handleRenderTable();
+    console.log("row/col");
+    console.log(selectColumn, selectRow);
+
     const tempRows = [];
     const tempColumns = [];
 
@@ -187,8 +186,20 @@ function StuListItem(props) {
             >
               <i className="fas fa-folder-plus"></i> &nbsp;New Matrix
             </Button>
+<<<<<<< HEAD
               <GenerateMatrix handleSubmit={props.handleSubmit} handleInputChangeRow={props.handleInputChangeRow} handleInputChangeColumn={props.handleInputChangeColumn}
               selectRow={props.selectRow} selectColumn={props.selectColumn} show={props.show} setMatrixShow={ props.setMatrixShow } />
+=======
+            <GenerateMatrix
+              handleSubmit={props.handleSubmit}
+              handleInputChangeRow={props.handleInputChangeRow}
+              handleInputChangeColumn={props.handleInputChangeColumn}
+              selectRow={props.selectRow}
+              selectColumn={props.selectColumn}
+              show={props.show}
+              setMatrixShow={props.setMatrixShow}
+            />
+>>>>>>> 39baad27fdd3b41bd4ff55e5ab83ed014466d8da
             <Button
               className="update-student-link"
               name="updateStudent"
@@ -214,6 +225,20 @@ function StuListItem(props) {
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+=======
+      {displayTable ? (
+        <NewMatrix
+          rows={selectRow}
+          rowsArray={rows}
+          columnsArray={columns}
+          columns={selectColumn}
+          changeStatus={handleChangeStatus}
+        />
+      ) : (
+        ""
+      )}
+>>>>>>> 39baad27fdd3b41bd4ff55e5ab83ed014466d8da
     </div>
   );
 }
