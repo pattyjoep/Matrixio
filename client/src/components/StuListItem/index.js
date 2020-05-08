@@ -37,18 +37,11 @@ function StuListItem(props) {
   };
 
   const handleSubmit = () => {
-<<<<<<< Updated upstream
-    setDisplayTable(true);
-    console.log("row/col");
-    console.log(selectColumn, selectRow);
-
-=======
     //setDisplayTable(true)
     props.handleRenderTable()
     console.log("row/col")
     console.log(selectColumn, selectRow)
   
->>>>>>> Stashed changes
     const tempRows = [];
     const tempColumns = [];
 
@@ -188,20 +181,6 @@ function StuListItem(props) {
           data-parent="#accordionExample"
         >
           <div className="card-body">
-<<<<<<< Updated upstream
-            <Button className="new-matrix" onClick={() => setMatrixShow(true)}>
-              <i className="fas fa-ruler-combined"></i> &nbsp;New Matrix
-            </Button>
-            <GenerateMatrix
-              handleSubmit={handleSubmit}
-              handleInputChangeRow={handleInputChangeRow}
-              handleInputChangeColumn={handleInputChangeColumn}
-              selectRow={selectRow}
-              selectColumn={selectColumn}
-              show={MatrixShow}
-              setMatrixShow={setMatrixShow}
-            />
-=======
             <Button
               className="new-matrix"
               onClick={() => props.setMatrixShow(true)}
@@ -210,7 +189,6 @@ function StuListItem(props) {
             </Button>
               <GenerateMatrix handleSubmit={props.handleSubmit} handleInputChangeRow={props.handleInputChangeRow} handleInputChangeColumn={props.handleInputChangeColumn}
               selectRow={props.selectRow} selectColumn={props.selectColumn} show={props.show} setMatrixShow={ props.setMatrixShow } />
->>>>>>> Stashed changes
             <Button
               className="update-student-link"
               name="updateStudent"
@@ -236,20 +214,6 @@ function StuListItem(props) {
           </div>
         </div>
       </div>
-<<<<<<< Updated upstream
-      {displayTable ? (
-        <NewMatrix
-          rows={selectRow}
-          rowsArray={rows}
-          columnsArray={columns}
-          columns={selectColumn}
-          changeStatus={handleChangeStatus}
-        />
-      ) : (
-        ""
-      )}
-=======
->>>>>>> Stashed changes
     </div>
   );
 }
