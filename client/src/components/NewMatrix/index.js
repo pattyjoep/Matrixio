@@ -2,8 +2,7 @@ import React from "react";
 import "./style.css";
 
 export default function newMatrix(props) {
-  console.log("newMatrix props --------");
-  console.log(props);
+
   return (
     <div>
       <div>

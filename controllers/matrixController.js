@@ -14,8 +14,9 @@ const db = require("../models");
  * remove: finds matrix and deletes.
  */
 module.exports = {
+
   findAll: function (req, res) {
-    db.Matrix.find({ })
+    db.Matrix.find({})
       .sort({ lastUpdated: -1 })
       .then(dbMatrix => {
         res.json(dbMatrix);
@@ -25,16 +26,16 @@ module.exports = {
       });
   },
 
-  // findById: function (req, res) {
-  //   db.Matrix.findById(req.params.id)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
+  findById: function (req, res) {
+    db.Matrix.findById(req.params.id)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
 
   create: (req, res) => {
     const matrix = req.body;
     matrix.lastUpdated = Date.now();
-    
+
     db.Matrix.create(matrix)
       .then(matrix => {
         db.Student.findByIdAndUpdate(
@@ -63,7 +64,7 @@ module.exports = {
     let thisMatrix = db.Matrix.findOneAndUpdate({ _id: req.params.id }, matrix)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err)
-    );
+      );
     /**
      * if(thisMatrix.StudentID != req.body.StudentID){
      *  //update student with their new matrix.
@@ -71,7 +72,7 @@ module.exports = {
      * if studentID changes, we can update which student has this matrix. 
      * HOWEVER, is this functionality we need? Presently, would require passing studentID into all matrix update calls, which isn't hard, but is extra, and could be risky exposing IDs like that.
      */
-    
+
   },
 
   delete: function (req, res) {
@@ -79,6 +80,6 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err)
-    );
+      );
   }
 };

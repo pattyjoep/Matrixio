@@ -11,8 +11,6 @@ import GenerateMatrix from "../GenerateMatrix";
 import NewMatrix from "../NewMatrix";
 
 function StuListItem(props) {
-  // console.log("StuListItem props----");
-  // console.log(props);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -66,8 +64,40 @@ function StuListItem(props) {
     setColumns(tempColumns);
     setMatrixShow(false);
 
-    // API.createMatrix()
+    //mattland
+
+
+    let rowsArr = [];
+    let matrix = [];
+    let topRow = ["firsttitle", "Secondtitle", "thirdtitle", "etc......"]; //for loop to build
+    matrix.push(topRow);
+    for (let i = 0; i < parseInt(selectRow) + 1; i++) {
+      rowsArr.push("X");
+    }
+    for (let i = 0; i < parseInt(selectColumn); i++) {
+      let tmpArr = [];
+      for(let j = 0; j < rowsArr.length; j++){
+        tmpArr.push(rowsArr[j]);
+      }
+      
+      matrix.push(tmpArr);
+    }
+
+    console.log(matrix);
+
+    console.log("props = " + JSON.stringify(props));
+    let matrixDB = {
+      title: title,
+      matrix: matrix,
+      rowLength: selectRow,
+      columnLength: selectColumn,
+      StudentID: props.student._id
+    };
+    console.log(matrixDB);
+    API.createMatrix(matrixDB);
   };
+
+  //end mattland
 
   const handleInputChangeColumn = event => {
     const { value } = event.target;
@@ -78,10 +108,7 @@ function StuListItem(props) {
   //Update Student Modal--------------
   const updateModal = e => {
     e.preventDefault();
-    console.log(`updateModal firstName: ${firstName}`);
-    console.log(`updateModal lastName: ${lastName}`);
     let data;
-    console.log(props);
     if (firstName && !lastName) {
       data = {
         StudentID: props.student._id,
@@ -89,24 +116,21 @@ function StuListItem(props) {
         lastName: props.student.lastName
       };
     } else if (!firstName && lastName) {
-      console.log("ELSE IF!");
       data = {
         StudentID: props.student._id,
         firstName: props.student.firstName,
         lastName: lastName
       };
     } else {
-      console.log("BOTH F & L");
       data = {
         StudentID: props.student._id,
         firstName: firstName,
         lastName: lastName
       };
     }
-    console.log("STUDENT UPDATE", data);
+
     API.updateStudent(data)
       .then(res => {
-        console.log(res);
         window.location.reload(false).then(() => {
           setShow(false);
         });
@@ -122,11 +146,9 @@ function StuListItem(props) {
     let data = {
       StudentID: props.student._id
     };
-    console.log(data);
 
     API.deleteStudent(data)
       .then(res => {
-        console.log(res, "DELETE STUDENT");
         window.location.reload(false);
       })
       .catch(err => {
@@ -134,7 +156,6 @@ function StuListItem(props) {
       });
   };
 
-  console.log("STUDENT IDDDDDDDD", props.student._id);
   return (
     <div>
       {/* Update Student Modal */}
@@ -180,7 +201,7 @@ function StuListItem(props) {
               data-target="#collapseOne"
               aria-expanded="true"
               aria-controls="collapseOne"
-              // data-id={props.student._id}
+            // data-id={props.student._id}
             >
               <i className="far fa-user-circle"></i> {props.student.fullName}
             </button>
@@ -250,8 +271,8 @@ function StuListItem(props) {
           changeStatus={handleChangeStatus}
         />
       ) : (
-        ""
-      )}
+          ""
+        )}
     </div>
   );
 }

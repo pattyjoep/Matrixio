@@ -13,34 +13,28 @@ const Schema = mongoose.Schema;
  */
 const MatrixSchema = new Schema(
   {
-    // matrix: Object,
+    matrix: Object,
+
     StudentID: {
-      type: String
+      type: Schema.Types.ObjectId,
+      ref: "Student"
     },
 
     title: {
       type: String
     },
 
-    rows: {
+    rowLength: {
       type: Number
     },
 
-    columns: {
+    columnLength: {
       type: Number
     },
 
-    rowLabels: [
-      {
-        type: Array
-      }
-    ],
+    rows: [],
 
-    columnLabels: [
-      {
-        type: Array
-      }
-    ],
+    columns: [],
 
     dateCreated: {
       type: Date,
@@ -50,11 +44,11 @@ const MatrixSchema = new Schema(
     lastUpdated: {
       type: Date
     }
-  }
-  // { collection: "matrices" }
+  },
+  { collection: "matrices" }
 );
 
-MatrixSchema.methods.setLastUpdated = function() {
+MatrixSchema.methods.setLastUpdated = function () {
   this.lastUpdated = Date.now();
   console.log("Matrix - set last updated");
   console.log(this.lastUpdated);
