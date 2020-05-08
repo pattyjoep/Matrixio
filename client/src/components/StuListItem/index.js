@@ -186,10 +186,6 @@ function StuListItem(props) {
             >
               <i className="fas fa-folder-plus"></i> &nbsp;New Matrix
             </Button>
-<<<<<<< HEAD
-              <GenerateMatrix handleSubmit={props.handleSubmit} handleInputChangeRow={props.handleInputChangeRow} handleInputChangeColumn={props.handleInputChangeColumn}
-              selectRow={props.selectRow} selectColumn={props.selectColumn} show={props.show} setMatrixShow={ props.setMatrixShow } />
-=======
             <GenerateMatrix
               handleSubmit={props.handleSubmit}
               handleInputChangeRow={props.handleInputChangeRow}
@@ -199,7 +195,6 @@ function StuListItem(props) {
               show={props.show}
               setMatrixShow={props.setMatrixShow}
             />
->>>>>>> 39baad27fdd3b41bd4ff55e5ab83ed014466d8da
             <Button
               className="update-student-link"
               name="updateStudent"
@@ -225,20 +220,6 @@ function StuListItem(props) {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-=======
-      {displayTable ? (
-        <NewMatrix
-          rows={selectRow}
-          rowsArray={rows}
-          columnsArray={columns}
-          columns={selectColumn}
-          changeStatus={handleChangeStatus}
-        />
-      ) : (
-        ""
-      )}
->>>>>>> 39baad27fdd3b41bd4ff55e5ab83ed014466d8da
     </div>
   );
 }
