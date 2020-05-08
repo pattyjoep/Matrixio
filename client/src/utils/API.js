@@ -9,7 +9,12 @@ export default {
 
   authenticateTeacher: data => {
     console.log("Teacher authentication data!", data);
-    return axios.post("/api/teacher/login", data);
+    return axios.post("/api/teacher/signin", data);
+  },
+
+  signupTeacher: data => {
+    console.log("Teacher signup data", data);
+    return axios.post("/api/teacher/signup", data);
   },
 
   getAllTeachers: () => {

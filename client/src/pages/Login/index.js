@@ -11,19 +11,10 @@ function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [redirectUserProfile, setRedirectUserProfile] = useState(false);
-
+/*
   const handleSubmit = e => {
     e.preventDefault();
-    const { email, password } = this.state;
-    axios({
-      url: "/authentication/login",
-      method: "POST",
-
-      data: {
-        email,
-        password,
-      },
-    })
+    axios.post("http://localhost:3001/api/teacher/login", { email, password })
       .then((response) => {
         console.log("data:", response);
         const isAuthenticated = response.data.isAuthenticated;
@@ -36,9 +27,9 @@ function Login() {
       });
   };
   
+  */
   
-  
-  /*const handleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
     console.log(`Email: ${email}`);
     console.log(`Password: ${password}`);
@@ -53,6 +44,7 @@ function Login() {
       API.authenticateTeacher(data)
         .then(res => {
           setTeacherID(res.data._id);
+          console.log("response:", res);
           //When the users login is authorized the redirect will be set to true
           setRedirectUserProfile(true);
         })
@@ -65,7 +57,7 @@ function Login() {
   };
 
 
-  */
+  
   return (
     <div>
       {/* When users login is authorized they will be redirected to the user profile page */}

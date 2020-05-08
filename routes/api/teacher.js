@@ -1,12 +1,12 @@
 const router = require("express").Router();
 const teacherController = require("../../controllers/teacherController");
-const passport = require("../../client/config/passport/")
+const passport = require("../../passport/")
 
 //Matches with "/api/teacher"
 router
   .route("/")
   .get(teacherController.findAll)
-  .post(teacherController.create)
+ // .post(teacherController.create)
   .delete(teacherController.delete);
 
 /*
@@ -36,14 +36,13 @@ router.post("/signup", (req, res, next) => {
 });
 
 router.post("/signin", function (req, res, next) {
-  next()
+  console.log("logging in");
+  next();
 },
   passport.authenticate("local-signin"),
   (req, res) => {
     console.log("logged in", req.user);
-    let userInfo = {
-      email: req.user.email,
-    };
+    let userInfo = req.user;
     res.send(userInfo);
   }
 );
@@ -51,7 +50,8 @@ router.post("/signin", function (req, res, next) {
 router.get("/signout", (req, res) => {
   req.logout();
   req.session = null;
-  res.redirect("/");
+  //test this before finalizing.... should redirect to the below page.
+  res.redirect("http://localhost:3000");
 });
 
 /*

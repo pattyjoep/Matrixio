@@ -25,7 +25,7 @@ function Signup() {
       email: email,
       password: password
     };
-    API.createTeacher(newTeacher)
+    API.signupTeacher(newTeacher)
       .then(res => {
         //When the new user is created successfully, the redirect will be set to true and the page will redirected to the login page
         setRedirectToLogin(true);

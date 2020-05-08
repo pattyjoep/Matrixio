@@ -1,5 +1,4 @@
 const db = require("../models");
-const passport = require("../client/config/passport")
 
 /*
 const bcrypt = require("bcrypt");
@@ -80,7 +79,7 @@ module.exports = {
         res.status(422).json(err);
       });
   },
-
+/*
   create: (req, res) => {
     const teacher = new db.Teacher(req.body);
     teacher.setFullName();
@@ -97,7 +96,7 @@ module.exports = {
         console.log(err);
       });
   },
-  
+  */
   //Create a new teacher
 /*  create: (req, res) => {
     console.log("Beginning of backend teacher create");
