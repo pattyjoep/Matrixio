@@ -51,7 +51,9 @@ function Matrices(props) {
           <Col size="12">
             <h1>{StudentData.fullName}</h1>
             <hr />
-            <div className="displayAllMatrices"></div>
+            <div className="displayAllMatrices">
+              ***Map through array of matrices***
+            </div>
           </Col>
         </Row>
       </Container>
