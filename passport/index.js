@@ -7,13 +7,9 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  Teacher.findOne(
-      { _id: id },
-      "email",
-      (err, user) => {
-          done(null, user);
-      }
-  )
+  Teacher.findById(id, function(err, user) {
+        done(err, user);
+    });
 });
 
 passport.use("local-signin", strategies.loginStrategy);
