@@ -13,8 +13,7 @@ const Schema = mongoose.Schema;
  */
 const MatrixSchema = new Schema(
   {
-    matrix: Object,
-
+    // matrix: Object,
     StudentID: {
       type: String
     },
@@ -22,6 +21,26 @@ const MatrixSchema = new Schema(
     title: {
       type: String
     },
+
+    rows: {
+      type: Number
+    },
+
+    columns: {
+      type: Number
+    },
+
+    rowLabels: [
+      {
+        type: Array
+      }
+    ],
+
+    columnLabels: [
+      {
+        type: Array
+      }
+    ],
 
     dateCreated: {
       type: Date,
@@ -32,7 +51,7 @@ const MatrixSchema = new Schema(
       type: Date
     }
 
-  },
+  }
   // { collection: "matrices" }
 );
 

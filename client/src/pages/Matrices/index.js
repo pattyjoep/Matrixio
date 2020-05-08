@@ -8,18 +8,25 @@ import API from "../../utils/API";
 import "./style.css";
 
 function Matrices(props) {
+  // console.log("studentID", StudentID);
+  const [TeacherID, setTeacherID] = useState();
   const [StudentID, setStudentID] = useState();
   const [getStudent, setGetStudent] = useState(false);
   const [StudentData, setStudentData] = useState({});
 
+  
+
   const getID = str => {
-    let newstr = str.split("=")[1];
-    setStudentID(newstr);
+    let studentString = str.split("=")[1];
+    let teacherString = str.split("=")[2];
+    setStudentID(studentString);
+    setTeacherID(teacherString);
   };
 
   useEffect(() => {
-    setGetStudent(true);
     getID(window.location.href);
+    setGetStudent(true);
+    console.log("use Effect studentID", StudentID);
   });
 
   useEffect(() => {
@@ -40,13 +47,15 @@ function Matrices(props) {
   console.log(StudentData._id, "STUDENT ID ON MATRIX PAGE");
   return (
     <div>
-      <div>{StudentID ? <NavBar StudentID={StudentID} /> : null}</div>
+      <div>{StudentID ? <NavBar TeacherID={TeacherID} /> : null}</div>
       <Container>
         <Row>
           <Col size="12">
-            <h1>StudentsName_Matrices</h1>
+            <h1>{StudentData.fullName}</h1>
             <hr />
-            <div className="displayAllMatrices"></div>
+            <div className="displayAllMatrices">
+
+            </div>
           </Col>
         </Row>
       </Container>
