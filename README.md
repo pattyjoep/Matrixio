@@ -3,25 +3,31 @@
 ## User Story
 
 Online templates used for tracking speech and learning
-exercises, are really hard to find. The Matrixio team developed an application that allows users, of any field, to build alterable learning matrices for each of their students unique needs. Matrixio will save each students learning matrices,and progress, in a database for future reference and analysis.
+exercises are really hard to find. The Matrixio team has developed an application that allows users, of any field, to build alterable learning matrices for each of their students unique needs. Matrixio will save each students learning matrices in a database that is retreivable for future reference upon log in.
 
 <hr>
 
 ## Usage
 
+To use Matrixio, simply create an account from the sign up page. After signing up the user will be redirected to the login page. Once logged in users will be taken to their profile page where they can begin adding students and building matrices. If the user no longer wishes to have an account or needs to make updates to their existing account, the Settings page houses a delete account option and update account forms.
+<br/>
 Sign up, log in, and get to work creating your own matrices!
 
 ### Signup Page
 
-![Signup View]("Insert Link Here")
+![Signup View]("./README_imgs/signup.png")
 
 ### Login Page
 
-![Login View]("Insert Link Here")
+![Login View]("./README_imgs/login.png")
 
 ### User Profile
 
-![Profile Page View]("Insert Link Here")
+![Profile Page View]("./README_imgs/profile.png")
+
+### Settings
+
+![Settings Page View]("./README_imgs/settings.png)
 
 <hr>
 
@@ -36,6 +42,8 @@ Sign up, log in, and get to work creating your own matrices!
 
 - React
 - Bcrypt
+- React-moment | https://www.npmjs.com/package/react-moment
+- React-bootstrap | https://react-bootstrap.github.io/
 - Passport
 - Express.js
 - Node.js
@@ -43,8 +51,6 @@ Sign up, log in, and get to work creating your own matrices!
 - HTML
 - CSS
 - Javascript
-- React-moment | https://www.npmjs.com/package/react-moment
-- React-bootstrap | https://react-bootstrap.github.io/
 
 ### Additional Styling Framework
 
