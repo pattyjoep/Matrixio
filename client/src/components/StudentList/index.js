@@ -10,6 +10,7 @@ import StuListItem from "../StuListItem";
 import { Modal, Button, Form } from "react-bootstrap";
 
 function StudentList(props) {
+  // props.TeacherID
   const [studentsArr, setStudentsArr] = useState([]);
 
   const [show, setShow] = useState(false);
@@ -155,7 +156,7 @@ function StudentList(props) {
           </div>
         </div>
         {studentsArr.map(stu => {
-          return <StuListItem student={stu} key={stu._id} />;
+          return <StuListItem TeacherID={props.TeacherID} student={stu} key={stu._id} />;
         })}
       </div>
     </div>

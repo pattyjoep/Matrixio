@@ -65,6 +65,8 @@ function StuListItem(props) {
     }
     setColumns(tempColumns);
     setMatrixShow(false);
+
+    // API.createMatrix()
   };
 
   const handleInputChangeColumn = event => {
@@ -196,8 +198,12 @@ function StuListItem(props) {
               <i className="fas fa-ruler-combined"></i> &nbsp;New Matrix
             </Button>
             <br />
-            <Link to={`/Matrices?=${props.student._id}`}>
-              View All Matrices
+
+            <Link
+              className="matricesBtn"
+              to={`/Matrices?=${props.student._id}=${props.TeacherID}`}
+            >
+              <i className="fas fa-th-list"></i>&nbsp; View All Matrices
             </Link>
             <GenerateMatrix
               handleTitleChange={handleTitleChange}
