@@ -3,11 +3,10 @@ import API from "../../utils/API";
 import { Modal, Button, Form } from "react-bootstrap";
 import Moment from "react-moment";
 import "moment-timezone";
-
-import GenerateMatrix from "../GenerateMatrix"
+import NewMatrix from "../NewMatrix";
+import GenerateMatrix from "../GenerateMatrix";
 
 function StuListItem(props) {
-
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -37,18 +36,11 @@ function StuListItem(props) {
   };
 
   const handleSubmit = () => {
-<<<<<<< Updated upstream
-    setDisplayTable(true);
+    //setDisplayTable(true)
+    props.handleRenderTable();
     console.log("row/col");
     console.log(selectColumn, selectRow);
 
-=======
-    //setDisplayTable(true)
-    props.handleRenderTable()
-    console.log("row/col")
-    console.log(selectColumn, selectRow)
-  
->>>>>>> Stashed changes
     const tempRows = [];
     const tempColumns = [];
 
@@ -188,29 +180,21 @@ function StuListItem(props) {
           data-parent="#accordionExample"
         >
           <div className="card-body">
-<<<<<<< Updated upstream
-            <Button className="new-matrix" onClick={() => setMatrixShow(true)}>
-              <i className="fas fa-ruler-combined"></i> &nbsp;New Matrix
-            </Button>
-            <GenerateMatrix
-              handleSubmit={handleSubmit}
-              handleInputChangeRow={handleInputChangeRow}
-              handleInputChangeColumn={handleInputChangeColumn}
-              selectRow={selectRow}
-              selectColumn={selectColumn}
-              show={MatrixShow}
-              setMatrixShow={setMatrixShow}
-            />
-=======
             <Button
               className="new-matrix"
               onClick={() => props.setMatrixShow(true)}
             >
               <i className="fas fa-folder-plus"></i> &nbsp;New Matrix
             </Button>
-              <GenerateMatrix handleSubmit={props.handleSubmit} handleInputChangeRow={props.handleInputChangeRow} handleInputChangeColumn={props.handleInputChangeColumn}
-              selectRow={props.selectRow} selectColumn={props.selectColumn} show={props.show} setMatrixShow={ props.setMatrixShow } />
->>>>>>> Stashed changes
+            <GenerateMatrix
+              handleSubmit={props.handleSubmit}
+              handleInputChangeRow={props.handleInputChangeRow}
+              handleInputChangeColumn={props.handleInputChangeColumn}
+              selectRow={props.selectRow}
+              selectColumn={props.selectColumn}
+              show={props.show}
+              setMatrixShow={props.setMatrixShow}
+            />
             <Button
               className="update-student-link"
               name="updateStudent"
@@ -236,7 +220,6 @@ function StuListItem(props) {
           </div>
         </div>
       </div>
-<<<<<<< Updated upstream
       {displayTable ? (
         <NewMatrix
           rows={selectRow}
@@ -248,8 +231,6 @@ function StuListItem(props) {
       ) : (
         ""
       )}
-=======
->>>>>>> Stashed changes
     </div>
   );
 }
