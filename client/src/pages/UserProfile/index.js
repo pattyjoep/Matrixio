@@ -21,7 +21,7 @@ function UserProfile() {
   useEffect(() => {
     API.getCurrentTeacher()
     .then((res) => {
-      console.log("matt res" + JSON.stringify(res));
+      console.log("matt res " + JSON.stringify(res));
     });
     setGetTeacher(true);
     getID(window.location.href);

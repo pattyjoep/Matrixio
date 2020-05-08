@@ -33,24 +33,6 @@ const strategies = {
         }
     ),
 
-    // logoutStrategy: new LocalStrategy(
-    //     { usernameField: "email" },
-    //     function (
-    //         email,
-    //         password,
-    //         done
-    //     ) {
-    //         Teacher.findOne({ email })
-    //             .exec((err, user) => {
-    //                 if (err)
-    //                     return done(err, null);
-    //                 if (!user)
-    //                     return done("No user found ", null);
-    //                 return done(null, user);
-    //             });
-    //     }
-    // ),
-
     signupStrategy: new LocalStrategy(
         {
             usernameField: "email",

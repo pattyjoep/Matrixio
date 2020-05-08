@@ -39,12 +39,10 @@ router.post("/signup", (req, res, next) => {
 });
 
 router.post("/signin", function (req, res, next) {
-  console.log("logging in");
   next();
 },
   passport.authenticate("local-signin"),
   (req, res) => {
-    console.log("logged in", req.user);
     let userInfo = req.user;
     res.send(userInfo);
   }
@@ -54,7 +52,7 @@ router.get("/signout", (req, res) => {
   req.logout();
   req.session = null;
   //test this before finalizing.... should redirect to the below page.
-  res.redirect("http://localhost:3000");
+  res.redirect("../../client/public/index.html");
 });
 
 /*
