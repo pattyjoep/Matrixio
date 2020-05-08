@@ -37,14 +37,14 @@ function Matrices(props) {
       return;
     }
   }, [getStudent]);
-  console.log(StudentData._id, "STUDENT ID ON MATRIX PAGE");
+  console.log("STUDENT", StudentID);
   return (
     <div>
       <div>{StudentID ? <NavBar StudentID={StudentID} /> : null}</div>
       <Container>
         <Row>
           <Col size="12">
-            <h1>StudentsName_Matrices</h1>
+            <h1>StudentsName_Matrices {StudentData.firstName}</h1>
             <hr />
             <div className="displayAllMatrices"></div>
           </Col>

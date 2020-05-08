@@ -4,12 +4,13 @@ import "./style.css";
 // import API from "../../utils/API";
 import { Modal, Button, Form } from "react-bootstrap";
 
-
 function GenerateMatrix(props) {
   console.log("generateMatrix props --------------------");
-  console.log(props)
-  
-  const handleClose = () => { props.setMatrixShow(false) };
+  console.log(props);
+
+  const handleClose = () => {
+    props.setMatrixShow(false);
+  };
 
   return (
     <div>
@@ -24,42 +25,49 @@ function GenerateMatrix(props) {
                 type="text"
                 placeholder="Title"
                 onChange={props.handleTitleChange}
-
               />
               <br />
-                <select id="RowSize" onChange={props.handleInputChangeRow} value={props.selectRow}>
-                      <option>-- Select Rows --</option>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                      <option>6</option>
-                      <option>7</option>
-                      <option>8</option>
-                      <option>9</option>
-                      <option>10</option>
-                </select>
-                <br /> 
-                <br />
-                <select id="ColumnSize" onChange={props.handleInputChangeColumn} value={props.selectColumn}>
-                      <option>-- Select Columns --</option>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                      <option>6</option>
-                      <option>7</option>
-                      <option>8</option>
-                      <option>9</option>
-                      <option>10</option>
-                </select>
+              <select
+                id="RowSize"
+                onChange={props.handleInputChangeRow}
+                value={props.selectRow}
+              >
+                <option>-- Select Rows --</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+              </select>
+              <br />
+              <br />
+              <select
+                id="ColumnSize"
+                onChange={props.handleInputChangeColumn}
+                value={props.selectColumn}
+              >
+                <option>-- Select Columns --</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+              </select>
             </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button className="generate-matrix-cancelBtn" onClick={ handleClose } >
+          <Button className="generate-matrix-cancelBtn" onClick={handleClose}>
             Cancel
           </Button>
           <Button className="generate-matrix-Btn" onClick={props.handleSubmit}>

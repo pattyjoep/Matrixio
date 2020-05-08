@@ -26,7 +26,7 @@ function App() {
           <Route exact path="/Signup" component={Signup} />
           <Route exact path="/UserProfile" component={UserProfile} />
           <Route exact path="/Settings" component={Settings} />
-          <Route exact path="Matrices" component={Matrices} />
+          <Route exact path="/Matrices" component={Matrices} />
         </Switch>
       </Wrapper>
       <Footer />

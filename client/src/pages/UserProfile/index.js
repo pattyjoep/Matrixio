@@ -6,7 +6,7 @@ import StudentList from "../../components/StudentList";
 import NavBar from "../../components/NavBar";
 import API from "../../utils/API";
 
-function Students(props) {
+function UserProfile(props) {
   const [TeacherID, setTeacherID] = useState();
   const [getTeacher, setGetTeacher] = useState(false);
   const [TeacherData, setTeacherData] = useState({});
@@ -63,4 +63,4 @@ function Students(props) {
     </div>
   );
 }
-export default Students;
+export default UserProfile;
