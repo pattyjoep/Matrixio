@@ -69,43 +69,6 @@ const strategies = {
             catch (err) {
                 console.log(err);
             }
-
-
-
-
-
-            /*
-                        Teacher.findOne({ email: email })
-                            .exec((err, user) => {
-                                console.log("signupstrategy - post exec()-------------------------------")
-                                if (err)
-                                    return done(err, null);
-                                // if (user) 
-                                //     return done("User already exists", null);
-            
-                                console.log("password = " + user.password);
-                                const encryptedPassword = bcrypt.hashSync(user.password, salt);
-                                console.log("encrypt..... " + encryptedPassword);
-                                let newTeacher = new Teacher({
-                                    firstName,
-                                    lastName,
-                                    email,
-                                    password: encryptedPassword,
-                                    students: []
-                                });
-                                newTeacher.setFullName();
-                                newTeacher.setLastUpdated();
-            
-                                console.log("signupstrategy - post newTeacher--------------------------------");
-                                console.log("newteacher = " + newTeacher);
-            
-                                newTeacher.save((err, inserted) => {
-                                    if (err)
-                                        return done(err, null);
-            
-                                    return done(null, inserted);
-                                });
-                            });*/
         }
     )
 }
