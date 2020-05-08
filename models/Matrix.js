@@ -24,14 +24,6 @@ const MatrixSchema = new Schema(
       type: String
     },
 
-    rowLength: {
-      type: Number
-    },
-
-    columnLength: {
-      type: Number
-    },
-
     dateCreated: {
       type: Date,
       default: Date.now
