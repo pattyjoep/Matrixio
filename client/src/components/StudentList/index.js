@@ -140,7 +140,18 @@ function StudentList(props) {
           </div>
         </div>
         {studentsArr.map(stu => {
-          return <StuListItem handleRenderTable={props.handleRenderTable} handleSubmit={props.handleSubmit} handleInputChangeRow={props.handleInputChangeRow} handleInputChangeColumn={props.handleInputChangeColumn} selectRow={props.selectRow} selectColumn={props.selectColumn} show={props.show} setMatrixShow={ props.setMatrixShow }student={stu} key={stu._id} />;
+          return <StuListItem 
+            handleRenderTable={props.handleRenderTable} 
+            handleSubmit={props.handleSubmit} 
+            handleInputChangeRow={props.handleInputChangeRow} 
+            handleInputChangeColumn={props.handleInputChangeColumn} 
+            selectRow={props.selectRow} 
+            selectColumn={props.selectColumn} 
+            show={props.show} 
+            setMatrixShow={ props.setMatrixShow }
+            student={stu} 
+            key={stu._id}
+          />;
         })}
       </div>
     </div>

@@ -14,53 +14,53 @@ function StuListItem(props) {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
 
-  const [MatrixShow, setMatrixShow] = useState(false);
+  // const [MatrixShow, setMatrixShow] = useState(false);
 
-  const [rows, setRows] = useState([]);
-  const [columns, setColumns] = useState([]);
+  // const [rows, setRows] = useState([]);
+  // const [columns, setColumns] = useState([]);
 
-  const [selectRow, setSelectRow] = useState("");
-  const [selectColumn, setSelectColumn] = useState("");
-  const [displayTable, setDisplayTable] = useState(false);
+  // const [selectRow, setSelectRow] = useState("");
+  // const [selectColumn, setSelectColumn] = useState("");
+  // const [displayTable, setDisplayTable] = useState(false);
 
-  const handleChangeStatus = event => {
-    var cell = event.target;
-    cell.setAttribute("class", "status-card-success");
-    cell.textContent = "✓";
-  };
+  // const handleChangeStatus = event => {
+  //   var cell = event.target;
+  //   cell.setAttribute("class", "status-card-success");
+  //   cell.textContent = "✓";
+  // };
 
-  const handleInputChangeRow = event => {
-    const { value } = event.target;
-    setSelectRow(value);
-    console.log(value);
-  };
+  // const handleInputChangeRow = event => {
+  //   const { value } = event.target;
+  //   setSelectRow(value);
+  //   console.log(value);
+  // };
 
-  const handleSubmit = () => {
-    //setDisplayTable(true)
-    props.handleRenderTable();
-    console.log("row/col");
-    console.log(selectColumn, selectRow);
+  // const handleSubmit = () => {
+  //   //setDisplayTable(true)
+  //   props.handleRenderTable();
+  //   console.log("row/col");
+  //   console.log(selectColumn, selectRow);
 
-    const tempRows = [];
-    const tempColumns = [];
+  //   const tempRows = [];
+  //   const tempColumns = [];
 
-    for (let i = 0; i < selectRow; i++) {
-      tempRows.push(i);
-    }
-    setRows(tempRows);
+  //   for (let i = 0; i < selectRow; i++) {
+  //     tempRows.push(i);
+  //   }
+  //   setRows(tempRows);
 
-    for (let i = 0; i < selectColumn; i++) {
-      tempColumns.push(i);
-    }
-    setColumns(tempColumns);
-    setMatrixShow(false);
-  };
+  //   for (let i = 0; i < selectColumn; i++) {
+  //     tempColumns.push(i);
+  //   }
+  //   setColumns(tempColumns);
+  //   setMatrixShow(false);
+  // };
 
-  const handleInputChangeColumn = event => {
-    const { value } = event.target;
-    setSelectColumn(value);
-    console.log(value);
-  };
+  // const handleInputChangeColumn = event => {
+  //   const { value } = event.target;
+  //   setSelectColumn(value);
+  //   console.log(value);
+  // };
 
   //Update Student Modal--------------
   const updateModal = e => {

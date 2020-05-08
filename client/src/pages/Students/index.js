@@ -109,7 +109,16 @@ function Students(props) {
       <Container>
         <Row>
           <Col size="6">
-            <StudentList TeacherID={TeacherID} handleRenderTable={handleRenderTable} handleSubmit={handleSubmit} handleInputChangeRow={handleInputChangeRow} handleInputChangeColumn={handleInputChangeColumn} selectRow={selectRow} selectColumn={selectColumn} show={MatrixShow} setMatrixShow={ setMatrixShow } />
+            <StudentList 
+              TeacherID={TeacherID} 
+              handleRenderTable={handleRenderTable} handleSubmit={handleSubmit} 
+              handleInputChangeRow={handleInputChangeRow} 
+              handleInputChangeColumn={handleInputChangeColumn} 
+              selectRow={selectRow} 
+              selectColumn={selectColumn} 
+              show={MatrixShow} 
+              setMatrixShow={ setMatrixShow } 
+            />
           </Col>
           <Col size="6">
             {displayTable ? <NewMatrix rows={selectRow} rowsArray={rows} columnsArray={columns} columns={selectColumn} changeStatus={handleChangeStatus} /> : ""}
