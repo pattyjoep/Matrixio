@@ -23,6 +23,7 @@ function StuListItem(props) {
 
   const [MatrixShow, setMatrixShow] = useState(false);
 
+  const [title, setTitle] = useState("");
   const [rows, setRows] = useState([]);
   const [columns, setColumns] = useState([]);
 
@@ -34,6 +35,10 @@ function StuListItem(props) {
     var cell = event.target;
     cell.setAttribute("class", "status-card-success");
     cell.textContent = "✓";
+  };
+
+  const handleTitleChange = e => {
+    setTitle(e.target.value);
   };
 
   const handleInputChangeRow = event => {
@@ -190,6 +195,7 @@ function StuListItem(props) {
               <i className="fas fa-ruler-combined"></i> &nbsp;New Matrix
             </Button>
             <GenerateMatrix
+              handleTitleChange={handleTitleChange}
               handleSubmit={handleSubmit}
               handleInputChangeRow={handleInputChangeRow}
               handleInputChangeColumn={handleInputChangeColumn}
@@ -225,6 +231,7 @@ function StuListItem(props) {
       </div>
       {displayTable ? (
         <NewMatrix
+          title={title}
           rows={selectRow}
           rowsArray={rows}
           columnsArray={columns}
