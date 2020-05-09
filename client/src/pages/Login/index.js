@@ -13,9 +13,6 @@ function Login() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(`Email: ${email}`);
-    console.log(`Password: ${password}`);
-    console.log("Handling login submit!!");
     if (!email || !password) {
       return;
     } else {
@@ -70,7 +67,6 @@ function Login() {
                   placeholder="Email"
                   onChange={e => setEmail(e.target.value)}
                 />
-                {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
               </div>
               <div className="form-group">
                 <input

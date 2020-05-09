@@ -37,7 +37,6 @@ function UserProfile(props) {
     }
   }, [getTeacher]);
 
-  //===============
   const [MatrixShow, setMatrixShow] = useState(false);
 
   useEffect(() => {
@@ -82,9 +81,6 @@ function UserProfile(props) {
     }
     setColumns(tempColumns);
     setMatrixShow(false);
-
-    //begin data storage
-
     let rowsArr = [];
     let matrix = [];
     let topRow = ["0", "Secondtitle", "thirdtitle", "etc......"]; //for loop to build
@@ -129,16 +125,10 @@ function UserProfile(props) {
           <Col size="12">
             <h1>Hello {TeacherData.fullName}.</h1>
             <hr />
-            {/* <div className="studentDash">
-              <h3>
-                My Students: <i className="fa fa-graduation-cap"></i>
-              </h3>
-              <StudentList TeacherID={TeacherID} />
-            </div> */}
           </Col>
         </Row>
         <Row>
-          <Col size="6">
+          <Col size="lg-6 sm-12">
             <StudentList
               TeacherID={TeacherID}
               handleRenderTable={handleRenderTable}
@@ -151,7 +141,7 @@ function UserProfile(props) {
               setMatrixShow={setMatrixShow}
             />
           </Col>
-          <Col size="6">
+          <Col size="lg-6 sm-12">
             {displayTable ? (
               <NewMatrix
                 rows={selectRow}

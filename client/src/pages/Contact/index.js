@@ -13,36 +13,33 @@ function Contact() {
         <hr />
         <Row>
           <Col size="lg-5 md-12">
-            <Row>
-              <ul>
-                <li className="contactList">
-                  <i className="fas fa-phone-alt"></i> (860)-867-5309
-                </li>
-                <li className="contactList">
-                  <i className="fas fa-envelope-square"></i> matrixio@gmail.com
-                </li>
-              </ul>
-            </Row>
-            <Row>
-              <form
-                className="contact-form"
-                action="mailto:shelbypalumbo94@gmail.com"
-                method="post"
-                type="text/plain"
-              >
-                Name:<br></br>
-                <input type="text" className="name" name="name" />
-                <br></br>
-                E-mail:<br></br>
-                <input type="text" className="mail" name="mail" />
-                <br></br>
-                Message:<br></br>
-                <input className="messagebox" type="text" name="comment" />
-                <br></br>
-                <input className="contact-btn" type="submit" value="Submit" />
-                <input className="contact-btn" type="reset" value="Reset" />
-              </form>
-            </Row>
+            <ul>
+              <li className="contactList">
+                <i className="fas fa-phone-alt"></i> (860)-867-5309
+              </li>
+              <li className="contactList">
+                <i className="fas fa-envelope-square"></i> matrixio@gmail.com
+              </li>
+            </ul>
+
+            <form
+              className="contact-form"
+              action="mailto:shelbypalumbo94@gmail.com"
+              method="post"
+              type="text/plain"
+            >
+              Name:<br></br>
+              <input type="text" className="name" name="name" />
+              <br></br>
+              E-mail:<br></br>
+              <input type="text" className="mail" name="mail" />
+              <br></br>
+              Message:<br></br>
+              <input className="messagebox" type="text" name="comment" />
+              <br></br>
+              <input className="contact-btn" type="submit" value="Submit" />
+              <input className="contact-btn" type="reset" value="Reset" />
+            </form>
           </Col>
           <Col size="lg-6 md-12">
             <iframe

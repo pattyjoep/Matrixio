@@ -33,8 +33,6 @@ function Settings() {
     if (getTeacher) {
       API.getTeacher(TeacherID)
         .then(res => {
-          console.log("&&&&&I IM ON THE SETTINGS PAGE");
-          console.log("userProfile get Teacher----");
           console.log(res.data);
           setTeacherData(res.data);
         })
@@ -64,6 +62,7 @@ function Settings() {
       });
   };
 
+  //Update user form submit
   const handleSubmit = e => {
     e.preventDefault();
     let data;

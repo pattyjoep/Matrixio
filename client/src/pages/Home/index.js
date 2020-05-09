@@ -1,10 +1,10 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import "./style.css";
 import HomeNav from "../../components/HomeNav";
 import { Col, Row } from "../../components/Grid";
 import Container from "../../components/Container";
 import Teachers from "./images/teachers.jpg";
+import UI from "./images/UI.jpg";
 
 function Home() {
   return (
@@ -28,13 +28,12 @@ function Home() {
               database for future use or analysis.
             </p>
             <p className="quote">
-              {/* <img src={UI} className="uiImg" alt="UI" /> */}
+              <img src={UI} className="uiImg" alt="UI" />
               <b>
                 "Matrixio is a blessing, it solved all my matrix tracking and
                 generating needs."
               </b>{" "}
-              - Some speech pathologist somewhere. **Ideally, we should use a
-              quote from Trick's gf.
+              - CT Local Speech Pathologist
             </p>
           </Col>
         </Row>
