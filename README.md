@@ -5,6 +5,8 @@
 Online templates used for tracking speech and learning
 exercises are really hard to find. The Matrixio team has developed an application that allows users, of any field, to build alterable learning matrices for each of their students unique needs. Matrixio will save each students learning matrices in a database that is retreivable for future reference upon log in.
 
+### Deployed Application: https://serene-river-18393.herokuapp.com/
+
 <hr>
 
 ## Usage
@@ -15,19 +17,19 @@ Sign up, log in, and get to work creating your own matrices!
 
 ### Signup Page
 
-![Signup View]("/README/signup.png")
+![Signup View]("/RM_images/signup.png")
 
 ### Login Page
 
-![Login View]("/README/login.png")
+![Login View]("/RM_images/login.png")
 
 ### User Profile
 
-![Profile Page View]("/README/profile.png")
+![Profile Page View]("/RM_images/profile.png")
 
 ### Settings
 
-![Settings Page View]("/README/settings.png)
+![Settings Page View]("/RM_images/settings.png)
 
 <hr>
 

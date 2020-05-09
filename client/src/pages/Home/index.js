@@ -28,12 +28,11 @@ function Home() {
               database for future use or analysis.
             </p>
             <p className="quote">
-              <img src={UI} className="uiImg" alt="UI" />
               <b>
                 "Matrixio is a blessing, it solved all my matrix tracking and
                 generating needs."
               </b>{" "}
-              - CT Local Speech Pathologist
+              - Local CT Speech Pathologist
             </p>
           </Col>
         </Row>
