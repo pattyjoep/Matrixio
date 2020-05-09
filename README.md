@@ -17,19 +17,19 @@ Sign up, log in, and get to work creating your own matrices!
 
 ### Signup Page
 
-![Signup View]("/RM_images/signup.png")
+![Signup View](/README_images/signup.png)
 
 ### Login Page
 
-![Login View]("/RM_images/login.png")
+![Login View](/README_images/login.png)
 
 ### User Profile
 
-![Profile Page View]("/RM_images/profile.png")
+![Profile Page View](/README_images/profile.png)
 
 ### Settings
 
-![Settings Page View]("/RM_images/settings.png)
+![Settings Page View](/README_images/settings.png)
 
 <hr>
 
