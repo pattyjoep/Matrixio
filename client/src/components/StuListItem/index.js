@@ -18,78 +18,6 @@ function StuListItem(props) {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
 
-  const [MatrixShow, setMatrixShow] = useState(false);
-
-  const [title, setTitle] = useState("");
-  const [rows, setRows] = useState([]);
-  const [columns, setColumns] = useState([]);
-
-  const [selectRow, setSelectRow] = useState("");
-  const [selectColumn, setSelectColumn] = useState("");
-  const [displayTable, setDisplayTable] = useState(false);
-
-  const handleChangeStatus = event => {
-    var cell = event.target;
-    cell.setAttribute("class", "status-card-success");
-    cell.textContent = "✓";
-  };
-
-  const handleTitleChange = e => {
-    setTitle(e.target.value);
-  };
-
-  const handleInputChangeRow = event => {
-    const { value } = event.target;
-    setSelectRow(value);
-  };
-
-  const handleSubmit = () => {
-    setDisplayTable(true);
-
-    const tempRows = [];
-    const tempColumns = [];
-
-    for (let i = 0; i < selectRow; i++) {
-      tempRows.push(i);
-    }
-    setRows(tempRows);
-
-    for (let i = 0; i < selectColumn; i++) {
-      tempColumns.push(i);
-    }
-    setColumns(tempColumns);
-    setMatrixShow(false);
-
-    let rowsArr = [];
-    let matrix = [];
-    let topRow = ["0", "Secondtitle", "thirdtitle", "etc......"]; //for loop to build
-    matrix.push(topRow);
-    for (let i = 0; i < parseInt(selectRow) + 1; i++) {
-      rowsArr.push("X");
-    }
-    for (let i = 0; i < parseInt(selectColumn); i++) {
-      let tmpArr = [];
-      for (let j = 0; j < rowsArr.length; j++) {
-        tmpArr.push(rowsArr[j]);
-      }
-
-      matrix.push(tmpArr);
-    }
-
-    let matrixDB = {
-      title: title,
-      matrix: matrix,
-      StudentID: props.student._id
-    };
-
-    API.createMatrix(matrixDB);
-  };
-
-  const handleInputChangeColumn = event => {
-    const { value } = event.target;
-    setSelectColumn(value);
-  };
-
   //Update Student Modal--------------
   const updateModal = e => {
     e.preventDefault();
@@ -200,7 +128,7 @@ function StuListItem(props) {
           data-parent="#accordionExample"
         >
           <div className="card-body">
-            <Button className="new-matrix" onClick={() => setMatrixShow(true)}>
+            <Button className="new-matrix" onClick={() => props.setMatrixShow(true)}>
               <i className="fas fa-ruler-combined"></i> &nbsp;New Matrix
             </Button>
             <br />
@@ -212,14 +140,14 @@ function StuListItem(props) {
               <i className="fas fa-th-list"></i>&nbsp; View All Matrices
             </Link>
             <GenerateMatrix
-              handleTitleChange={handleTitleChange}
-              handleSubmit={handleSubmit}
-              handleInputChangeRow={handleInputChangeRow}
-              handleInputChangeColumn={handleInputChangeColumn}
-              selectRow={selectRow}
-              selectColumn={selectColumn}
-              show={MatrixShow}
-              setMatrixShow={setMatrixShow}
+              handleTitleChange={props.handleTitleChange}
+              handleSubmit={props.handleSubmit}
+              handleInputChangeRow={props.handleInputChangeRow}
+              handleInputChangeColumn={props.handleInputChangeColumn}
+              selectRow={props.selectRow}
+              selectColumn={props.selectColumn}
+              show={props.show}
+              setMatrixShow={props.setMatrixShow}
             />
             <Button
               className="update-student-link"
@@ -246,18 +174,6 @@ function StuListItem(props) {
           </div>
         </div>
       </div>
-      {displayTable ? (
-        <NewMatrix
-          title={title}
-          rows={selectRow}
-          rowsArray={rows}
-          columnsArray={columns}
-          columns={selectColumn}
-          changeStatus={handleChangeStatus}
-        />
-      ) : (
-        ""
-      )}
     </div>
   );
 }
