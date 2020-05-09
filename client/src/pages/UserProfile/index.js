@@ -5,6 +5,7 @@ import { Row, Col } from "../../components/Grid";
 import StudentList from "../../components/StudentList";
 import NavBar from "../../components/NavBar";
 import API from "../../utils/API";
+import NewMatrix from "../../components/NewMatrix";
 
 function UserProfile(props) {
   const [TeacherID, setTeacherID] = useState();
@@ -36,6 +37,63 @@ function UserProfile(props) {
     }
   }, [getTeacher]);
 
+  //===============
+  const [MatrixShow, setMatrixShow] = useState(false);
+
+  useEffect(() => {
+    console.log(MatrixShow);
+  }, [MatrixShow]);
+
+  const [rows, setRows] = useState([]);
+  const [columns, setColumns] = useState([]);
+
+  const [selectRow, setSelectRow] = useState("");
+  const [selectColumn, setSelectColumn] = useState("");
+  const [displayTable, setDisplayTable] = useState(false);
+
+  const handleChangeStatus = event => {
+    var cell = event.target;
+    cell.setAttribute("class", "status-card-success");
+    cell.textContent = "✓";
+  };
+
+  const handleInputChangeRow = event => {
+    const { value } = event.target;
+    setSelectRow(value);
+    console.log(value);
+  };
+
+  const handleSubmit = () => {
+    setDisplayTable(true);
+    //props.handleRenderTable()
+    console.log("row/col");
+    console.log(selectColumn, selectRow);
+
+    const tempRows = [];
+    const tempColumns = [];
+
+    for (let i = 0; i < selectRow; i++) {
+      tempRows.push(i);
+    }
+    setRows(tempRows);
+
+    for (let i = 0; i < selectColumn; i++) {
+      tempColumns.push(i);
+    }
+    setColumns(tempColumns);
+    setMatrixShow(false);
+  };
+
+  const handleInputChangeColumn = event => {
+    const { value } = event.target;
+    setSelectColumn(value);
+    console.log(value);
+  };
+
+  const handleRenderTable = () => {
+    setDisplayTable(true);
+  };
+
   return (
     <div>
       <div>{TeacherID ? <NavBar TeacherID={TeacherID} /> : null}</div>
@@ -44,13 +102,41 @@ function UserProfile(props) {
           <Col size="12">
             <h1>Hello {TeacherData.fullName}.</h1>
             <hr />
-            <div className="studentDash">
+            {/* <div className="studentDash">
               <h3>
                 My Students: <i className="fa fa-graduation-cap"></i>
               </h3>
               <StudentList TeacherID={TeacherID} />
-            </div>
+            </div> */}
           </Col>
+          <Row>
+            <Col size="6">
+              <StudentList
+                TeacherID={TeacherID}
+                handleRenderTable={handleRenderTable}
+                handleSubmit={handleSubmit}
+                handleInputChangeRow={handleInputChangeRow}
+                handleInputChangeColumn={handleInputChangeColumn}
+                selectRow={selectRow}
+                selectColumn={selectColumn}
+                show={MatrixShow}
+                setMatrixShow={setMatrixShow}
+              />
+            </Col>
+            <Col size="6">
+              {displayTable ? (
+                <NewMatrix
+                  rows={selectRow}
+                  rowsArray={rows}
+                  columnsArray={columns}
+                  columns={selectColumn}
+                  changeStatus={handleChangeStatus}
+                />
+              ) : (
+                ""
+              )}
+            </Col>
+          </Row>
         </Row>
       </Container>
     </div>

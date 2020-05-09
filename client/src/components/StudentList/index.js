@@ -143,6 +143,7 @@ function StudentList(props) {
         {studentsArr.map(stu => {
           return (
             <StuListItem
+              TeacherID={props.TeacherID}
               handleRenderTable={props.handleRenderTable}
               handleSubmit={props.handleSubmit}
               handleInputChangeRow={props.handleInputChangeRow}
