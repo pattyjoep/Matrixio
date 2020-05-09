@@ -109,6 +109,7 @@ function UserProfile(props) {
               <StudentList TeacherID={TeacherID} />
             </div> */}
           </Col>
+         </Row> 
           <Row>
             <Col size="6">
               <StudentList
@@ -137,7 +138,6 @@ function UserProfile(props) {
               )}
             </Col>
           </Row>
-        </Row>
       </Container>
     </div>
   );
