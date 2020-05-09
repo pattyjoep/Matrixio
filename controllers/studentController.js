@@ -100,7 +100,7 @@ module.exports = {
     db.Student.findByIdAndDelete(req.body.id.StudentID)
       .then(removeMatrices => {
         console.log("Remove students!", removeMatrices);
-        db.Matrix.deleteMany({ _id: { $in: removeStudents.matrices } }).then(
+        db.Matrix.deleteMany({ _id: { $in: removeMatrices.matrices } }).then(
           result => {
             console.log(message);
             res.json(result);
