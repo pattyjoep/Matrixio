@@ -1,20 +1,12 @@
 const db = require("../models");
-const passport = require("../client/config/passport")
-
-
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const salt = bcrypt.genSaltSync(saltRounds);
-
 
 //Methods for teacherRoutes.js
 module.exports = {
   // Teacher/User authentication:
   findOne: (req, res) => {
-    console.log("hello there");
-    console.log(req.body);
-    console.log(`REQ.BODY.EMAIL ${req.body.email}`);
-    console.log(`REQ.BODY.PASSWORD ${req.body.password}`);
     db.Teacher.findOne({ email: req.body.email })
       .then(user => {
         //if the user does not exist, return status 400
@@ -34,15 +26,12 @@ module.exports = {
           console.log(user);
           res.json(user);
         });
-        console.log("After password/hash compare.");
       })
-
       .catch(err => res.status(422).json(err));
   },
 
   //Find all teachers in the database
   findAll: (req, res) => {
-    console.log("Begin teacher findAll.");
     db.Teacher.find(req.query)
       .populate("students")
       .sort({ dateCreated: -1 })
@@ -56,33 +45,18 @@ module.exports = {
 
   //Find teacher by ID
   findById: (req, res) => {
-    console.log("log Teacher findByID req.params.id ---------");
-    console.log(req.params.id);
     db.Teacher.findById(req.params.id)
       .populate("students")
       .then(dbTeacher => {
         res.json(dbTeacher);
-        console.log("dbTeacher findById --------------");
-        console.log(dbTeacher);
       })
       .catch(err => {
         res.status(422).json(err);
       });
   },
 
-/*  create: (req, res) => {
-    passport.authenticate("local-signup", function (err, user, info) {
-      if (err) {
-        return res.status(500).json({
-          message: err || "Signup failed, please try again",
-        });
-      }
-
-  }
-  */
   //Create a new teacher
   create: (req, res) => {
-    console.log("Beginning of backend teacher create");
     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
       if (err) {
         console.log(err);
@@ -109,11 +83,6 @@ module.exports = {
 
   //Update an existing teacher by ID
   update: (req, res) => {
-    console.log("Begin Teacher Update");
-    console.log("Req.body:", req.body);
-    console.log("Teacher params", req.params);
-
-    // console.log(req.body.TeacherID),
 
     db.Teacher.findOneAndUpdate(
       req.params.id,
@@ -129,7 +98,6 @@ module.exports = {
       }
     )
       .then(dbTeacher => {
-        console.log("findOneAndUpdate: dbTeacher here");
         res.json(dbTeacher);
       })
       .catch(err => res.status(422).json(err));
@@ -137,13 +105,10 @@ module.exports = {
 
   //Delete teacher by ID
   delete: (req, res) => {
-    console.log("Begin teacher delete.");
-    console.log("TEACHER DELETE!!!", req.body);
     let message = `Teacher ${req.body.id.TeacherID} destroyed`;
 
     db.Teacher.findByIdAndDelete(req.body.id.TeacherID)
       .then(removeStudents => {
-        console.log("Remove students!", removeStudents);
         db.Student.deleteMany({ _id: { $in: removeStudents.students } }).then(
           result => {
             console.log(message);
