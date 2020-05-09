@@ -75,12 +75,6 @@ export default {
   createMatrix: matrixData => {
     return axios.post("/api/matrix/", matrixData);
   },
-  /**
-   * TODO: Prevent any object from being passed.
-   * Need to figure out how to handle matrices on front end.
-   * Currently can pass any object as matrix. Allows updating of ObjectID.
-   * Risks data integrity.
-   */
 
   updateMatrix: ({ MatrixID, title, matrix }, id) => {
     return axios.put("/api/matrix/" + id, { MatrixID, title, matrix });

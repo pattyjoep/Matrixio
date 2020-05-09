@@ -1,6 +1,19 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+/**
+ * * * * * teacher Schema * * * * *
+ * Mongoose model for the Teacher collection in mongoDB.
+ * firstName: A teacher's first name
+ * lastName: A teacher's last name
+ * email: A teacher's email, used to login/authenticate, contains a regex email verifier.
+ * dateCreated: The date/time a teacher was created.
+ * fullName: A teacher's full name (firstName + lastName).
+ * lastUpdated: The last date/time this teacher was updated.
+ * students: An array of StudentIDs which hold a reference the student in the DB.
+ * setFullName(): used to mutate the fullName property.
+ * setLastUpdated(): used to set the lastUpdated property.
+ */
 const TeacherSchema = new Schema({
   firstName: {
     type: String,
