@@ -13,9 +13,6 @@ function Login() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(`Email: ${email}`);
-    console.log(`Password: ${password}`);
-    console.log("Handling login submit!!");
     if (!email || !password) {
       return;
     } else {

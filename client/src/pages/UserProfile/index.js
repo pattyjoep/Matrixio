@@ -59,7 +59,6 @@ function UserProfile(props) {
   const handleInputChangeRow = event => {
     const { value } = event.target;
     setSelectRow(value);
-    console.log(value);
   };
 
   const handleSubmit = (props) => {
