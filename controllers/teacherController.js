@@ -1,18 +1,24 @@
 const db = require("../models");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
-const salt = bcrypt.genSaltSync(saltRounds);
 
-//Methods for teacherRoutes.js
+/**
+ * * * * * * * Teacher Controller * * * * * * *
+ * Teacher Controller responsible for handling axios requests to the server.
+ * findAll: returns all teachers in collection, sorted by lastUpdated.
+ * findOne: finds teacher by email.
+ * create: creates new new Teacher as db.Teacher.
+ * update: finds teacher and updates.
+ * remove: finds teacher and deletes.
+ */
 module.exports = {
-  // Teacher/User authentication:
+
   findOne: (req, res) => {
     db.Teacher.findOne({ email: req.body.email })
       .then(user => {
-        //if the user does not exist, return status 400
+
         if (!user) return res.status(400).json({ msg: "User does not exist." });
 
-        //user.password is the hashed password from the database, hash was coming back as undefined because it was not set before the bcrypt compare
         bcrypt.compare(req.body.password, user.password, (err, result) => {
           if (err) {
             throw err;
@@ -27,7 +33,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  //Find all teachers in the database
   findAll: (req, res) => {
     db.Teacher.find(req.query)
       .populate("students")
@@ -40,7 +45,6 @@ module.exports = {
       });
   },
 
-  //Find teacher by ID
   findById: (req, res) => {
     db.Teacher.findById(req.params.id)
       .populate("students")
@@ -52,7 +56,6 @@ module.exports = {
       });
   },
 
-  //Create a new teacher
   create: (req, res) => {
     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
       if (err) {
@@ -74,9 +77,6 @@ module.exports = {
     });
   },
 
-
-
-  //Update an existing teacher by ID
   update: (req, res) => {
 
     db.Teacher.findOneAndUpdate(
@@ -98,7 +98,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  //Delete teacher by ID
   delete: (req, res) => {
     let message = `Teacher ${req.body.id.TeacherID} destroyed`;
 

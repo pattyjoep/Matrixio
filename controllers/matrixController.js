@@ -2,10 +2,6 @@ const db = require("../models");
 
 /**
  * * * * * * * Matrix Controller * * * * * * *
- * TODO: matrix can be passed as anything, this is dangerous:
- *  can update id,
- *  risks data integrity.
- *
  * Matrix Controller responsible for handling axios requests to the server.
  * findAll: returns all matrices in collection, sorted by lastUpdated.
  * findById: finds matrix by id.

@@ -107,7 +107,6 @@ function UserProfile(props) {
   const handleInputChangeColumn = event => {
     const { value } = event.target;
     setSelectColumn(value);
-    console.log(value);
   };
 
   const handleRenderTable = () => {

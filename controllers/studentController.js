@@ -1,10 +1,18 @@
 const db = require("../models");
 
-//Methods for studentRoutes.js
+/**
+ * * * * * * * Student Controller * * * * * * *
+ * Student Controller responsible for handling axios requests to the server.
+ * findAll: returns all students in collection, sorted by lastUpdated.
+ * findById: finds student by id.
+ * create: creates new student as db.Student().
+ * update: finds student and updates as rq.body.
+ * delete: finds student and deletes.
+ */
 module.exports = {
-  //Find all students
+
   findAll: (req, res) => {
-    db.Student.find(req.query)
+    db.Student.find({})
       .populate("matrices")
       .sort({ dateCreated: -1 })
       .then(dbStudent => {
@@ -25,7 +33,7 @@ module.exports = {
         res.status(422).json(err);
       });
   },
-  //Create a new student
+
   create: (req, res) => {
     const student = new db.Student(req.body);
     student.setFullName();
@@ -54,8 +62,6 @@ module.exports = {
     });
   },
 
-  //======================Work in progress======================
-  //Update an existing student by id
   update: (req, res) => {
 
     db.Student.findByIdAndUpdate(
@@ -78,7 +84,6 @@ module.exports = {
       });
   },
 
-  //Delete Student by ID
   delete: (req, res) => {
     let message = `Student ${req.body.id.StudentID} destroyed`;
 
