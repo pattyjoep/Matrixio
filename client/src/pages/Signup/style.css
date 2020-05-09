@@ -1,0 +1,23 @@
+.signup-btn {
+  color: #20ccb6;
+  border: 1px solid #20ccb6;
+  float: right;
+}
+.signup-btn:hover {
+  color: #ffffff;
+  background-color: #20ccb6;
+}
+.card {
+  opacity: 0.9;
+}
+
+.card-container {
+  background-color: transparent;
+}
+
+.signup-card {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}

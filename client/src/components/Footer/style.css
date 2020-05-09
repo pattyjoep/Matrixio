@@ -1,0 +1,16 @@
+.footer {
+  background-color: rgb(131, 243, 245);
+  color: #5c5c5c;
+  text-align: center;
+  height: 90px;
+  padding: 30px;
+  border-top: 4px solid #4dc4b4;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 16px;
+}
+
+.footer-logo {
+  width: 2%;
+}

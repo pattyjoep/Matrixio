@@ -1,0 +1,119 @@
+.accordion {
+  width: 330px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.add-student-link {
+  color: #ffffff;
+  background-color: #2ac0ad;
+  border: none;
+  float: right;
+}
+
+.add-student-link:hover {
+  background-color: #2ac0ad;
+}
+
+.delete-student-link {
+  color: rgb(245, 50, 50);
+  background-color: #ffffff;
+  border: none;
+  float: right;
+  font-size: 20pt;
+  padding: 3px;
+}
+.delete-student-link:hover {
+  color: rgb(245, 50, 50);
+  background-color: #ffffff;
+  border: none;
+  float: right;
+  font-size: 25pt;
+}
+
+.list-group-item.active {
+  z-index: 2;
+  color: #fff;
+  background-color: #2ac0ad;
+}
+
+.list-group-item:hover {
+  color: #495057;
+  background-color: #f8f9fa;
+}
+
+.matrix-amt-badge {
+  /* margin-left: 135px; */
+  float: right;
+  font-size: 50%;
+  color: #ffffff;
+  background-color: #2ac0ad;
+}
+
+.studentBtnLink {
+  color: #495057;
+}
+
+.studentBtnLink:focus {
+  color: #2ac0ad;
+  text-decoration: none;
+}
+
+.studentBtnLink:hover {
+  color: #2ac0ad;
+  text-decoration: none;
+}
+
+.student-list-header {
+  background-color: #2ac0ad;
+}
+
+.student-list-header-link {
+  color: #ffffff !important;
+}
+
+/* .student-list-header-link:hover {
+    text-decoration: none !important;
+} */
+
+.update-student-link {
+  margin-top: 10px;
+  background-color: rgb(35, 134, 134);
+  border: none;
+}
+
+.update-student-link:hover {
+  background-color: rgb(35, 134, 134);
+  opacity: 0.8;
+}
+
+.new-matrix {
+  background-color: rgb(214, 81, 170);
+  border: none;
+  margin-bottom: 12px;
+}
+.new-matrix:hover {
+  opacity: 0.8;
+  background-color: rgb(209, 33, 150);
+}
+
+.date {
+  float: left;
+  text-align: left;
+}
+
+.matricesBtn {
+  background-color: rgb(158, 7, 146);
+  color: white;
+  padding: 7px;
+  border-radius: 3px;
+  margin-top: 15px;
+}
+
+.matricesBtn:hover {
+  background-color: rgb(158, 7, 146);
+  color: white;
+  text-decoration: none;
+  opacity: 0.8;
+  padding: 7px;
+}

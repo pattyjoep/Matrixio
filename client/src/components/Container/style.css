@@ -1,0 +1,9 @@
+.container {
+  position: relative;
+  background-color: white;
+  opacity: 0.9;
+  padding: 10px;
+  padding-bottom: 10px;
+  border-radius: 20px;
+  min-height: 70vh;
+}
