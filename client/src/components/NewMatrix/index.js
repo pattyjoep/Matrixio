@@ -2,7 +2,9 @@ import React from "react";
 import "./style.css";
 
 export default function NewMatrix(props) {
+  
   return (
+
     <table>
       <tbody>
         <tr>

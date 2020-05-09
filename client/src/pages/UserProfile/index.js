@@ -6,8 +6,12 @@ import StudentList from "../../components/StudentList";
 import NavBar from "../../components/NavBar";
 import API from "../../utils/API";
 import NewMatrix from "../../components/NewMatrix";
+import GenerateMatrix from "../../components/GenerateMatrix";
 
 function UserProfile(props) {
+  console.log("propsuserprofile---------------------------------------------");
+  console.log(props);
+  console.log("propsuserprofile---------------------------------------------");
   const [TeacherID, setTeacherID] = useState();
   const [getTeacher, setGetTeacher] = useState(false);
   const [TeacherData, setTeacherData] = useState({});
@@ -63,7 +67,7 @@ function UserProfile(props) {
     console.log(value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (props) => {
     setDisplayTable(true);
     //props.handleRenderTable()
     console.log("row/col");
@@ -82,6 +86,34 @@ function UserProfile(props) {
     }
     setColumns(tempColumns);
     setMatrixShow(false);
+
+    //begin data storage
+
+    let rowsArr = [];
+    let matrix = [];
+    let topRow = ["0", "Secondtitle", "thirdtitle", "etc......"]; //for loop to build
+    matrix.push(topRow);
+
+    for (let i = 0; i < parseInt(selectRow) + 1; i++)
+      rowsArr.push("X");
+
+    for (let i = 0; i < parseInt(selectColumn); i++) {
+      let tmpArr = [];
+      for(let j = 0; j < rowsArr.length; j++){
+        tmpArr.push(rowsArr[j]);
+      }
+      
+      matrix.push(tmpArr);
+    }
+
+    console.log("props = ")
+    console.log(props);
+    let matrixDB = {
+      matrix: matrix,
+     // StudentID: props.student._id
+    };
+
+    API.createMatrix(matrixDB);
   };
 
   const handleInputChangeColumn = event => {

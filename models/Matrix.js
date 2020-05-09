@@ -19,10 +19,6 @@ const MatrixSchema = new Schema(
       type: String
     },
 
-    title: {
-      type: String
-    },
-
     dateCreated: {
       type: Date,
       default: Date.now
