@@ -63,7 +63,7 @@ function UserProfile(props) {
     console.log(value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = props => {
     setDisplayTable(true);
     //props.handleRenderTable()
     console.log("row/col");
@@ -82,6 +82,33 @@ function UserProfile(props) {
     }
     setColumns(tempColumns);
     setMatrixShow(false);
+
+    //begin data storage
+
+    let rowsArr = [];
+    let matrix = [];
+    let topRow = ["0", "Secondtitle", "thirdtitle", "etc......"]; //for loop to build
+    matrix.push(topRow);
+
+    for (let i = 0; i < parseInt(selectRow) + 1; i++) rowsArr.push("X");
+
+    for (let i = 0; i < parseInt(selectColumn); i++) {
+      let tmpArr = [];
+      for (let j = 0; j < rowsArr.length; j++) {
+        tmpArr.push(rowsArr[j]);
+      }
+
+      matrix.push(tmpArr);
+    }
+
+    console.log("props = ");
+    console.log(props);
+    let matrixDB = {
+      matrix: matrix
+      // StudentID: props.student._id
+    };
+
+    API.createMatrix(matrixDB);
   };
 
   const handleInputChangeColumn = event => {
@@ -109,35 +136,35 @@ function UserProfile(props) {
               <StudentList TeacherID={TeacherID} />
             </div> */}
           </Col>
-         </Row> 
-          <Row>
-            <Col size="6">
-              <StudentList
-                TeacherID={TeacherID}
-                handleRenderTable={handleRenderTable}
-                handleSubmit={handleSubmit}
-                handleInputChangeRow={handleInputChangeRow}
-                handleInputChangeColumn={handleInputChangeColumn}
-                selectRow={selectRow}
-                selectColumn={selectColumn}
-                show={MatrixShow}
-                setMatrixShow={setMatrixShow}
+        </Row>
+        <Row>
+          <Col size="6">
+            <StudentList
+              TeacherID={TeacherID}
+              handleRenderTable={handleRenderTable}
+              handleSubmit={handleSubmit}
+              handleInputChangeRow={handleInputChangeRow}
+              handleInputChangeColumn={handleInputChangeColumn}
+              selectRow={selectRow}
+              selectColumn={selectColumn}
+              show={MatrixShow}
+              setMatrixShow={setMatrixShow}
+            />
+          </Col>
+          <Col size="6">
+            {displayTable ? (
+              <NewMatrix
+                rows={selectRow}
+                rowsArray={rows}
+                columnsArray={columns}
+                columns={selectColumn}
+                changeStatus={handleChangeStatus}
               />
-            </Col>
-            <Col size="6">
-              {displayTable ? (
-                <NewMatrix
-                  rows={selectRow}
-                  rowsArray={rows}
-                  columnsArray={columns}
-                  columns={selectColumn}
-                  changeStatus={handleChangeStatus}
-                />
-              ) : (
-                ""
-              )}
-            </Col>
-          </Row>
+            ) : (
+              ""
+            )}
+          </Col>
+        </Row>
       </Container>
     </div>
   );
