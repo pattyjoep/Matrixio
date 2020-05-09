@@ -24,31 +24,30 @@ module.exports = {
     student.setLastUpdated();
     console.log(student);
 
-    db.Student.create(student)
-      .then(student => {
-        console.log("Inside studentController then");
-        console.log(student);
+    db.Student.create(student).then(student => {
+      console.log("Inside studentController then");
+      console.log(student);
 
-        db.Teacher.findByIdAndUpdate(
-          student.TeacherID,
-          {
-            $push: {
-              students: {
-                _id: student._id
-              }
+      db.Teacher.findByIdAndUpdate(
+        student.TeacherID,
+        {
+          $push: {
+            students: {
+              _id: student._id
             }
-          },
-          { new: true } 
-        )
+          }
+        },
+        { new: true }
+      )
         .then(dbTeacher => {
-        console.log("backend dbTeacher create result ----");
-        console.log(dbTeacher);
-        res.json(dbTeacher);
-      })
-      .catch(err => {
-        res.status(422).json(err);
-        console.log(err);
-      });
+          console.log("backend dbTeacher create result ----");
+          console.log(dbTeacher);
+          res.json(dbTeacher);
+        })
+        .catch(err => {
+          res.status(422).json(err);
+          console.log(err);
+        });
     });
   },
 
@@ -80,15 +79,19 @@ module.exports = {
       });
   },
 
-  //Delete a student
+  //Delete Student by ID
   delete: (req, res) => {
-    console.log("Begin student delete.");
-    console.log("STUDENT DELETE", req.body);
     let message = `Student ${req.body.id.StudentID} destroyed`;
+
     db.Student.findByIdAndDelete(req.body.id.StudentID)
-      .then(result => {
-        console.log(message);
-        res.json(result);
+      .then(removeMatrices => {
+        console.log("Remove students!", removeMatrices);
+        db.Matrix.deleteMany({ _id: { $in: removeStudents.matrices } }).then(
+          result => {
+            console.log(message);
+            res.json(result);
+          }
+        );
       })
       .catch(err => {
         console.log(err);

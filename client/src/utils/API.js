@@ -13,11 +13,11 @@ export default {
   },
 
   getAllTeachers: () => {
-    return axios.get("/api/teacher");
+    return axios.get("/api/teacher/");
   },
 
   createTeacher: teacherData => {
-    return axios.post("/api/teacher", teacherData);
+    return axios.post("/api/teacher/", teacherData);
   },
 
   getTeacher: id => {
@@ -25,7 +25,6 @@ export default {
   },
 
   updateTeacher: ({ TeacherID, firstName, lastName, email }) => {
-    console.log("TEACHER UPDATE");
     return axios.put("/api/teacher/" + TeacherID, {
       firstName: firstName,
       lastName: lastName,
@@ -48,11 +47,11 @@ export default {
   // },
 
   createStudent: studentData => {
-    return axios.post("/api/student", studentData);
+    return axios.post("/api/student/", studentData);
   },
 
   getStudent: id => {
-    return axios.get("/api/student/", id);
+    return axios.get("/api/student/" + id);
   },
 
   updateStudent: ({ StudentID, firstName, lastName }) => {
@@ -73,25 +72,25 @@ export default {
    * * * * * * * * * * * * * * * * * * * * * *
    * */
 
-  createMatrix: matrix => {
-    return axios.post("/api/matrix", matrix);
+  createMatrix: matrixData => {
+    return axios.post("/api/matrix/", matrixData);
   },
-
   /**
    * TODO: Prevent any object from being passed.
    * Need to figure out how to handle matrices on front end.
    * Currently can pass any object as matrix. Allows updating of ObjectID.
    * Risks data integrity.
    */
-  updateMatrix: ({ matrix }, id) => {
-    return axios.put("/api/matrix/" + id, matrix);
+
+  updateMatrix: ({ MatrixID, title, matrix }, id) => {
+    return axios.put("/api/matrix/" + id, { MatrixID, title, matrix });
   },
 
-  deletematrix: id => {
-    return axios.delete("/api/matrix/" + id);
+  deleteMatrix: id => {
+    return axios.delete("/api/matrix/", { data: { id } });
   },
 
   getAllMatrices: () => {
-    return axios.get("/api/matrix");
+    return axios.get("/api/matrix/");
   }
 };

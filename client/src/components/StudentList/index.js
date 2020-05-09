@@ -127,7 +127,8 @@ function StudentList(props) {
             <h2 className="mb-0">
               <button className="btn" type="button">
                 <a className="student-list-header-link">
-                  <i className="fa fa-graduation-cap"></i> My Students</a>
+                  <i className="fa fa-graduation-cap"></i> My Students
+                </a>
               </button>
               <Button
                 className="add-student-link"
@@ -140,18 +141,20 @@ function StudentList(props) {
           </div>
         </div>
         {studentsArr.map(stu => {
-          return <StuListItem 
-            handleRenderTable={props.handleRenderTable} 
-            handleSubmit={props.handleSubmit} 
-            handleInputChangeRow={props.handleInputChangeRow} 
-            handleInputChangeColumn={props.handleInputChangeColumn} 
-            selectRow={props.selectRow} 
-            selectColumn={props.selectColumn} 
-            show={props.show} 
-            setMatrixShow={ props.setMatrixShow }
-            student={stu} 
-            key={stu._id}
-          />;
+          return (
+            <StuListItem
+              handleRenderTable={props.handleRenderTable}
+              handleSubmit={props.handleSubmit}
+              handleInputChangeRow={props.handleInputChangeRow}
+              handleInputChangeColumn={props.handleInputChangeColumn}
+              selectRow={props.selectRow}
+              selectColumn={props.selectColumn}
+              show={props.show}
+              setMatrixShow={props.setMatrixShow}
+              student={stu}
+              key={stu._id}
+            />
+          );
         })}
       </div>
     </div>

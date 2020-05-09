@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
-import { Col, Row } from "../../components/Grid";
 import Container from "../../components/Container";
+import { Row, Col } from "../../components/Grid";
+import StudentList from "../../components/StudentList";
 import NavBar from "../../components/NavBar";
 import API from "../../utils/API";
-import Moment from "react-moment";
-import "moment-timezone";
 
-// http://localhost:3000/UserProfile?=23049835897tsdkafj
-
-function UserProfile() {
+function UserProfile(props) {
   const [TeacherID, setTeacherID] = useState();
   const [getTeacher, setGetTeacher] = useState(false);
   const [TeacherData, setTeacherData] = useState({});
@@ -29,8 +26,6 @@ function UserProfile() {
     if (getTeacher) {
       API.getTeacher(TeacherID)
         .then(res => {
-          console.log("userProfile get Teacher----");
-          console.log(res.data);
           setTeacherData(res.data);
         })
         .catch(err => {
@@ -44,29 +39,21 @@ function UserProfile() {
   return (
     <div>
       <div>{TeacherID ? <NavBar TeacherID={TeacherID} /> : null}</div>
-
       <Container>
         <Row>
           <Col size="12">
-            <h1>Hello {TeacherData.fullName}!</h1>
+            <h1>Hello {TeacherData.fullName}.</h1>
             <hr />
-            <Row>
-              <Col size="6">
-                <div>
-                  Member since: &nbsp;
-                  <Moment format="MMMM DD, YYYY">
-                    {TeacherData.dateCreated}
-                  </Moment>
-                </div>
-                <br />
-                <h3>Notes</h3>
-              </Col>
-            </Row>
+            <div className="studentDash">
+              <h3>
+                My Students: <i className="fa fa-graduation-cap"></i>
+              </h3>
+              <StudentList TeacherID={TeacherID} />
+            </div>
           </Col>
         </Row>
       </Container>
     </div>
   );
 }
-
 export default UserProfile;

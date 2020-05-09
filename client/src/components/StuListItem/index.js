@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
+// import "./style.css";
+import { Link } from "react-router-dom";
 import API from "../../utils/API";
+// import GenerateMatrix from "../GenerateMatrix";
 import { Modal, Button, Form } from "react-bootstrap";
 import Moment from "react-moment";
 import "moment-timezone";
-import NewMatrix from "../NewMatrix";
+
 import GenerateMatrix from "../GenerateMatrix";
+import NewMatrix from "../NewMatrix";
 
 function StuListItem(props) {
   const [show, setShow] = useState(false);
@@ -14,61 +18,82 @@ function StuListItem(props) {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
 
-  // const [MatrixShow, setMatrixShow] = useState(false);
+  const [MatrixShow, setMatrixShow] = useState(false);
 
-  // const [rows, setRows] = useState([]);
-  // const [columns, setColumns] = useState([]);
+  const [title, setTitle] = useState("");
+  const [rows, setRows] = useState([]);
+  const [columns, setColumns] = useState([]);
 
-  // const [selectRow, setSelectRow] = useState("");
-  // const [selectColumn, setSelectColumn] = useState("");
-  // const [displayTable, setDisplayTable] = useState(false);
+  const [selectRow, setSelectRow] = useState("");
+  const [selectColumn, setSelectColumn] = useState("");
+  const [displayTable, setDisplayTable] = useState(false);
 
-  // const handleChangeStatus = event => {
-  //   var cell = event.target;
-  //   cell.setAttribute("class", "status-card-success");
-  //   cell.textContent = "✓";
-  // };
+  const handleChangeStatus = event => {
+    var cell = event.target;
+    cell.setAttribute("class", "status-card-success");
+    cell.textContent = "✓";
+  };
 
-  // const handleInputChangeRow = event => {
-  //   const { value } = event.target;
-  //   setSelectRow(value);
-  //   console.log(value);
-  // };
+  const handleTitleChange = e => {
+    setTitle(e.target.value);
+  };
 
-  // const handleSubmit = () => {
-  //   //setDisplayTable(true)
-  //   props.handleRenderTable();
-  //   console.log("row/col");
-  //   console.log(selectColumn, selectRow);
+  const handleInputChangeRow = event => {
+    const { value } = event.target;
+    setSelectRow(value);
+  };
 
-  //   const tempRows = [];
-  //   const tempColumns = [];
+  const handleSubmit = () => {
+    setDisplayTable(true);
 
-  //   for (let i = 0; i < selectRow; i++) {
-  //     tempRows.push(i);
-  //   }
-  //   setRows(tempRows);
+    const tempRows = [];
+    const tempColumns = [];
 
-  //   for (let i = 0; i < selectColumn; i++) {
-  //     tempColumns.push(i);
-  //   }
-  //   setColumns(tempColumns);
-  //   setMatrixShow(false);
-  // };
+    for (let i = 0; i < selectRow; i++) {
+      tempRows.push(i);
+    }
+    setRows(tempRows);
 
-  // const handleInputChangeColumn = event => {
-  //   const { value } = event.target;
-  //   setSelectColumn(value);
-  //   console.log(value);
-  // };
+    for (let i = 0; i < selectColumn; i++) {
+      tempColumns.push(i);
+    }
+    setColumns(tempColumns);
+    setMatrixShow(false);
+
+    let rowsArr = [];
+    let matrix = [];
+    let topRow = ["0", "Secondtitle", "thirdtitle", "etc......"]; //for loop to build
+    matrix.push(topRow);
+    for (let i = 0; i < parseInt(selectRow) + 1; i++) {
+      rowsArr.push("X");
+    }
+    for (let i = 0; i < parseInt(selectColumn); i++) {
+      let tmpArr = [];
+      for (let j = 0; j < rowsArr.length; j++) {
+        tmpArr.push(rowsArr[j]);
+      }
+
+      matrix.push(tmpArr);
+    }
+
+    let matrixDB = {
+      title: title,
+      matrix: matrix,
+      StudentID: props.student._id
+    };
+
+    API.createMatrix(matrixDB);
+  };
+
+  const handleInputChangeColumn = event => {
+    const { value } = event.target;
+    setSelectColumn(value);
+  };
 
   //Update Student Modal--------------
   const updateModal = e => {
     e.preventDefault();
-    console.log(`updateModal firstName: ${firstName}`);
-    console.log(`updateModal lastName: ${lastName}`);
     let data;
-    console.log(props);
     if (firstName && !lastName) {
       data = {
         StudentID: props.student._id,
@@ -76,24 +101,21 @@ function StuListItem(props) {
         lastName: props.student.lastName
       };
     } else if (!firstName && lastName) {
-      console.log("ELSE IF!");
       data = {
         StudentID: props.student._id,
         firstName: props.student.firstName,
         lastName: lastName
       };
     } else {
-      console.log("BOTH F & L");
       data = {
         StudentID: props.student._id,
         firstName: firstName,
         lastName: lastName
       };
     }
-    console.log("STUDENT UPDATE", data);
+
     API.updateStudent(data)
       .then(res => {
-        console.log(res);
         window.location.reload(false).then(() => {
           setShow(false);
         });
@@ -109,11 +131,9 @@ function StuListItem(props) {
     let data = {
       StudentID: props.student._id
     };
-    console.log(data);
 
     API.deleteStudent(data)
       .then(res => {
-        console.log(res, "DELETE STUDENT");
         window.location.reload(false);
       })
       .catch(err => {
@@ -170,7 +190,7 @@ function StuListItem(props) {
             >
               <i className="far fa-user-circle"></i> {props.student.fullName}
             </button>
-            <span className="badge badge-pill matrix-amt-badge">2</span>
+            <span className="badge badge-pill matrix-amt-badge">14</span>
           </h2>
         </div>
         <div
@@ -180,20 +200,26 @@ function StuListItem(props) {
           data-parent="#accordionExample"
         >
           <div className="card-body">
-            <Button
-              className="new-matrix"
-              onClick={() => props.setMatrixShow(true)}
-            >
-              <i className="fas fa-folder-plus"></i> &nbsp;New Matrix
+            <Button className="new-matrix" onClick={() => setMatrixShow(true)}>
+              <i className="fas fa-ruler-combined"></i> &nbsp;New Matrix
             </Button>
+            <br />
+
+            <Link
+              className="matricesBtn"
+              to={`/Matrices?=${props.student._id}=${props.TeacherID}`}
+            >
+              <i className="fas fa-th-list"></i>&nbsp; View All Matrices
+            </Link>
             <GenerateMatrix
-              handleSubmit={props.handleSubmit}
-              handleInputChangeRow={props.handleInputChangeRow}
-              handleInputChangeColumn={props.handleInputChangeColumn}
-              selectRow={props.selectRow}
-              selectColumn={props.selectColumn}
-              show={props.show}
-              setMatrixShow={props.setMatrixShow}
+              handleTitleChange={handleTitleChange}
+              handleSubmit={handleSubmit}
+              handleInputChangeRow={handleInputChangeRow}
+              handleInputChangeColumn={handleInputChangeColumn}
+              selectRow={selectRow}
+              selectColumn={selectColumn}
+              show={MatrixShow}
+              setMatrixShow={setMatrixShow}
             />
             <Button
               className="update-student-link"
@@ -220,6 +246,18 @@ function StuListItem(props) {
           </div>
         </div>
       </div>
+      {displayTable ? (
+        <NewMatrix
+          title={title}
+          rows={selectRow}
+          rowsArray={rows}
+          columnsArray={columns}
+          columns={selectColumn}
+          changeStatus={handleChangeStatus}
+        />
+      ) : (
+        ""
+      )}
     </div>
   );
 }

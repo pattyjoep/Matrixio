@@ -9,16 +9,12 @@ function NavBar(props) {
   useEffect(() => {
     API.getTeacher(props.TeacherID)
       .then(res => {
-        console.log("Navbar get Teacher----");
-        console.log(res.data);
         setTeacherID(res.data._id);
       })
       .catch(err => {
         console.log(err);
       });
   }, [TeacherID]);
-
-  // console.log(`Navbar props ${JSON.stringify(props)}`);
 
   return (
     <div>
@@ -37,15 +33,10 @@ function NavBar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link className="nav-link main" to={`/Students?=${TeacherID}`}>
+              <Link className="nav-link main" to={`/UserProfile?=${TeacherID}`}>
                 <i className="fa fa-user"></i> My Profile
               </Link>
             </li>
-            {/* <li className="nav-item">
-              <Link className="nav-link main" to={`/Students?=${TeacherID}`}>
-                <i className="fa fa-graduation-cap"></i> My Students
-              </Link>
-            </li> */}
           </ul>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
