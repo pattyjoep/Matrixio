@@ -69,18 +69,14 @@ const TeacherSchema = new Schema({
 });
 
 TeacherSchema.methods.setFullName = function() {
-  this.fullName = `${this.firstName} ${this.lastName}`;
-  console.log("set full name");
-  console.log(this.fullName);
 
+  this.fullName = `${this.firstName} ${this.lastName}`;
   return this.fullName;
 };
 
 TeacherSchema.methods.setLastUpdated = function() {
+  
   this.lastUpdated = Date.now();
-  console.log("set last updated")
-  console.log(this.lastUpdated);
-
   return this.lastUpdated;
 };
 

@@ -8,7 +8,6 @@ export default {
    * */
 
   authenticateTeacher: data => {
-    console.log("Teacher authentication data!", data);
     return axios.post("/api/teacher/login", data);
   },
 
@@ -55,7 +54,6 @@ export default {
   },
 
   updateStudent: ({ StudentID, firstName, lastName }) => {
-    console.log("UPDATING STUDENT", StudentID, firstName, lastName);
     return axios.put("/api/student/" + StudentID, {
       firstName: firstName,
       lastName: lastName

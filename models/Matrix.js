@@ -32,10 +32,8 @@ const MatrixSchema = new Schema(
 );
 
 MatrixSchema.methods.setLastUpdated = function() {
+  
   this.lastUpdated = Date.now();
-  console.log("Matrix - set last updated");
-  console.log(this.lastUpdated);
-
   return this.lastUpdated;
 };
 

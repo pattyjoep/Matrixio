@@ -11,8 +11,7 @@ module.exports = {
       .then(user => {
         //if the user does not exist, return status 400
         if (!user) return res.status(400).json({ msg: "User does not exist." });
-        console.log(user);
-        console.log(salt, req.body.password, user.password);
+
         //user.password is the hashed password from the database, hash was coming back as undefined because it was not set before the bcrypt compare
         bcrypt.compare(req.body.password, user.password, (err, result) => {
           if (err) {
@@ -22,8 +21,6 @@ module.exports = {
             res.status(401).json({ message: "Passwords did not match." });
             return;
           }
-          console.log("Compare Password");
-          console.log(user);
           res.json(user);
         });
       })
@@ -72,8 +69,6 @@ module.exports = {
           })
           .catch(err => {
             res.status(422).json(err);
-            console.log(err);
-            // console.log(teacher);
           });
       }
     });
