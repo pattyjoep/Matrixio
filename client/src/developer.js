@@ -21,7 +21,7 @@ export default [
     id: 3,
     image: "https://avatars1.githubusercontent.com/u/57408540?v=4",
     name: "Matt Dambra",
-    role: "Data Pirate",
+    role: "Back End",
     portfolio: "https://mattdambra.com/",
     github: "https://github.com/superrmatt",
     linkedIn: "https://www.linkedin.com/in/mattdambra/"
