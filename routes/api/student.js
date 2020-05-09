@@ -11,7 +11,7 @@ router
 // Matches with "/api/student/:id"
 router
   .route("/:id")
-  //   .get(studentController.findById)
+  .get(studentController.findById)
   .put(studentController.update);
 //   .delete(studentController.remove);
 

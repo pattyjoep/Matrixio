@@ -16,6 +16,20 @@ module.exports = {
       });
   },
 
+  findById: (req, res) => {
+    console.log("log Student findByID req.params.id ---------");
+    console.log(req.params.id);
+    db.Student.findById(req.params.id)
+      .populate("matrices")
+      .then(dbStudent => {
+        res.json(dbStudent);
+        console.log("dbStudent findById --------------");
+        console.log(dbStudent);
+      })
+      .catch(err => {
+        res.status(422).json(err);
+      });
+  },
   //Create a new student
   create: (req, res) => {
     console.log("Beginning backend student creation.");
