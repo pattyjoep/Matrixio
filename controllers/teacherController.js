@@ -1,11 +1,9 @@
 const db = require("../models");
-const passport = require("../client/config/passport")
-
+const passport = require("../client/config/passport");
 
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const salt = bcrypt.genSaltSync(saltRounds);
-
 
 //Methods for teacherRoutes.js
 module.exports = {
@@ -70,7 +68,7 @@ module.exports = {
       });
   },
 
-/*  create: (req, res) => {
+  /*  create: (req, res) => {
     passport.authenticate("local-signup", function (err, user, info) {
       if (err) {
         return res.status(500).json({
@@ -99,22 +97,16 @@ module.exports = {
           .catch(err => {
             res.status(422).json(err);
             console.log(err);
-            // console.log(teacher);
           });
       }
     });
   },
-
-
 
   //Update an existing teacher by ID
   update: (req, res) => {
     console.log("Begin Teacher Update");
     console.log("Req.body:", req.body);
     console.log("Teacher params", req.params);
-
-    // console.log(req.body.TeacherID),
-
     db.Teacher.findOneAndUpdate(
       req.params.id,
       {

@@ -96,7 +96,6 @@ module.exports = {
   //Delete Student by ID
   delete: (req, res) => {
     let message = `Student ${req.body.id.StudentID} destroyed`;
-
     db.Student.findByIdAndDelete(req.body.id.StudentID)
       .then(removeMatrices => {
         console.log("Remove students!", removeMatrices);

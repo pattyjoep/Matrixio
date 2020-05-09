@@ -4,7 +4,6 @@ import HomeNav from "../../components/HomeNav";
 import { Col, Row } from "../../components/Grid";
 import Container from "../../components/Container";
 import Teachers from "./images/teachers.jpg";
-import UI from "./images/UI.jpg";
 
 function Home() {
   return (
@@ -20,12 +19,12 @@ function Home() {
           <Col size="lg-6 md-12">
             <h1>Our Story</h1>
             <p>
-              Online templates used for tracking speech and learning exercises,
+              Online templates used for tracking speech and learning exercises
               are really hard to find. The Matrixio team has developed an
               application that allows users, of any field, to build alterable
-              learning matrices for each of their students unique needs.
-              Matrixio allows user to save students matrices and progress in a
-              database for future use or analysis.
+              learning matrices for each of their students' unique needs.
+              Matrixio will save each student's learning matrices in a database
+              that is retrievable for future reference upon log in.
             </p>
             <p className="quote">
               <b>
