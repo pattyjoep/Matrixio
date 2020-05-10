@@ -20,11 +20,11 @@ function Home() {
           <Col size="lg-6 md-12">
             <h1>Our Story</h1>
             <p>
-              Online templates used for tracking speech and learning exercises,
-              are really hard to find. The Matrixio team has developed an
-              application that allows users, of any field, to build alterable
-              learning matrices for each of their students unique needs.
-              Matrixio allows user to save students matrices and progress in a
+              Online templates used for tracking speech and learning exercises
+              are difficult to find. So the Matrixio team developed this
+              application to allow users, of any field, to build alterable
+              learning matrices for each of their students' unique needs.
+              Matrixio allows users to save a student's matrices in a
               database for future use or analysis.
             </p>
             <p className="quote">
