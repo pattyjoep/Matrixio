@@ -1,6 +1,19 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+/**
+ * * * * * teacher Schema * * * * *
+ * Mongoose model for the Teacher collection in mongoDB.
+ * firstName: A teacher's first name
+ * lastName: A teacher's last name
+ * email: A teacher's email, used to login/authenticate, contains a regex email verifier.
+ * dateCreated: The date/time a teacher was created.
+ * fullName: A teacher's full name (firstName + lastName).
+ * lastUpdated: The last date/time this teacher was updated.
+ * students: An array of StudentIDs which hold a reference the student in the DB.
+ * setFullName(): used to mutate the fullName property.
+ * setLastUpdated(): used to set the lastUpdated property.
+ */
 const TeacherSchema = new Schema({
   firstName: {
     type: String,
@@ -56,18 +69,14 @@ const TeacherSchema = new Schema({
 });
 
 TeacherSchema.methods.setFullName = function() {
-  this.fullName = `${this.firstName} ${this.lastName}`;
-  console.log("set full name");
-  console.log(this.fullName);
 
+  this.fullName = `${this.firstName} ${this.lastName}`;
   return this.fullName;
 };
 
 TeacherSchema.methods.setLastUpdated = function() {
+  
   this.lastUpdated = Date.now();
-  console.log("set last updated")
-  console.log(this.lastUpdated);
-
   return this.lastUpdated;
 };
 

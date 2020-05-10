@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
-// import "./style.css";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
-// import GenerateMatrix from "../GenerateMatrix";
 import { Modal, Button, Form } from "react-bootstrap";
 import Moment from "react-moment";
 import "moment-timezone";
-
 import GenerateMatrix from "../GenerateMatrix";
-import NewMatrix from "../NewMatrix";
 
 function StuListItem(props) {
   const [show, setShow] = useState(false);

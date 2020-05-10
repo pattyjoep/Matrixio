@@ -11,7 +11,6 @@ function UserProfile(props) {
   const [TeacherID, setTeacherID] = useState();
   const [getTeacher, setGetTeacher] = useState(false);
   const [TeacherData, setTeacherData] = useState({});
-  // const [runEffect, setRunEffect] = useState(true)
 
   const getID = str => {
     let newstr = str.split("=")[1];
@@ -60,14 +59,10 @@ function UserProfile(props) {
   const handleInputChangeRow = event => {
     const { value } = event.target;
     setSelectRow(value);
-    console.log(value);
   };
 
   const handleSubmit = props => {
     setDisplayTable(true);
-    //props.handleRenderTable()
-    console.log("row/col");
-    console.log(selectColumn, selectRow);
 
     const tempRows = [];
     const tempColumns = [];
@@ -97,12 +92,9 @@ function UserProfile(props) {
       for (let j = 0; j < rowsArr.length; j++) {
         tmpArr.push(rowsArr[j]);
       }
-
       matrix.push(tmpArr);
     }
 
-    console.log("props = ");
-    console.log(props);
     let matrixDB = {
       matrix: matrix
       // StudentID: props.student._id
@@ -114,7 +106,6 @@ function UserProfile(props) {
   const handleInputChangeColumn = event => {
     const { value } = event.target;
     setSelectColumn(value);
-    console.log(value);
   };
 
   const handleRenderTable = () => {

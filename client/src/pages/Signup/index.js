@@ -14,11 +14,6 @@ function Signup() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    //TODO: Remove these console logs on finished product
-    console.log(`firstName: ${firstName}`);
-    console.log(`lastName: ${lastName}`);
-    console.log(`email: ${email}`);
-    console.log(`password: ${password}`);
 
     if (!firstName || !lastName || !email || !password) {
       return;
