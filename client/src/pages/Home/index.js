@@ -24,11 +24,10 @@ function Home() {
               are difficult to find. So the Matrixio team developed this
               application to allow users, of any field, to build alterable
               learning matrices for each of their students' unique needs.
-              Matrixio allows users to save a student's matrices in a
-              database for future use or analysis.
+              Matrixio allows users to save a student's matrices in a database
+              for future use or analysis.
             </p>
             <p className="quote">
-              {/* <img src={UI} className="uiImg" alt="UI" /> */}
               <b>
                 "Matrixio is a blessing, it solved all my matrix tracking and
                 generating needs."
