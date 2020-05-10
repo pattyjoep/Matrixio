@@ -11,7 +11,6 @@ function UserProfile(props) {
   const [TeacherID, setTeacherID] = useState();
   const [getTeacher, setGetTeacher] = useState(false);
   const [TeacherData, setTeacherData] = useState({});
-  // const [runEffect, setRunEffect] = useState(true)
 
   const getID = str => {
     let newstr = str.split("=")[1];
@@ -60,14 +59,10 @@ function UserProfile(props) {
   const handleInputChangeRow = event => {
     const { value } = event.target;
     setSelectRow(value);
-    console.log(value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (props) => {
     setDisplayTable(true);
-    //props.handleRenderTable()
-    console.log("row/col");
-    console.log(selectColumn, selectRow);
 
     const tempRows = [];
     const tempColumns = [];
@@ -82,12 +77,36 @@ function UserProfile(props) {
     }
     setColumns(tempColumns);
     setMatrixShow(false);
+
+    //begin data storage
+
+    let rowsArr = [];
+    let matrix = [];
+    let topRow = ["0", "Secondtitle", "thirdtitle", "etc......"]; //for loop to build
+    matrix.push(topRow);
+
+    for (let i = 0; i < parseInt(selectRow) + 1; i++)
+      rowsArr.push("X");
+
+    for (let i = 0; i < parseInt(selectColumn); i++) {
+      let tmpArr = [];
+      for(let j = 0; j < rowsArr.length; j++){
+        tmpArr.push(rowsArr[j]);
+      }
+      matrix.push(tmpArr);
+    }
+    
+    let matrixDB = {
+      matrix: matrix,
+     // StudentID: props.student._id
+    };
+
+    API.createMatrix(matrixDB);
   };
 
   const handleInputChangeColumn = event => {
     const { value } = event.target;
     setSelectColumn(value);
-    console.log(value);
   };
 
   const handleRenderTable = () => {
