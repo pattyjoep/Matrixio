@@ -8,6 +8,10 @@ import StuListItem from "../StuListItem";
 import { Modal, Button, Form } from "react-bootstrap";
 
 function StudentList(props) {
+  
+
+
+
   const [studentsArr, setStudentsArr] = useState([]);
 
   const [show, setShow] = useState(false);
@@ -141,6 +145,7 @@ function StudentList(props) {
               setMatrixShow={props.setMatrixShow}
               student={stu}
               key={stu._id}
+              setActiveStudentID={props.setActiveStudentID}
             />
           );
         })}

@@ -16,6 +16,12 @@ function StuListItem(props) {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
 
+  // Two events in one onClick----------------
+  const newMatrixOnClick = () => {
+    props.setMatrixShow(true);
+    props.setActiveStudentID(props.student._id);
+  };
+
   //Update Student Modal--------------
   const updateModal = e => {
     e.preventDefault();
@@ -128,7 +134,7 @@ function StuListItem(props) {
           <div className="card-body">
             <Button
               className="new-matrix"
-              onClick={() => props.setMatrixShow(true)}
+              onClick={() => newMatrixOnClick()}
             >
               <i className="fas fa-ruler-combined"></i> &nbsp;New Matrix
             </Button>
