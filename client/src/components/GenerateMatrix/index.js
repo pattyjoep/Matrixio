@@ -5,7 +5,7 @@ import "./style.css";
 import { Modal, Button, Form } from "react-bootstrap";
 
 function GenerateMatrix(props) {
-  console.log("GenerateMatrix props", props);
+  // console.log("GenerateMatrix props", props);
 
   const handleClose = () => {
     props.setMatrixShow(false);

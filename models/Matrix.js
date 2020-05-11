@@ -26,13 +26,11 @@ const MatrixSchema = new Schema(
     lastUpdated: {
       type: Date
     }
-
   },
   { collection: "matrices" }
 );
 
 MatrixSchema.methods.setLastUpdated = function() {
-  
   this.lastUpdated = Date.now();
   return this.lastUpdated;
 };

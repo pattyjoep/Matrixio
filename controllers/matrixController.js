@@ -10,8 +10,9 @@ const db = require("../models");
  * remove: finds matrix and deletes.
  */
 module.exports = {
-  findAll: function(req, res) {
+  findAll: (req, res) => {
     db.Matrix.find({})
+      .populate("matrix")
       .sort({ lastUpdated: -1 })
       .then(dbMatrix => {
         res.json(dbMatrix);
@@ -21,28 +22,40 @@ module.exports = {
       });
   },
 
-  findById: function(req, res) {
+  findById: (req, res) => {
     db.Matrix.findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .populate("matrix")
+      .then(dbModel => {
+        res.json(dbModel);
+      })
+      .catch(err => {
+        res.status(422).json(err);
+      });
   },
 
   create: (req, res) => {
-    const matrix = req.body;
-    matrix.lastUpdated = Date.now();
+    const matrix = new db.Matrix(req.body);
+    // matrix.lastUpdated = Date.now();
 
     db.Matrix.create(matrix).then(matrix => {
       db.Student.findByIdAndUpdate(
         matrix.StudentID,
         {
           $push: {
-            matrices: matrix._id
+            matrices: {
+              _id: matrix._id
+            }
           }
         },
         { new: true }
-      ).then(dbMatrix => {
-        res.json(matrix);
-      });
+      )
+        .then(dbMatrix => {
+          res.json(dbMatrix);
+        })
+        .catch(err => {
+          res.status(422).json(err);
+          console.log(err);
+        });
     });
   },
 
@@ -52,12 +65,25 @@ module.exports = {
    * @param {*} req
    * @param {*} res
    */
-  update: function(req, res) {
-    let matrix = req.body;
-    matrix.lastUpdated = Date.now();
-    let thisMatrix = db.Matrix.findOneAndUpdate({ _id: req.params.id }, matrix)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+  update: (req, res) => {
+    // let matrix = req.body;
+    // matrix.lastUpdated = Date.now();
+    db.Matrix.findByIdAndUpdate(
+      req.params.id,
+      {
+        matrices: req.body.matrix,
+        lastUpdated: Date.now()
+      },
+      {
+        new: true
+      }
+    )
+      .then(dbModel => {
+        res.json(dbModel);
+      })
+      .catch(err => {
+        res.status(422).json(err);
+      });
     /**
      * if(thisMatrix.StudentID != req.body.StudentID){
      *  //update student with their new matrix.
@@ -67,10 +93,16 @@ module.exports = {
      */
   },
 
-  delete: function(req, res) {
-    db.Matrix.findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+  delete: (req, res) => {
+    db.Matrix.findByIdAndDelete(req.body.id.MatrixID)
+      // .then(removeMatrices => {
+      //   removeMatrices.remove()
+      .then(dbMatrices => {
+        res.json(dbMatrices);
+      })
+      // })
+      .catch(err => {
+        res.status(422).json(err);
+      });
   }
 };

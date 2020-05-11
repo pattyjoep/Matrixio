@@ -8,10 +8,9 @@ export default function NewMatrix(props) {
 
   useEffect(() => {
     setMergeTableHead(props.columns + 1);
-  }, [props]); 
+  }, [props]);
 
   return (
-
     <table>
       <thead>
         <tr>

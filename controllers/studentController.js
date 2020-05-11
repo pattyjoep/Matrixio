@@ -10,7 +10,6 @@ const db = require("../models");
  * delete: finds student and deletes.
  */
 module.exports = {
-
   findAll: (req, res) => {
     db.Student.find({})
       .populate("matrices")
@@ -40,7 +39,6 @@ module.exports = {
     student.setLastUpdated();
 
     db.Student.create(student).then(student => {
-
       db.Teacher.findByIdAndUpdate(
         student.TeacherID,
         {
@@ -63,7 +61,6 @@ module.exports = {
   },
 
   update: (req, res) => {
-
     db.Student.findByIdAndUpdate(
       req.params.id,
       {

@@ -122,7 +122,7 @@ function UserProfile(props) {
             <h1>Hello {TeacherData.fullName}.</h1>
             <hr />
           </Col>
-        </Row> 
+        </Row>
         <Row>
           <Col size="lg-6 sm-12">
             <StudentList
