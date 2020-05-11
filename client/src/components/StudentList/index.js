@@ -138,6 +138,7 @@ function StudentList(props) {
               handleInputChangeColumn={props.handleInputChangeColumn}
               selectRow={props.selectRow}
               selectColumn={props.selectColumn}
+              setNewMatrixTitle={props.setNewMatrixTitle}
               show={props.show}
               setMatrixShow={props.setMatrixShow}
               student={stu}
