@@ -67,7 +67,7 @@ module.exports = {
      */
   },
 
-  remove: function(req, res) {
+  delete: function(req, res) {
     db.Matrix.findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))

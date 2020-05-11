@@ -124,7 +124,10 @@ function StuListItem(props) {
           data-parent="#accordionExample"
         >
           <div className="card-body">
-            <Button className="new-matrix" onClick={() => props.setMatrixShow(true)}>
+            <Button
+              className="new-matrix"
+              onClick={() => props.setMatrixShow(true)}
+            >
               <i className="fas fa-ruler-combined"></i> &nbsp;New Matrix
             </Button>
             <br />

@@ -53,13 +53,11 @@ const StudentSchema = new Schema({
 });
 
 StudentSchema.methods.setFullName = function() {
-
   this.fullName = `${this.firstName} ${this.lastName}`;
   return this.fullName;
 };
 
 StudentSchema.methods.setLastUpdated = function() {
-  
   this.lastUpdated = Date.now();
   return this.lastUpdated;
 };
