@@ -122,10 +122,7 @@ function StuListItem(props) {
           <Accordion.Collapse eventKey="1">
             <Card.Body>
               {" "}
-              <Button
-                className="new-matrix"
-                onClick={() => props.setMatrixShow(true)}
-              >
+              <Button className="new-matrix" onClick={() => newMatrixOnClick()}>
                 <i className="fas fa-ruler-combined"></i> &nbsp;New Matrix
               </Button>
               <br />
