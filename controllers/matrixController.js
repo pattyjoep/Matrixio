@@ -35,7 +35,7 @@ module.exports = {
 
   create: (req, res) => {
     const matrix = new db.Matrix(req.body);
-    // matrix.lastUpdated = Date.now();
+    matrix.setLastUpdated();
 
     db.Matrix.create(matrix).then(matrix => {
       db.Student.findByIdAndUpdate(
@@ -48,14 +48,9 @@ module.exports = {
           }
         },
         { new: true }
-      )
-        .then(dbMatrix => {
-          res.json(dbMatrix);
-        })
-        .catch(err => {
-          res.status(422).json(err);
-          console.log(err);
-        });
+      ).then(dbMatrix => {
+        res.json(dbMatrix);
+      });
     });
   },
 

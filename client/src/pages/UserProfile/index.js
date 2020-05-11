@@ -9,6 +9,7 @@ import NewMatrix from "../../components/NewMatrix";
 
 function UserProfile(props) {
   const [TeacherID, setTeacherID] = useState();
+  const [activeStudentID, setActiveStudentID] = useState();
   const [getTeacher, setGetTeacher] = useState(false);
   const [TeacherData, setTeacherData] = useState({});
   const [newMatrixTitle, setNewMatrixTitle] = useState("");
@@ -97,8 +98,9 @@ function UserProfile(props) {
     }
 
     let matrixDB = {
-      matrix: matrix
-      // StudentID: props.student._id
+      matrix: matrix,
+      StudentID: activeStudentID,
+      title: newMatrixTitle
     };
 
     API.createMatrix(matrixDB);
@@ -136,6 +138,7 @@ function UserProfile(props) {
               show={MatrixShow}
               setMatrixShow={setMatrixShow}
               setNewMatrixTitle={setNewMatrixTitle}
+              setActiveStudentID={setActiveStudentID}
             />
           </Col>
           <Col size="lg-6 sm-12">

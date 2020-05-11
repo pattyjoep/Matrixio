@@ -16,6 +16,12 @@ function StuListItem(props) {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
 
+  // Two events in one onClick----------------
+  const newMatrixOnClick = () => {
+    props.setMatrixShow(true);
+    props.setActiveStudentID(props.student._id);
+  };
+
   //Update Student Modal--------------
   const updateModal = e => {
     e.preventDefault();

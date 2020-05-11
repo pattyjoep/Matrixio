@@ -141,6 +141,7 @@ function StudentList(props) {
               setMatrixShow={props.setMatrixShow}
               student={stu}
               key={stu._id}
+              setActiveStudentID={props.setActiveStudentID}
             />
           );
         })}
