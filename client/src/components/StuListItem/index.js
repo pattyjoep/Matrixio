@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import { Modal, Button, Form } from "react-bootstrap";
@@ -7,6 +7,8 @@ import "moment-timezone";
 import GenerateMatrix from "../GenerateMatrix";
 
 function StuListItem(props) {
+  console.log("StuListItem props", props);
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -139,7 +141,7 @@ function StuListItem(props) {
               <i className="fas fa-th-list"></i>&nbsp; View All Matrices
             </Link>
             <GenerateMatrix
-              handleTitleChange={props.handleTitleChange}
+              setNewMatrixTitle={props.setNewMatrixTitle}
               handleSubmit={props.handleSubmit}
               handleInputChangeRow={props.handleInputChangeRow}
               handleInputChangeColumn={props.handleInputChangeColumn}

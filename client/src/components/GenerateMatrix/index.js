@@ -5,6 +5,8 @@ import "./style.css";
 import { Modal, Button, Form } from "react-bootstrap";
 
 function GenerateMatrix(props) {
+  console.log("GenerateMatrix props", props);
+
   const handleClose = () => {
     props.setMatrixShow(false);
   };
@@ -18,7 +20,11 @@ function GenerateMatrix(props) {
         <Modal.Body>
           <Form>
             <Form.Group controlId="Title">
-              <Form.Control type="text" placeholder="Title" />
+              <Form.Control
+                type="text"
+                placeholder="Title"
+                onChange={e => props.setNewMatrixTitle(e.target.value)}
+              />
               <br />
               <select
                 id="RowSize"

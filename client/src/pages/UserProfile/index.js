@@ -11,6 +11,7 @@ function UserProfile(props) {
   const [TeacherID, setTeacherID] = useState();
   const [getTeacher, setGetTeacher] = useState(false);
   const [TeacherData, setTeacherData] = useState({});
+  const [newMatrixTitle, setNewMatrixTitle] = useState("");
 
   const getID = str => {
     let newstr = str.split("=")[1];
@@ -121,7 +122,7 @@ function UserProfile(props) {
             <h1>Hello {TeacherData.fullName}.</h1>
             <hr />
           </Col>
-        </Row>
+        </Row> 
         <Row>
           <Col size="lg-6 sm-12">
             <StudentList
@@ -134,11 +135,13 @@ function UserProfile(props) {
               selectColumn={selectColumn}
               show={MatrixShow}
               setMatrixShow={setMatrixShow}
+              setNewMatrixTitle={setNewMatrixTitle}
             />
           </Col>
           <Col size="lg-6 sm-12">
             {displayTable ? (
               <NewMatrix
+                newMatrixTitle={newMatrixTitle}
                 rows={selectRow}
                 rowsArray={rows}
                 columnsArray={columns}
