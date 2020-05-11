@@ -1,5 +1,4 @@
 const db = require("../models");
-
 /**
  * * * * * * * Matrix Controller * * * * * * *
  * Matrix Controller responsible for handling axios requests to the server.
@@ -10,9 +9,8 @@ const db = require("../models");
  * remove: finds matrix and deletes.
  */
 module.exports = {
-  findAll: (req, res) => {
+  findAll: function(req, res) {
     db.Matrix.find({})
-      .populate("matrix")
       .sort({ lastUpdated: -1 })
       .then(dbMatrix => {
         res.json(dbMatrix);
@@ -21,16 +19,10 @@ module.exports = {
         res.status(422).json(err);
       });
   },
-
-  findById: (req, res) => {
+  findById: function(req, res) {
     db.Matrix.findById(req.params.id)
-      .populate("matrix")
-      .then(dbModel => {
-        res.json(dbModel);
-      })
-      .catch(err => {
-        res.status(422).json(err);
-      });
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   },
 
   create: (req, res) => {
@@ -42,9 +34,7 @@ module.exports = {
         matrix.StudentID,
         {
           $push: {
-            matrices: {
-              _id: matrix._id
-            }
+            matrices: matrix._id
           }
         },
         { new: true }
@@ -53,32 +43,18 @@ module.exports = {
       });
     });
   },
-
   /**
    * TODO: Update student with their new matrix, if studentid changes.
    * req.body needs to be formatted in ../client/src/utils/API.js
    * @param {*} req
    * @param {*} res
    */
-  update: (req, res) => {
-    // let matrix = req.body;
-    // matrix.lastUpdated = Date.now();
-    db.Matrix.findByIdAndUpdate(
-      req.params.id,
-      {
-        matrices: req.body.matrix,
-        lastUpdated: Date.now()
-      },
-      {
-        new: true
-      }
-    )
-      .then(dbModel => {
-        res.json(dbModel);
-      })
-      .catch(err => {
-        res.status(422).json(err);
-      });
+  update: function(req, res) {
+    let matrix = req.body;
+    matrix.lastUpdated = Date.now();
+    let thisMatrix = db.Matrix.findOneAndUpdate({ _id: req.params.id }, matrix)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
     /**
      * if(thisMatrix.StudentID != req.body.StudentID){
      *  //update student with their new matrix.
@@ -87,17 +63,10 @@ module.exports = {
      * HOWEVER, is this functionality we need? Presently, would require passing studentID into all matrix update calls, which isn't hard, but is extra, and could be risky exposing IDs like that.
      */
   },
-
-  delete: (req, res) => {
-    db.Matrix.findByIdAndDelete(req.body.id.MatrixID)
-      // .then(removeMatrices => {
-      //   removeMatrices.remove()
-      .then(dbMatrices => {
-        res.json(dbMatrices);
-      })
-      // })
-      .catch(err => {
-        res.status(422).json(err);
-      });
+  delete: function(req, res) {
+    db.Matrix.findById({ _id: req.params.id })
+      .then(dbModel => dbModel.remove())
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
 };
