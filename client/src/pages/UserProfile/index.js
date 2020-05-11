@@ -99,7 +99,8 @@ function UserProfile(props) {
 
     let matrixDB = {
       matrix: matrix,
-      StudentID: activeStudentID
+      StudentID: activeStudentID,
+      title: newMatrixTitle
     };
 
     API.createMatrix(matrixDB);

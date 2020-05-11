@@ -8,10 +8,6 @@ import StuListItem from "../StuListItem";
 import { Modal, Button, Form } from "react-bootstrap";
 
 function StudentList(props) {
-  
-
-
-
   const [studentsArr, setStudentsArr] = useState([]);
 
   const [show, setShow] = useState(false);
