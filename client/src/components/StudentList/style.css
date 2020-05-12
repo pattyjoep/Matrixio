@@ -2,6 +2,8 @@
   width: 330px;
   padding: 20px;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .add-student-link {
