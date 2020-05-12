@@ -63,7 +63,8 @@ select {
   padding: 20px;
 }
 
-td, th {
+td,
+th {
   border: 1px solid #f1f1f1;
   padding: 5px;
 }

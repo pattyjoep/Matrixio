@@ -32,8 +32,7 @@ function Home() {
                 "Matrixio is a blessing, it solved all my matrix tracking and
                 generating needs."
               </b>{" "}
-              - Some speech pathologist somewhere. **Ideally, we should use a
-              quote from Trick's gf.
+              - Local CT Speech Pathologist
             </p>
           </Col>
         </Row>

@@ -5,7 +5,7 @@ import API from "../../utils/API";
 // import GenerateMatrix from "../GenerateMatrix";
 import StuListItem from "../StuListItem";
 
-import { Modal, Button, Form } from "react-bootstrap";
+import { Modal, Button, Form, Accordion, Card } from "react-bootstrap";
 
 function StudentList(props) {
   const [studentsArr, setStudentsArr] = useState([]);
@@ -107,8 +107,30 @@ function StudentList(props) {
           </Button>
         </Modal.Footer>
       </Modal>
-      <div className="accordion" id="accordionExample">
-        <div className="card">
+      <Accordion className="accordionCard">
+        <Card>
+          <Card.Header className="student-list-header">
+            <Accordion.Toggle
+              as={Button}
+              variant="link"
+              eventKey="1"
+              className="btn btn-link studentBtnLink"
+            >
+              <button className="btn" type="button">
+                <a className="student-list-header-link">
+                  <i className="fa fa-graduation-cap"></i> My Students
+                </a>
+              </button>
+              <Button
+                className="add-student-link"
+                data-toggle="modal"
+                onClick={handleShow}
+              >
+                <i className="fa fa-plus"></i>
+              </Button>
+            </Accordion.Toggle>
+          </Card.Header>
+          {/* <div className="card">
           <div className="card-header student-list-header" id="headingOne">
             <h2 className="mb-0">
               <button className="btn" type="button">
@@ -124,28 +146,29 @@ function StudentList(props) {
                 <i className="fa fa-plus"></i>
               </Button>
             </h2>
-          </div>
-        </div>
-        {studentsArr.map(stu => {
-          return (
-            <StuListItem
-              TeacherID={props.TeacherID}
-              handleRenderTable={props.handleRenderTable}
-              handleSubmit={props.handleSubmit}
-              handleInputChangeRow={props.handleInputChangeRow}
-              handleInputChangeColumn={props.handleInputChangeColumn}
-              selectRow={props.selectRow}
-              selectColumn={props.selectColumn}
-              setNewMatrixTitle={props.setNewMatrixTitle}
-              show={props.show}
-              setMatrixShow={props.setMatrixShow}
-              student={stu}
-              key={stu._id}
-              setActiveStudentID={props.setActiveStudentID}
-            />
-          );
-        })}
-      </div>
+          </div> */}
+          {/* </div> */}
+          {studentsArr.map(stu => {
+            return (
+              <StuListItem
+                TeacherID={props.TeacherID}
+                handleRenderTable={props.handleRenderTable}
+                handleSubmit={props.handleSubmit}
+                handleInputChangeRow={props.handleInputChangeRow}
+                handleInputChangeColumn={props.handleInputChangeColumn}
+                selectRow={props.selectRow}
+                selectColumn={props.selectColumn}
+                setNewMatrixTitle={props.setNewMatrixTitle}
+                show={props.show}
+                setMatrixShow={props.setMatrixShow}
+                student={stu}
+                key={stu._id}
+                setActiveStudentID={props.setActiveStudentID}
+              />
+            );
+          })}
+        </Card>
+      </Accordion>
     </div>
   );
 }
