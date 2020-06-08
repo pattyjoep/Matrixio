@@ -74,6 +74,7 @@ function StudentList(props) {
 
   return (
     <div>
+      {/* modal at top of accordion to add a new student */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add Student</Modal.Title>
