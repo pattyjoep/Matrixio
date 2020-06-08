@@ -13,7 +13,7 @@ export default [
     image: "https://avatars1.githubusercontent.com/u/56569868?v=4",
     name: "Patrick Dunn",
     role: "Back End",
-    portfolio: "https://knightmac19.github.io/R-profile/",
+    portfolio: "https://knightmac19.github.io/P_Dunn_Portfolio/",
     github: "https://github.com/knightmac19",
     linkedIn: "https://www.linkedin.com/in/patrick-dunn-3a14249b/"
   },

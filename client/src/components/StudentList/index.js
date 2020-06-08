@@ -5,7 +5,7 @@ import API from "../../utils/API";
 // import GenerateMatrix from "../GenerateMatrix";
 import StuListItem from "../StuListItem";
 
-import { Modal, Button, Form, Accordion, Card } from "react-bootstrap";
+import { Modal, Button, Form, Card } from "react-bootstrap";
 
 function StudentList(props) {
   const [studentsArr, setStudentsArr] = useState([]);
