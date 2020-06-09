@@ -1,11 +1,17 @@
 const db = require("../models");
 
-//Methods for studentRoutes.js
+/**
+ * * * * * * * Student Controller * * * * * * *
+ * Student Controller responsible for handling axios requests to the server.
+ * findAll: returns all students in collection, sorted by lastUpdated.
+ * findById: finds student by id.
+ * create: creates new student as db.Student().
+ * update: finds student and updates as rq.body.
+ * delete: finds student and deletes.
+ */
 module.exports = {
-  //Find all students
   findAll: (req, res) => {
-    console.log("Begin stu findAll.");
-    db.Student.find(req.query)
+    db.Student.find({})
       .populate("matrices")
       .sort({ dateCreated: -1 })
       .then(dbStudent => {
@@ -17,31 +23,22 @@ module.exports = {
   },
 
   findById: (req, res) => {
-    console.log("log Student findByID req.params.id ---------");
-    console.log(req.params.id);
     db.Student.findById(req.params.id)
       .populate("matrices")
       .then(dbStudent => {
         res.json(dbStudent);
-        console.log("dbStudent findById --------------");
-        console.log(dbStudent);
       })
       .catch(err => {
         res.status(422).json(err);
       });
   },
-  //Create a new student
+
   create: (req, res) => {
-    console.log("Beginning backend student creation.");
     const student = new db.Student(req.body);
     student.setFullName();
     student.setLastUpdated();
-    console.log(student);
 
     db.Student.create(student).then(student => {
-      console.log("Inside studentController then");
-      console.log(student);
-
       db.Teacher.findByIdAndUpdate(
         student.TeacherID,
         {
@@ -54,8 +51,6 @@ module.exports = {
         { new: true }
       )
         .then(dbTeacher => {
-          console.log("backend dbTeacher create result ----");
-          console.log(dbTeacher);
           res.json(dbTeacher);
         })
         .catch(err => {
@@ -65,13 +60,7 @@ module.exports = {
     });
   },
 
-  //======================Work in progress======================
-  //Update an existing student by id
   update: (req, res) => {
-    console.log("Begin student update.");
-    console.log("Req.body", req.body);
-    console.log("req.params", req.params);
-
     db.Student.findByIdAndUpdate(
       req.params.id,
       {
@@ -85,7 +74,6 @@ module.exports = {
       }
     )
       .then(updatedStudent => {
-        console.log("updatedStudent", updatedStudent);
         res.json(updatedStudent);
       })
       .catch(err => {
@@ -93,15 +81,12 @@ module.exports = {
       });
   },
 
-  //Delete Student by ID
   delete: (req, res) => {
     let message = `Student ${req.body.id.StudentID} destroyed`;
     db.Student.findByIdAndDelete(req.body.id.StudentID)
       .then(removeMatrices => {
-        console.log("Remove students!", removeMatrices);
         db.Matrix.deleteMany({ _id: { $in: removeMatrices.matrices } }).then(
           result => {
-            console.log(message);
             res.json(result);
           }
         );

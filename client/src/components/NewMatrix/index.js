@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 
 export default function NewMatrix(props) {
+  console.log("NewMatrix props", props);
+
+  const [mergeTableHead, setMergeTableHead] = useState();
+
+  useEffect(() => {
+    setMergeTableHead(props.columns + 1);
+  }, [props]);
+
   return (
     <table>
+      <thead>
+        <tr>
+          <th colSpan={mergeTableHead} className="text-center">
+            {props.newMatrixTitle}
+          </th>
+        </tr>
+      </thead>
       <tbody>
         <tr>
           <th></th>

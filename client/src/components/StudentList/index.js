@@ -1,5 +1,3 @@
-// let's see if this comment and whitespace fixes our version control issues....
-
 import React, { useState, useEffect } from "react";
 import "./style.css";
 // import { Link } from "react-router-dom";
@@ -7,7 +5,7 @@ import API from "../../utils/API";
 // import GenerateMatrix from "../GenerateMatrix";
 import StuListItem from "../StuListItem";
 
-import { Modal, Button, Form } from "react-bootstrap";
+import { Modal, Button, Form, Card } from "react-bootstrap";
 
 function StudentList(props) {
   const [studentsArr, setStudentsArr] = useState([]);
@@ -39,8 +37,6 @@ function StudentList(props) {
   const retrieveTeacher = props => {
     API.getTeacher(props.TeacherID)
       .then(teacherResult => {
-        console.log("teacherResult----");
-        console.log(teacherResult);
         setStudentsArr(getStudentNames(teacherResult.data.students));
       })
       .catch(err => {
@@ -49,15 +45,11 @@ function StudentList(props) {
   };
 
   useEffect(() => {
-    console.log("inside useEffect --------");
-    console.log(props);
     retrieveTeacher(props);
   }, [props]);
 
   const saveModal = e => {
     e.preventDefault();
-    console.log(`firstName: ${firstName}`);
-    console.log(`lastName: ${lastName}`);
 
     if (!firstName || !lastName) {
       return;
@@ -67,15 +59,9 @@ function StudentList(props) {
         firstName: firstName,
         lastName: lastName
       };
-      console.log("Save Modal");
-      console.log(data);
       API.createStudent(data)
         .then(res => {
-          console.log("frontend dbstudent create result", res);
-
           retrieveTeacher(props);
-          console.log("CREATE STUDENT RES STUDENTSARR");
-          console.log(studentsArr);
         })
         .catch(err => {
           console.log(err);
@@ -88,6 +74,7 @@ function StudentList(props) {
 
   return (
     <div>
+      {/* modal at top of accordion to add a new student */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add Student</Modal.Title>
@@ -121,25 +108,21 @@ function StudentList(props) {
           </Button>
         </Modal.Footer>
       </Modal>
-      <div className="accordion" id="accordionExample">
-        <div className="card">
-          <div className="card-header student-list-header" id="headingOne">
-            <h2 className="mb-0">
-              <button className="btn" type="button">
-                <a className="student-list-header-link">
-                  <i className="fa fa-graduation-cap"></i> My Students
-                </a>
-              </button>
-              <Button
-                className="add-student-link"
-                data-toggle="modal"
-                onClick={handleShow}
-              >
-                <i className="fa fa-plus"></i>
-              </Button>
-            </h2>
-          </div>
-        </div>
+      <Card className="accordionCard">
+        <Card.Header className="student-list-header">
+          <button className="btn" type="button">
+            <a className="student-list-header-link">
+              <i className="fa fa-graduation-cap"></i> My Students
+            </a>
+          </button>
+          <Button
+            className="add-student-link"
+            data-toggle="modal"
+            onClick={handleShow}
+          >
+            <i className="fa fa-plus"></i>
+          </Button>
+        </Card.Header>
         {studentsArr.map(stu => {
           return (
             <StuListItem
@@ -150,14 +133,16 @@ function StudentList(props) {
               handleInputChangeColumn={props.handleInputChangeColumn}
               selectRow={props.selectRow}
               selectColumn={props.selectColumn}
+              setNewMatrixTitle={props.setNewMatrixTitle}
               show={props.show}
               setMatrixShow={props.setMatrixShow}
               student={stu}
               key={stu._id}
+              setActiveStudentID={props.setActiveStudentID}
             />
           );
         })}
-      </div>
+      </Card>
     </div>
   );
 }

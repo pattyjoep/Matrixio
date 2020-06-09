@@ -13,6 +13,8 @@ function Matrices(props) {
   const [getStudent, setGetStudent] = useState(false);
   const [StudentData, setStudentData] = useState({});
 
+  console.log("MATRICES PAGE PROPS", props);
+
   const getID = str => {
     let studentString = str.split("=")[1];
     let teacherString = str.split("=")[2];
@@ -21,8 +23,8 @@ function Matrices(props) {
   };
 
   useEffect(() => {
-    getID(window.location.href);
     setGetStudent(true);
+    getID(window.location.href);
   });
 
   useEffect(() => {
@@ -30,6 +32,7 @@ function Matrices(props) {
       API.getStudent(StudentID)
         .then(res => {
           setStudentData(res.data);
+          console.log("STUDENT RES.DATA", res.data);
         })
         .catch(err => {
           console.log(err);
@@ -38,6 +41,7 @@ function Matrices(props) {
       return;
     }
   }, [getStudent]);
+  console.log("STUDENT DATA matrix page", StudentData);
   return (
     <div>
       <div>{StudentID ? <NavBar TeacherID={TeacherID} /> : null}</div>
@@ -46,9 +50,7 @@ function Matrices(props) {
           <Col size="12">
             <h1>{StudentData.fullName}</h1>
             <hr />
-            <div className="displayAllMatrices">
-              ***Map through array of matrices***
-            </div>
+            Map through Students matrcies, delete matrices.{StudentData}
           </Col>
         </Row>
       </Container>

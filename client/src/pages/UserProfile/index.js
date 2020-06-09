@@ -9,9 +9,10 @@ import NewMatrix from "../../components/NewMatrix";
 
 function UserProfile(props) {
   const [TeacherID, setTeacherID] = useState();
+  const [activeStudentID, setActiveStudentID] = useState();
   const [getTeacher, setGetTeacher] = useState(false);
   const [TeacherData, setTeacherData] = useState({});
-  // const [runEffect, setRunEffect] = useState(true)
+  const [newMatrixTitle, setNewMatrixTitle] = useState("");
 
   const getID = str => {
     let newstr = str.split("=")[1];
@@ -59,14 +60,10 @@ function UserProfile(props) {
   const handleInputChangeRow = event => {
     const { value } = event.target;
     setSelectRow(value);
-    console.log(value);
   };
 
   const handleSubmit = props => {
     setDisplayTable(true);
-    //props.handleRenderTable()
-    console.log("row/col");
-    console.log(selectColumn, selectRow);
 
     const tempRows = [];
     const tempColumns = [];
@@ -93,15 +90,13 @@ function UserProfile(props) {
       for (let j = 0; j < rowsArr.length; j++) {
         tmpArr.push(rowsArr[j]);
       }
-
       matrix.push(tmpArr);
     }
 
-    console.log("props = ");
-    console.log(props);
     let matrixDB = {
-      matrix: matrix
-      // StudentID: props.student._id
+      matrix: matrix,
+      StudentID: activeStudentID,
+      title: newMatrixTitle
     };
 
     API.createMatrix(matrixDB);
@@ -110,7 +105,6 @@ function UserProfile(props) {
   const handleInputChangeColumn = event => {
     const { value } = event.target;
     setSelectColumn(value);
-    console.log(value);
   };
 
   const handleRenderTable = () => {
@@ -139,11 +133,14 @@ function UserProfile(props) {
               selectColumn={selectColumn}
               show={MatrixShow}
               setMatrixShow={setMatrixShow}
+              setNewMatrixTitle={setNewMatrixTitle}
+              setActiveStudentID={setActiveStudentID}
             />
           </Col>
           <Col size="lg-6 sm-12">
             {displayTable ? (
               <NewMatrix
+                newMatrixTitle={newMatrixTitle}
                 rows={selectRow}
                 rowsArray={rows}
                 columnsArray={columns}

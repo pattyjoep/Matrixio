@@ -1,22 +1,26 @@
-import React, { useState, useEffect } from "react";
-// import "./style.css";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
-// import GenerateMatrix from "../GenerateMatrix";
-import { Modal, Button, Form } from "react-bootstrap";
+import { Modal, Card, Accordion, Button, Form } from "react-bootstrap";
 import Moment from "react-moment";
 import "moment-timezone";
-
 import GenerateMatrix from "../GenerateMatrix";
-import NewMatrix from "../NewMatrix";
 
 function StuListItem(props) {
+  console.log("StuListItem props", props);
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
+
+  // Two events in one onClick----------------
+  const newMatrixOnClick = () => {
+    props.setMatrixShow(true);
+    props.setActiveStudentID(props.student._id);
+  };
 
   //Update Student Modal--------------
   const updateModal = e => {
@@ -104,76 +108,68 @@ function StuListItem(props) {
         </Modal.Footer>
       </Modal>
 
-      <div className="card">
-        <div className="card-header" id="headingOne">
-          <h2 className="mb-0">
-            <button
+
+      <Accordion>
+        <Card>
+          <Card.Header>
+            <Accordion.Toggle
+              as={Button}
+              variant="link"
+              eventKey="1"
               className="btn btn-link studentBtnLink"
-              type="button"
-              data-toggle="collapse"
-              data-target="#collapseOne"
-              aria-expanded="true"
-              aria-controls="collapseOne"
-              // data-id={props.student._id}
             >
               <i className="far fa-user-circle"></i> {props.student.fullName}
-            </button>
-            <span className="badge badge-pill matrix-amt-badge">14</span>
-          </h2>
-        </div>
-        <div
-          id="collapseOne"
-          className="collapse"
-          aria-labelledby="headingOne"
-          data-parent="#accordionExample"
-        >
-          <div className="card-body">
-            <Button className="new-matrix" onClick={() => props.setMatrixShow(true)}>
-              <i className="fas fa-ruler-combined"></i> &nbsp;New Matrix
-            </Button>
-            <br />
-
-            <Link
-              className="matricesBtn"
-              to={`/Matrices?=${props.student._id}=${props.TeacherID}`}
-            >
-              <i className="fas fa-th-list"></i>&nbsp; View All Matrices
-            </Link>
-            <GenerateMatrix
-              handleTitleChange={props.handleTitleChange}
-              handleSubmit={props.handleSubmit}
-              handleInputChangeRow={props.handleInputChangeRow}
-              handleInputChangeColumn={props.handleInputChangeColumn}
-              selectRow={props.selectRow}
-              selectColumn={props.selectColumn}
-              show={props.show}
-              setMatrixShow={props.setMatrixShow}
-            />
-            <Button
-              className="update-student-link"
-              name="updateStudent"
-              onClick={handleShow}
-            >
-              <i className="fas fa-user-edit"></i>&nbsp;Edit Student
-            </Button>
-            <br />
-            <br />
-            <div className="date">
-              <h6>Last Update: </h6>
-              <Moment format="MMMM DD, YYYY @ hh:mm A">
-                {props.student.lastUpdated}
-              </Moment>
-            </div>
-            <Button
-              className="delete-student-link"
-              name="deleteStudent"
-              onClick={deleteStudent}
-            >
-              <i className="fas fa-trash-alt"></i>
-            </Button>
-          </div>
-        </div>
-      </div>
+            </Accordion.Toggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey="1">
+            <Card.Body>
+              {" "}
+              <Button className="new-matrix" onClick={() => newMatrixOnClick()}>
+                <i className="fas fa-ruler-combined"></i> &nbsp;New Matrix
+              </Button>
+              <br />
+              <Link
+                className="matricesBtn"
+                to={`/Matrices?=${props.student._id}=${props.TeacherID}`}
+              >
+                <i className="fas fa-th-list"></i>&nbsp; View All Matrices
+              </Link>
+              <GenerateMatrix
+                setNewMatrixTitle={props.setNewMatrixTitle}
+                handleSubmit={props.handleSubmit}
+                handleInputChangeRow={props.handleInputChangeRow}
+                handleInputChangeColumn={props.handleInputChangeColumn}
+                selectRow={props.selectRow}
+                selectColumn={props.selectColumn}
+                show={props.show}
+                setMatrixShow={props.setMatrixShow}
+              />
+              <Button
+                className="update-student-link"
+                name="updateStudent"
+                onClick={handleShow}
+              >
+                <i className="fas fa-user-edit"></i>&nbsp;Edit Student
+              </Button>
+              <br />
+              <br />
+              <div className="date">
+                <h6>Last Update: </h6>
+                <Moment format="MMMM DD, YYYY @ hh:mm A">
+                  {props.student.lastUpdated}
+                </Moment>
+              </div>
+              <Button
+                className="delete-student-link"
+                name="deleteStudent"
+                onClick={deleteStudent}
+              >
+                <i className="fas fa-trash-alt"></i>
+              </Button>
+            </Card.Body>
+          </Accordion.Collapse>
+        </Card>
+      </Accordion>
     </div>
   );
 }

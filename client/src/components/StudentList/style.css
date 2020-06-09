@@ -1,7 +1,8 @@
-.accordion {
+.accordionCard {
   width: 330px;
-  margin-left: 10px;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .add-student-link {

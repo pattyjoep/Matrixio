@@ -33,7 +33,6 @@ function Settings() {
     if (getTeacher) {
       API.getTeacher(TeacherID)
         .then(res => {
-          console.log(res.data);
           setTeacherData(res.data);
         })
         .catch(err => {

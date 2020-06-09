@@ -1,11 +1,6 @@
 const db = require("../models");
-
 /**
  * * * * * * * Matrix Controller * * * * * * *
- * TODO: matrix can be passed as anything, this is dangerous:
- *  can update id,
- *  risks data integrity.
- *
  * Matrix Controller responsible for handling axios requests to the server.
  * findAll: returns all matrices in collection, sorted by lastUpdated.
  * findById: finds matrix by id.
@@ -24,7 +19,6 @@ module.exports = {
         res.status(422).json(err);
       });
   },
-
   findById: function(req, res) {
     db.Matrix.findById(req.params.id)
       .then(dbModel => res.json(dbModel))
@@ -32,8 +26,8 @@ module.exports = {
   },
 
   create: (req, res) => {
-    const matrix = req.body;
-    matrix.lastUpdated = Date.now();
+    const matrix = new db.Matrix(req.body);
+    matrix.setLastUpdated();
 
     db.Matrix.create(matrix).then(matrix => {
       db.Student.findByIdAndUpdate(
@@ -45,11 +39,10 @@ module.exports = {
         },
         { new: true }
       ).then(dbMatrix => {
-        res.json(matrix);
+        res.json(dbMatrix);
       });
     });
   },
-
   /**
    * TODO: Update student with their new matrix, if studentid changes.
    * req.body needs to be formatted in ../client/src/utils/API.js
@@ -70,8 +63,7 @@ module.exports = {
      * HOWEVER, is this functionality we need? Presently, would require passing studentID into all matrix update calls, which isn't hard, but is extra, and could be risky exposing IDs like that.
      */
   },
-
-  remove: function(req, res) {
+  delete: function(req, res) {
     db.Matrix.findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))

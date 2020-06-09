@@ -12,6 +12,6 @@ router
   .route("/:id")
   .get(matrixController.findById)
   .put(matrixController.update)
-  .delete(matrixController.remove);
+  .delete(matrixController.delete);
 
 module.exports = router;
