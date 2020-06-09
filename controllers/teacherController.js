@@ -1,4 +1,5 @@
 const db = require("../models");
+// const passport = require("../client/config/passport");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
@@ -12,11 +13,9 @@ const saltRounds = 10;
  * remove: finds teacher and deletes.
  */
 module.exports = {
-
   findOne: (req, res) => {
     db.Teacher.findOne({ email: req.body.email })
       .then(user => {
-
         if (!user) return res.status(400).json({ msg: "User does not exist." });
 
         bcrypt.compare(req.body.password, user.password, (err, result) => {
@@ -56,6 +55,17 @@ module.exports = {
       });
   },
 
+  /*  create: (req, res) => {
+    passport.authenticate("local-signup", function (err, user, info) {
+      if (err) {
+        return res.status(500).json({
+          message: err || "Signup failed, please try again",
+        });
+      }
+
+  }
+  */
+  //Create a new teacher
   create: (req, res) => {
     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
       if (err) {
@@ -78,7 +88,6 @@ module.exports = {
   },
 
   update: (req, res) => {
-
     db.Teacher.findOneAndUpdate(
       req.params.id,
       {

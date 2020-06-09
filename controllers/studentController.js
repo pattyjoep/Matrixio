@@ -83,7 +83,6 @@ module.exports = {
 
   delete: (req, res) => {
     let message = `Student ${req.body.id.StudentID} destroyed`;
-
     db.Student.findByIdAndDelete(req.body.id.StudentID)
       .then(removeMatrices => {
         db.Matrix.deleteMany({ _id: { $in: removeMatrices.matrices } }).then(

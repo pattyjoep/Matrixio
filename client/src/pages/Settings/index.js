@@ -61,6 +61,7 @@ function Settings() {
       });
   };
 
+  //Update user form submit
   const handleSubmit = e => {
     e.preventDefault();
     let data;

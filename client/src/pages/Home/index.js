@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import "./style.css";
 import HomeNav from "../../components/HomeNav";
 import { Col, Row } from "../../components/Grid";
@@ -21,11 +20,11 @@ function Home() {
             <h1>Our Story</h1>
             <p>
               Online templates used for tracking speech and learning exercises
-              are difficult to find. So the Matrixio team developed this
-              application to allow users, of any field, to build alterable
+              are really hard to find. The Matrixio team has developed an
+              application that allows users, of any field, to build alterable
               learning matrices for each of their students' unique needs.
-              Matrixio allows users to save a student's matrices in a database
-              for future use or analysis.
+              Matrixio will save each student's learning matrices in a database
+              that is retrievable for future reference upon log in.
             </p>
             <p className="quote">
               <b>
