@@ -24,6 +24,19 @@
   margin-bottom: 3%;
 }
 
+@media only screen and (max-width: 500px) {
+  .login-card {
+    margin-top: 50px;
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .login-card {
+    width: 300px;
+  }
+}
+
 .card {
   border-radius: 20px;
 }

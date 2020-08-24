@@ -7,3 +7,9 @@
   background-image: no-repeat;
   padding-bottom: 3%;
 }
+
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    height: 100%;
+  }
+}

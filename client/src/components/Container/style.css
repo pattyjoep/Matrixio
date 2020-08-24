@@ -7,3 +7,9 @@
   border-radius: 20px;
   min-height: 70vh;
 }
+
+@media only screen and (max-width: 400px) {
+  .container {
+    width: 300px;
+  }
+}

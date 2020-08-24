@@ -98,11 +98,11 @@ function Signup() {
               <button type="submit" className="btn signup-btn">
                 Sign Up
               </button>
+              <p class="login-rte-link">
+                {" "}
+                Or log in <a href="/Login">here</a>
+              </p>
             </form>
-            <br />
-            <p>
-              Or log in <a href="/Login">here</a>
-            </p>
           </div>
         </div>
       </Container>
